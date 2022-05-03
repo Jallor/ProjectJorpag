@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+public abstract class SingletonScriptable<T> : ScriptableObject where T : ScriptableObject
+{
+    private static T _instance = null;
+    public static T Instance
+    {
+        get
+        {
+            if (!_instance)
+            {
+                T[] findObjects = Resources.FindObjectsOfTypeAll<T>();
+                Debug.Assert(findObjects.Length == 1);
+
+                if (findObjects.Length > 0)
+                {
+                    _instance = findObjects[0];
+                }
+            }
+
+            return _instance;
+        }
+    }
+}
