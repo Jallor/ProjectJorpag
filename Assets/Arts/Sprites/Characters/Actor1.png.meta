@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -2159,8 +2159,8 @@ TextureImporter:
       Actor1_11: 1592185445
       Actor1_21: 1167243014
       Actor1_37: -475440119
-      Actor1_35: 485269770
       Actor1_59: 931239846
+      Actor1_35: 485269770
       Actor1_7: -1531290043
       Actor1_92: 123015673
       Actor1_64: -1753470563

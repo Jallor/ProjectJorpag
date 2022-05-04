@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -1659,6 +1659,7 @@ TextureImporter:
       SAO_Aincrad0_37: 1312172214
       SAO_Aincrad0_48: -1684222047
       SAO_Aincrad0_30: 583888458
+      SAO_Aincrad0_75: 625229759
       SAO_Aincrad0_9: 1085229586
       SAO_Aincrad0_13: 633057280
       SAO_Aincrad0_26: -596040397
@@ -1667,7 +1668,6 @@ TextureImporter:
       SAO_Aincrad0_5: 1599558631
       SAO_Aincrad0_45: 788128348
       SAO_Aincrad0_7: 1557687652
-      SAO_Aincrad0_75: 625229759
       SAO_Aincrad0_49: -962882021
       SAO_Aincrad0_73: 1399975422
       SAO_Aincrad0_3: -1304121056

@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -4147,11 +4147,11 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Dungeon_A2_115: -1163664425
-      Dungeon_A2_77: -1396616818
+      Dungeon_A2_88: -169416352
       Dungeon_A2_37: 265308818
-      Dungeon_A2_177: 863869298
       Dungeon_A2_87: -856771324
       Dungeon_A2_159: 1591791941
+      Dungeon_A2_111: -1077110272
       Dungeon_A2_9: 1264469124
       Dungeon_A2_19: 763565928
       Dungeon_A2_176: -257677666
@@ -4271,8 +4271,8 @@ TextureImporter:
       Dungeon_A2_50: 377121019
       Dungeon_A2_158: 2060267861
       Dungeon_A2_6: 993108352
-      Dungeon_A2_27: 1619815585
       Dungeon_A2_97: 394428050
+      Dungeon_A2_27: 1619815585
       Dungeon_A2_179: -1138710744
       Dungeon_A2_175: 1240782007
       Dungeon_A2_44: 480890945
@@ -4301,8 +4301,8 @@ TextureImporter:
       Dungeon_A2_155: 183869509
       Dungeon_A2_125: -1312243108
       Dungeon_A2_30: 2067021215
-      Dungeon_A2_81: -1850009494
       Dungeon_A2_142: -1425592088
+      Dungeon_A2_81: -1850009494
       Dungeon_A2_157: 1638631129
       Dungeon_A2_114: -1231314979
       Dungeon_A2_68: 1406611487
@@ -4336,8 +4336,8 @@ TextureImporter:
       Dungeon_A2_20: 995773887
       Dungeon_A2_173: 1912939743
       Dungeon_A2_148: 223757449
-      Dungeon_A2_88: -169416352
-      Dungeon_A2_111: -1077110272
+      Dungeon_A2_77: -1396616818
+      Dungeon_A2_177: 863869298
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

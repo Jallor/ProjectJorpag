@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -5187,9 +5187,9 @@ TextureImporter:
       Dungeon_A4_51: -902913810
       Dungeon_A4_80: -2001399563
       Dungeon_A4_177: -1100707832
-      Dungeon_A4_95: -1699569525
       Dungeon_A4_151: 661194757
       Dungeon_A4_160: -1335986676
+      Dungeon_A4_95: -1699569525
       Dungeon_A4_209: -1653584195
       Dungeon_A4_73: 540871452
       Dungeon_A4_173: -1624801875
@@ -5230,10 +5230,10 @@ TextureImporter:
       Dungeon_A4_77: -567754232
       Dungeon_A4_229: 1469135866
       Dungeon_A4_5: 1514382007
-      Dungeon_A4_23: -778788408
       Dungeon_A4_191: -1679188907
-      Dungeon_A4_25: -1979786362
+      Dungeon_A4_23: -778788408
       Dungeon_A4_156: 1201575673
+      Dungeon_A4_25: -1979786362
       Dungeon_A4_239: -109763134
       Dungeon_A4_8: 753757097
       Dungeon_A4_24: -1848718795
@@ -5299,14 +5299,14 @@ TextureImporter:
       Dungeon_A4_15: -196675697
       Dungeon_A4_210: 229966056
       Dungeon_A4_48: 1056975656
-      Dungeon_A4_140: 1954265065
       Dungeon_A4_231: -340255925
-      Dungeon_A4_145: 1048175444
+      Dungeon_A4_140: 1954265065
       Dungeon_A4_107: 32682793
       Dungeon_A4_2: 1300089323
-      Dungeon_A4_166: 475056316
-      Dungeon_A4_42: -1291824417
       Dungeon_A4_201: -267769632
+      Dungeon_A4_42: -1291824417
+      Dungeon_A4_166: 475056316
+      Dungeon_A4_145: 1048175444
       Dungeon_A4_187: -934342680
       Dungeon_A4_45: -199879374
       Dungeon_A4_66: -1721550801
