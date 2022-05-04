@@ -1,11 +1,8 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterMovement), typeof(CharacterSpriteAnimator))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterController
 {
-    [Required] [SerializeField] private CharacterMovement _CharaMovement;
-
     public void Update()
     {
         // TODO : PlayerController : Use axis
@@ -27,6 +24,6 @@ public class PlayerController : MonoBehaviour
             ++newDir.x;
         }
 
-        _CharaMovement.GiveInput(newDir);
+        _CharaManager.GiveMoveInput(newDir);
     }
 }

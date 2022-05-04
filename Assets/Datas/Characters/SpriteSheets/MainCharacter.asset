@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa8e3c7217a9b042920ca5be92f9448, type: 3}
   m_Name: MainCharacter
   m_EditorClassIdentifier: 
-  _DefaultSprite: {fileID: 715083854, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  _DefaultSprite: {fileID: -1699758800, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
   _DownSpriteList:
   - {fileID: 715083854, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
   - {fileID: -1699758800, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
