@@ -331,8 +331,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0558b9e8a74ab124c816917d1505cafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _OnEnterActionTrigger: []
+  _OnEnterActionTrigger:
+  - _ConditionnalsEffects:
+    - _Conditions:
+      - rid: 7944506093417005059
+      _GameEffects:
+      - rid: 7944506093417005058
   _OnExitActionTrigger: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7944506093417005058
+      type: {class: LogMessageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        LogTypeToUse: 3
+        DataToDisplay:
+          rid: 7944506093417005066
+    - rid: 7944506093417005059
+      type: {class: BoolCondition, ns: , asm: Assembly-CSharp}
+      data:
+        _VarSelector:
+          rid: 7944506093417005067
+        _InvertValue: 0
+    - rid: 7944506093417005066
+      type: {class: ConstIntVarSelector, ns: , asm: Assembly-CSharp}
+      data:
+        ConstIntValue: 7
+    - rid: 7944506093417005067
+      type: {class: ConstBoolVarSelector, ns: , asm: Assembly-CSharp}
+      data:
+        ConstBoolValue: 1
 --- !u!1 &1175728191
 GameObject:
   m_ObjectHideFlags: 0

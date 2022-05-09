@@ -9,11 +9,17 @@ public class TriggerArea : MonoBehaviour
     
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        foreach (OnEnterAreaActionTrigger actionTrigger in _OnEnterActionTrigger)
+        {
+            actionTrigger.TriggerAction();
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-
+        foreach (OnExitAreaActionTrigger actionTrigger in _OnExitActionTrigger)
+        {
+            actionTrigger.TriggerAction();
+        }
     }
 }
