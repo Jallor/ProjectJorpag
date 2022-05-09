@@ -7,6 +7,8 @@ public class TriggerArea : MonoBehaviour
     [SerializeField] private List<OnEnterAreaActionTrigger> _OnEnterActionTrigger = new List<OnEnterAreaActionTrigger>();
     [SerializeField] private List<OnExitAreaActionTrigger> _OnExitActionTrigger = new List<OnExitAreaActionTrigger>();
     
+    // TODO filter 
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         foreach (OnEnterAreaActionTrigger actionTrigger in _OnEnterActionTrigger)
