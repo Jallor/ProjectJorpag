@@ -10,12 +10,12 @@ public abstract class Condition
 public class BoolCondition : Condition
 {
     [SerializeReference] [SelectImplementation]
-    [SerializeField] private IGameVarSelector _VarSelector;
+    [SerializeField] private FirstGameVarSelector _VarSelector;
     [SerializeField] private bool _InvertValue;
 
     public override bool IsConditionValid()
     {
-        Debug.Assert(_VarSelector.GetFinalGameVarType() is IGameVarType.BOOL);
+        Debug.Assert(_VarSelector.GetFinalGameVarType() is EGameVarType.BOOL);
 
         bool boolValue = (_VarSelector.GetFinalGameVarWrapper() as BoolVarWrapper).BoolValue;
 

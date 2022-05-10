@@ -1,40 +1,46 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public abstract class IGameVarSelector
+public abstract class GameVarSelector
 {
-    public abstract IGameVarType GetGameVarType();
+    public abstract EGameVarType GetGameVarType();
 
-    public abstract IGameVarType GetFinalGameVarType();
+    public abstract EGameVarType GetFinalGameVarType();
 
-    public abstract IGameVarWrapper GetFinalGameVarWrapper();
+    public abstract GameVarWrapper GetFinalGameVarWrapper();
+}
+
+public abstract class FirstGameVarSelector : GameVarSelector
+{
+
 }
 
 #region Constant Values
-
-public class ConstBoolVarSelector : IGameVarSelector
+[SelectImplementationName("Constant/Bool")]
+public class ConstBoolVarSelector : FirstGameVarSelector
 {
     public bool ConstBoolValue;
 
-    public override IGameVarType GetGameVarType() => (IGameVarType.BOOL);
+    public override EGameVarType GetGameVarType() => (EGameVarType.BOOL);
 
-    public override IGameVarType GetFinalGameVarType() => (GetGameVarType());
+    public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
 
-    public override IGameVarWrapper GetFinalGameVarWrapper()
+    public override GameVarWrapper GetFinalGameVarWrapper()
     {
         return (new BoolVarWrapper(ConstBoolValue));
     }
 }
 
-public class ConstIntVarSelector : IGameVarSelector
+[SelectImplementationName("Constant/Int")]
+public class ConstIntVarSelector : FirstGameVarSelector
 {
     public int ConstIntValue = 0;
 
-    public override IGameVarType GetGameVarType() => (IGameVarType.INT);
+    public override EGameVarType GetGameVarType() => (EGameVarType.INT);
 
-    public override IGameVarType GetFinalGameVarType() => (GetGameVarType());
+    public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
 
-    public override IGameVarWrapper GetFinalGameVarWrapper()
+    public override GameVarWrapper GetFinalGameVarWrapper()
     {
         return (new IntVarWrapper(ConstIntValue));
     }

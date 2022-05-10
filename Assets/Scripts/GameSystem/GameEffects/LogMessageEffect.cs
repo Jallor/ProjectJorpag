@@ -5,7 +5,7 @@ public class LogMessageEffect : GameEffect
 {
     public LogType LogTypeToUse;
     [SerializeReference] [SelectImplementation]
-    public IGameVarSelector DataToDisplay;
+    public FirstGameVarSelector DataToDisplay;
     public override void PlayEffect()
     {
         string messageToDisplay = DataToDisplay.GetFinalGameVarWrapper().ToString();

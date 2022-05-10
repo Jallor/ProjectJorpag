@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91b37008b79485c40bf99a565052843d, type: 3}
   m_Name: MainCharacter
   m_EditorClassIdentifier: 
+  CharaName: Main Character
   FaceSprite: {fileID: -1720691093, guid: b89ecfc0d29e1d24ba9ae6fd27c6e80a, type: 3}
   SpriteSheet: {fileID: 11400000, guid: 3dab2517f28ee9d409a5d6e163bf8010, type: 2}

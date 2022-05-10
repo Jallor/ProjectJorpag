@@ -21,6 +21,11 @@ public class CharacterManager : MonoBehaviour
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
     }
 
+    public override string ToString()
+    {
+        return (_Data.CharaName);
+    }
+
     public void GiveMoveInput(Vector2 newDir)
     {
         _Movement.GiveInput(newDir);

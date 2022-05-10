@@ -8,4 +8,6 @@ public class CharacterData : ScriptableObject
     [ShowAssetPreview]
     [Required] public Sprite FaceSprite;
     [Required] public CharacterSpriteSheetData SpriteSheet;
+
+    public int MaxHP = 100;
 }

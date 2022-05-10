@@ -351,16 +351,20 @@ MonoBehaviour:
       type: {class: BoolCondition, ns: , asm: Assembly-CSharp}
       data:
         _VarSelector:
-          rid: 7944506093417005067
+          rid: 7944506117696520195
         _InvertValue: 0
     - rid: 7944506093417005066
       type: {class: ConstIntVarSelector, ns: , asm: Assembly-CSharp}
       data:
         ConstIntValue: 7
-    - rid: 7944506093417005067
-      type: {class: ConstBoolVarSelector, ns: , asm: Assembly-CSharp}
+    - rid: 7944506117696520195
+      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
       data:
-        ConstBoolValue: 1
+        Target: 0
+        NextVarSelector:
+          rid: 7944506117696520199
+    - rid: 7944506117696520199
+      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
 --- !u!1 &1175728191
 GameObject:
   m_ObjectHideFlags: 0
