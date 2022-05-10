@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-
 public interface DataList<dataType>
 {
     public abstract List<dataType> GetDataList();
