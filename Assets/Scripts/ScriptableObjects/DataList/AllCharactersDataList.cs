@@ -6,9 +6,9 @@ public class AllCharactersDataList : DataAutoList<CharacterData, AllCharactersDa
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     public static void RefreshList()
     {
-        if (!(AllCharactersDataList.Instance is null))
+        if (!(Instance is null))
         {
-            AllCharactersDataList.Instance.RefreshDataList();
+            Instance.RefreshDataList();
         }
     }
 }

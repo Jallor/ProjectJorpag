@@ -13,7 +13,10 @@ public abstract class SingletonScriptable<T> : ScriptableObject where T : Script
             if (!_instance)
             {
                 T[] findObjects = Resources.FindObjectsOfTypeAll<T>();
-                Debug.Assert(findObjects.Length == 1);
+                Debug.Assert(findObjects.Length > 0,
+                    "No SingletonScriptable of type " + typeof(T).ToString());
+                Debug.Assert(findObjects.Length <= 1,
+                    "Too much SingletonScriptable of type " + typeof(T).ToString());
 
                 if (findObjects.Length > 0)
                 {

@@ -27,20 +27,20 @@ public class DataAutoList<dataType, selfType> : SingletonScriptable<selfType>, D
     public void RefreshDataList()
     {
 #if UNITY_EDITOR
-        string[] allDataGUID = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(dataType).ToString());
+        string[] allDataGUID = AssetDatabase.FindAssets("t:" + typeof(dataType).ToString());
 
         List<dataType> newList = new List<dataType>();
 
         foreach (string cardInProject in allDataGUID)
         {
-            dataType asset = UnityEditor.AssetDatabase.LoadAssetAtPath<dataType>(UnityEditor.AssetDatabase.GUIDToAssetPath(cardInProject));
+            dataType asset = AssetDatabase.LoadAssetAtPath<dataType>(AssetDatabase.GUIDToAssetPath(cardInProject));
 
             newList.Add(asset);
         }
 
         bool updateList = false;
 
-        if (newList.Count == DataAutoList < dataType, selfType >.Instance.GetDataList().Count)
+        if (newList.Count == DataAutoList<dataType, selfType>.Instance.GetDataList().Count)
         {
             for (int i = 0; i < newList.Count; i++)
             {

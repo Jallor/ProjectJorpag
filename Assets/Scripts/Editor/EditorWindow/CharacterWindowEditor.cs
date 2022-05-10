@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -15,12 +14,29 @@ public class CharacterWindowEditor : EditorWindow
         _CurrentWindow.minSize = new Vector2(500, 600);
     }
 
+    [MenuItem("Editors/Debug/Reset Character Editor", priority = 0)]
+    public static void ResetWindow()
+    {
+        _CurrentWindow.Close();
+    }
+
     public void OnGUI()
     {
         GUILayout.BeginHorizontal();
         // Character list
+        GUILayout.BeginVertical(EditorStyles.helpBox, GUILayout.Width(150));
+        List<CharacterData> charaList = AllCharactersDataList.Instance.GetDataList();
+
+        foreach (CharacterData charaData in charaList)
+        {
+            if (GUILayout.Button(charaData.CharaName))
+            {
+            }
+        }
+        GUILayout.EndVertical();
 
         // Character details
+
         GUILayout.EndHorizontal();
     }
 
@@ -41,8 +57,6 @@ public class CharacterWindowEditor : EditorWindow
 
     private void HeavyGuiChange()
     {
-        OnGUI();
-
         // Do stuff
     }
 }

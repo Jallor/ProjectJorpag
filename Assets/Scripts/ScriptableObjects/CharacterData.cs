@@ -4,6 +4,7 @@ using NaughtyAttributes;
 [CreateAssetMenu(fileName = "NewCharacterData", menuName = "Data/Character Data")]
 public class CharacterData : ScriptableObject
 {
+    public string CharaName = "";
     [ShowAssetPreview]
     [Required] public Sprite FaceSprite;
     [Required] public CharacterSpriteSheetData SpriteSheet;
