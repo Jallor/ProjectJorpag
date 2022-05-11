@@ -6,9 +6,9 @@ public class LogMessageEffect : GameEffect
     public LogType LogTypeToUse;
     [SerializeReference] [SelectImplementation]
     public FirstGameVarSelector DataToDisplay;
-    public override void PlayEffect()
+    public override void PlayEffect(GameContext context)
     {
-        string messageToDisplay = DataToDisplay.GetFinalGameVarWrapper().ToString();
+        string messageToDisplay = DataToDisplay.StartGetFinalVarWrapper(context).ToString();
 
         switch (LogTypeToUse)
         {

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public abstract class GameVarSelector
@@ -6,13 +7,16 @@ public abstract class GameVarSelector
     public abstract EGameVarType GetGameVarType();
 
     public abstract EGameVarType GetFinalGameVarType();
-
-    public abstract GameVarWrapper GetFinalGameVarWrapper();
 }
 
 public abstract class FirstGameVarSelector : GameVarSelector
 {
+    public abstract GameVarWrapper StartGetFinalVarWrapper(GameContext context);
+}
 
+public abstract class NextGameVarSelector : GameVarSelector
+{
+    public abstract GameVarWrapper GetFinalGameVarWrapper(GameVarWrapper varWrapper);
 }
 
 #region Constant Values
@@ -25,7 +29,7 @@ public class ConstBoolVarSelector : FirstGameVarSelector
 
     public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
 
-    public override GameVarWrapper GetFinalGameVarWrapper()
+    public override GameVarWrapper StartGetFinalVarWrapper(GameContext context)
     {
         return (new BoolVarWrapper(ConstBoolValue));
     }
@@ -40,7 +44,7 @@ public class ConstIntVarSelector : FirstGameVarSelector
 
     public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
 
-    public override GameVarWrapper GetFinalGameVarWrapper()
+    public override GameVarWrapper StartGetFinalVarWrapper(GameContext context)
     {
         return (new IntVarWrapper(ConstIntValue));
     }

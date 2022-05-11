@@ -7,13 +7,15 @@ public abstract class ActionTrigger
 {
     [SerializeField] private List<ConditionnalEffect> _ConditionnalsEffects = new List<ConditionnalEffect>();
 
-    // Allow to send events
+    // TODO : Allow to send events
 
     public void TriggerAction()
     {
+        GameContext context = new GameContext();
+
         foreach (ConditionnalEffect conditionnalEffect in _ConditionnalsEffects)
         {
-            conditionnalEffect.TryPlayEffects();
+            conditionnalEffect.TryPlayEffects(context);
         }
     }
 }

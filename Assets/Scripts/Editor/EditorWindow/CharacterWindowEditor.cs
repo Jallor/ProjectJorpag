@@ -25,7 +25,7 @@ public class CharacterWindowEditor : EditorWindow
         GUILayout.BeginHorizontal();
         // Character list
         GUILayout.BeginVertical(EditorStyles.helpBox, GUILayout.Width(150));
-        List<CharacterData> charaList = AllCharactersDataList.Instance.GetDataList();
+        List<CharacterData> charaList = AllCharactersDataList.Inst.GetDataList();
 
         foreach (CharacterData charaData in charaList)
         {

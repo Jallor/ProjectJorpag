@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class SingletonScriptable<T> : ScriptableObject where T : ScriptableObject
 {
     private static T _instance = null;
-    public static T Instance
+    public static T Inst
     {
         get
         {

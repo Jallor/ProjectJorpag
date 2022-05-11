@@ -40,11 +40,11 @@ public class DataAutoList<dataType, selfType> : SingletonScriptable<selfType>, D
 
         bool updateList = false;
 
-        if (newList.Count == DataAutoList<dataType, selfType>.Instance.GetDataList().Count)
+        if (newList.Count == DataAutoList<dataType, selfType>.Inst.GetDataList().Count)
         {
             for (int i = 0; i < newList.Count; i++)
             {
-                if (!DataAutoList<dataType, selfType>.Instance.GetDataList().Contains(newList[i]))
+                if (!DataAutoList<dataType, selfType>.Inst.GetDataList().Contains(newList[i]))
                 {
                     updateList = true;
                     break;
@@ -58,8 +58,8 @@ public class DataAutoList<dataType, selfType> : SingletonScriptable<selfType>, D
 
         if (updateList)
         {
-            DataAutoList<dataType, selfType>.Instance.SetDataList(newList);
-            EditorUtility.SetDirty(DataAutoList<dataType, selfType>.Instance);
+            DataAutoList<dataType, selfType>.Inst.SetDataList(newList);
+            EditorUtility.SetDirty(DataAutoList<dataType, selfType>.Inst);
             AssetDatabase.SaveAssets();
         }
 #endif

@@ -9,11 +9,11 @@ public class ConditionnalEffect
     [SelectImplementation] [SerializeReference]
     [SerializeField] private List<GameEffect> _GameEffects = new List<GameEffect>();
 
-    public bool TryPlayEffects()
+    public bool TryPlayEffects(GameContext context)
     {
         foreach (Condition condition in _Conditions)
         {
-            if (!condition.IsConditionValid())
+            if (!condition.IsConditionValid(context))
             {
                 return (false);
             }
@@ -21,7 +21,7 @@ public class ConditionnalEffect
 
         foreach (GameEffect effect in _GameEffects)
         {
-            effect.PlayEffect();
+            effect.PlayEffect(context);
         }
 
         return (true);
