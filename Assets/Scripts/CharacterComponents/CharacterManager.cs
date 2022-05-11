@@ -69,5 +69,8 @@ public class CharacterManager : MonoBehaviour
 
     #region Getters
     public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
+
+    // TODO : get this var in manageer
+    public int GetMaxHP() => (_Data.MaxHP);
     #endregion
 }
