@@ -18,4 +18,14 @@ public class GameManager : MonobehaviourSingleton<GameManager>
         }
         return (_Player);
     }
+
+    public bool CanCharactersAct()
+    {
+        if (UiManager.Inst && UiManager.Inst.IsUiBlockingCharaActions())
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

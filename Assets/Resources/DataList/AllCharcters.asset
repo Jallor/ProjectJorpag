@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: AllCharcters
   m_EditorClassIdentifier: 
   dataList:
-  - {fileID: 11400000, guid: 7464ac019239eae46ad679015223fab0, type: 2}
   - {fileID: 11400000, guid: 2642d69c5193dd240a50ab6eba68b5c5, type: 2}
+  - {fileID: 11400000, guid: 8d8620a47de0f1d44ac0365af042dfec, type: 2}
+  - {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
+  - {fileID: 11400000, guid: bb535b376666f514d819407af38795d3, type: 2}
+  - {fileID: 11400000, guid: f89c28caa67a58e4499fec138c822769, type: 2}
+  - {fileID: 11400000, guid: a59dd8e23e826804a8fa216ef7299dc2, type: 2}

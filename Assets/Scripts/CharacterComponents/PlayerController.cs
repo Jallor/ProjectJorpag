@@ -5,6 +5,12 @@ public class PlayerController : CharacterController
 {
     public void Update()
     {
+        if (GameManager.Inst && !GameManager.Inst.CanCharactersAct())
+        {
+            _CharaManager.GiveMoveInput(Vector2.zero);
+            return;
+        }
+
         // TODO : PlayerController : Use axis
         Vector2 newDir = new Vector2();
         if (Input.GetKey(KeyCode.Z))

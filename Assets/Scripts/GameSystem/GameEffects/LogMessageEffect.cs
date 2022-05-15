@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[System.Serializable] [SelectImplementationName("Log")]
+[SelectImplementationName("Log")]
 public class LogMessageEffect : GameEffect
 {
     public LogType LogTypeToUse;
