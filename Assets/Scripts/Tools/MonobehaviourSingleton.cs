@@ -2,17 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonobehaviourSingleton : MonoBehaviour
+public class MonobehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [HideInInspector] public static T Inst;
+
+    [SerializeField] private bool _DontDestroyOnLoad = false;
+
+    public virtual void Awake()
     {
-        
+        if (_DontDestroyOnLoad)
+        {
+            if (Inst != null)
+            {
+                Destroy(this);
+            }
+            else
+            {
+                Inst = this as T;
+
+                DontDestroyOnLoad(transform.root.gameObject);
+            }
+        }
+        else
+        {
+            Debug.Assert(Inst == null, "Already existing instance of " + typeof(T).ToString());
+
+            Inst = this as T;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OnDestroy()
     {
-        
+        Inst = null;
     }
 }

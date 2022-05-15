@@ -18,18 +18,9 @@ public class GameContext
         _Target = target;
     }
 
-    public GameVarWrapper GetOwner()
-    {
-        return _Owner;
-    }
+    public GameVarWrapper GetOwner() =>_Owner;
 
-    public GameVarWrapper GetCaster()
-    {
-        return _Caster;
-    }
+    public GameVarWrapper GetCaster() => _Caster;
 
-    public GameVarWrapper GetTarget()
-    {
-        return _Target;
-    }
+    public GameVarWrapper GetTarget() => _Target;
 }

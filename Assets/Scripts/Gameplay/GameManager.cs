@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : SingletonScriptable<GameManager>
+public class GameManager : MonobehaviourSingleton<GameManager>
 {
-
     private CharacterManager _Player = null;
 
     public CharacterManager GetPlayer()
