@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b37008b79485c40bf99a565052843d, type: 3}
+  m_Name: Main_Shonen
+  m_EditorClassIdentifier: 
+  CharaName: '[Shonen]'
+  FaceSprite: {fileID: 865319181, guid: 0ef02dd7c68356d46b0396e75e60e22e, type: 3}
+  SpriteSheet: {fileID: 0}
+  MaxHP: 100
+  CharacterQuickDescription: "L'esprit Shone !\nCelui qui bouge, qui vas de l'avant
+    et qui persev\xE8re. Pas forcement celui qui r\xE9flechis par contre"

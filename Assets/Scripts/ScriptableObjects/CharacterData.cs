@@ -10,4 +10,7 @@ public class CharacterData : ScriptableObject
     [Required] public CharacterSpriteSheetData SpriteSheet;
 
     public int MaxHP = 100;
+
+    [TextArea(3, 15)]
+    public string CharacterQuickDescription;
 }

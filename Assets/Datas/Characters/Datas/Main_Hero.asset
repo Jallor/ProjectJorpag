@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b37008b79485c40bf99a565052843d, type: 3}
+  m_Name: Main_Hero
+  m_EditorClassIdentifier: 
+  CharaName: '[Hero]'
+  FaceSprite: {fileID: -1720691093, guid: b89ecfc0d29e1d24ba9ae6fd27c6e80a, type: 3}
+  SpriteSheet: {fileID: 11400000, guid: 3dab2517f28ee9d409a5d6e163bf8010, type: 2}
+  MaxHP: 100
+  CharacterQuickDescription: "Le perso principale, \xE0 la base pens\xE9 pour se
+    baser sur Alphen, y a moyen de s'en d\xE9tacher.\nIl reste n\xE9anmoins la porte
+    d'entr\xE9 dans l'histoire et les yeux du joueur.\nDe plus, il aura pour mission
+    d'assembler un groupe d'aventurier pour accomplir la qu\xEAte principale, ce
+    qui sera un de ses premier conflit interne : a-t-il la l\xE9gitimit\xE9 d'assumer
+    cette responsabilit\xE9.\nLa r\xE9ponse sera \xE0 peut pr\xE8s que au moins il
+    essai.\nC'est un parall\xE9le avec moi. A travers ce jeu, je veux faire ce que
+    je peux \xE0 mon \xE9chelle et cette qu\xEAte serait une mani\xE8re de transmettre
+    \xE7a\n"
