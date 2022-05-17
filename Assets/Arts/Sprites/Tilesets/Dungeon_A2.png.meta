@@ -20,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -4240,10 +4240,10 @@ TextureImporter:
       Dungeon_A2_15: -1669400168
       Dungeon_A2_39: -1321028458
       Dungeon_A2_134: 723964222
-      Dungeon_A2_151: 1194135820
-      Dungeon_A2_78: 54906605
-      Dungeon_A2_10: 1436070344
       Dungeon_A2_180: -90294731
+      Dungeon_A2_151: 1194135820
+      Dungeon_A2_10: 1436070344
+      Dungeon_A2_78: 54906605
       Dungeon_A2_31: 2043027613
       Dungeon_A2_76: 635179733
       Dungeon_A2_163: 1805456203
