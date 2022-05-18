@@ -13,12 +13,6 @@ MonoBehaviour:
   m_Name: TileRuleConfigGround
   m_EditorClassIdentifier: 
   TileConfigList:
-  - CornerTopLeft: 0
-    CornerTopRight: 0
-    CornerBottomLeft: 0
-    CornerBottomRight: 0
-    RotateConfig: 0
-    _TemplateSprite: {fileID: 772106440, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
   - CornerTopLeft: 1
     CornerTopRight: 1
     CornerBottomLeft: 1
@@ -31,42 +25,18 @@ MonoBehaviour:
     CornerBottomRight: 4
     RotateConfig: 0
     _TemplateSprite: {fileID: -918147365, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 3
-    CornerTopRight: 2
-    CornerBottomLeft: 2
-    CornerBottomRight: 3
-    RotateConfig: 0
-    _TemplateSprite: {fileID: 599544058, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 2
-    CornerTopRight: 3
-    CornerBottomLeft: 3
-    CornerBottomRight: 2
-    RotateConfig: 0
-    _TemplateSprite: {fileID: 49342930, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 1
-    CornerTopRight: 2
-    CornerBottomLeft: 3
-    CornerBottomRight: 0
-    RotateConfig: 1
-    _TemplateSprite: {fileID: 19936667, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 3
-    CornerTopRight: 2
+  - CornerTopLeft: 0
+    CornerTopRight: 0
     CornerBottomLeft: 0
     CornerBottomRight: 0
-    RotateConfig: 1
-    _TemplateSprite: {fileID: 1458971941, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 1
-    CornerTopRight: 1
-    CornerBottomLeft: 3
-    CornerBottomRight: 2
-    RotateConfig: 1
-    _TemplateSprite: {fileID: -1099931676, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 1
+    RotateConfig: 0
+    _TemplateSprite: {fileID: 772106440, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
     CornerTopRight: 2
-    CornerBottomLeft: 3
+    CornerBottomLeft: 4
     CornerBottomRight: 4
     RotateConfig: 1
-    _TemplateSprite: {fileID: 339808966, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+    _TemplateSprite: {fileID: 1464331190, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
   - CornerTopLeft: 4
     CornerTopRight: 4
     CornerBottomLeft: 0
@@ -79,12 +49,30 @@ MonoBehaviour:
     CornerBottomRight: 0
     RotateConfig: 1
     _TemplateSprite: {fileID: -509298803, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
-  - CornerTopLeft: 3
-    CornerTopRight: 2
+  - CornerTopLeft: 0
+    CornerTopRight: 4
+    CornerBottomLeft: 4
+    CornerBottomRight: 0
+    RotateConfig: 0
+    _TemplateSprite: {fileID: -509298803, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 4
+    CornerTopRight: 0
+    CornerBottomLeft: 0
+    CornerBottomRight: 4
+    RotateConfig: 0
+    _TemplateSprite: {fileID: -509298803, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 0
+    CornerTopRight: 4
     CornerBottomLeft: 4
     CornerBottomRight: 4
     RotateConfig: 1
-    _TemplateSprite: {fileID: 1464331190, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+    _TemplateSprite: {fileID: -509298803, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 2
+    CornerBottomLeft: 3
+    CornerBottomRight: 4
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 339808966, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
   - CornerTopLeft: 3
     CornerTopRight: 2
     CornerBottomLeft: 0
@@ -97,3 +85,33 @@ MonoBehaviour:
     CornerBottomRight: 0
     RotateConfig: 1
     _TemplateSprite: {fileID: 417625851, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 2
+    CornerBottomLeft: 3
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 19936667, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 1
+    CornerBottomLeft: 3
+    CornerBottomRight: 2
+    RotateConfig: 1
+    _TemplateSprite: {fileID: -1099931676, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 2
+    CornerBottomRight: 3
+    RotateConfig: 0
+    _TemplateSprite: {fileID: 599544058, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 2
+    CornerTopRight: 3
+    CornerBottomLeft: 3
+    CornerBottomRight: 2
+    RotateConfig: 0
+    _TemplateSprite: {fileID: 49342930, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 0
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 1458971941, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}

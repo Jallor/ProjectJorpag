@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEditor;
 
 using static TileRuleCreatorConfigScriptObj;
@@ -35,6 +36,7 @@ public class TileRuleCreatorWindowEditor : EditorWindow
     private Dictionary<TileCornerType, Texture2D> _TileCornerPartsBottomRight = new Dictionary<TileCornerType,Texture2D>();
 
     private TileRuleCreatorConfigScriptObj _SelectedTileConfig = null;
+    private RuleTile _SelectedRuleTilePattern = null;
     private string _OutputFolderPath = "/Arts/Sprites/Palettes/TileRules";
     private string _TileSetName = "";
 
@@ -77,17 +79,25 @@ public class TileRuleCreatorWindowEditor : EditorWindow
         }
         GUILayout.EndHorizontal();
 
-        GUILayout.Label("Tile Rule Confif");
+        GUILayout.Label("Tile Rule Config");
         _SelectedTileConfig = EditorGUILayout.ObjectField(_SelectedTileConfig, typeof(TileRuleCreatorConfigScriptObj)) as TileRuleCreatorConfigScriptObj;
+        GUILayout.Label("Tile Rule Pattern");
+        _SelectedRuleTilePattern = EditorGUILayout.ObjectField(_SelectedRuleTilePattern, typeof(RuleTile)) as RuleTile;
         GUILayout.Label("Output Folder");
         _OutputFolderPath = GUILayout.TextField(_OutputFolderPath);
         GUILayout.Label("TileSet Name");
         _TileSetName = GUILayout.TextField(_TileSetName);
 
-        if (GUILayout.Button("Export Tile Set"))
+        if (GUILayout.Button("Export Tile Set")
+            && _SelectedTileConfig && _SelectedRuleTilePattern)
         {
             ExportTileSet();
         }
+        //if (GUILayout.Button("!! TMP !!")
+        //    && _SelectedTileConfig && _SelectedRuleTilePattern)
+        //{
+        //    func();
+        //}
 
         GUILayout.EndVertical();
     }
@@ -239,6 +249,29 @@ public class TileRuleCreatorWindowEditor : EditorWindow
                 ++index;
             }
         }
+
+        RuleOverrideTile newTileRule = ScriptableObject.CreateInstance<RuleOverrideTile>();
+        Selection.activeObject = newTileRule;
+        newTileRule.m_Tile = _SelectedRuleTilePattern;
+        newTileRule.OnEnable();
+        AssetDatabase.CreateAsset(newTileRule, $"Assets/{_OutputFolderPath}/{_TileSetName}TileRule.asset");
+        AssetDatabase.Refresh();
+
+        List<KeyValuePair<Sprite, Sprite>> overrides = new List<KeyValuePair<Sprite, Sprite>>();
+        for (int i = 0; i < index; i++)
+        {
+            string spriteOverridePath = $"Assets{_OutputFolderPath}/{_TileSetName}/{_TileSetName}_{i.ToString("000")}.png";
+            Sprite spriteOverride = AssetDatabase.LoadAssetAtPath(spriteOverridePath, typeof(Sprite)) as Sprite;
+
+            KeyValuePair<Sprite, Sprite> overrideSet = new KeyValuePair<Sprite, Sprite>
+                (newTileRule.m_InstanceTile.m_TilingRules[i].m_Sprites[0],
+                spriteOverride);
+            overrides.Add(overrideSet);
+        }
+        newTileRule.ApplyOverrides(overrides);
+
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     private void CreatTile(TileConfig tileConfig, string fullPath, int index, int cornerOffset)
@@ -262,9 +295,9 @@ public class TileRuleCreatorWindowEditor : EditorWindow
         newTex.SetPixels(0, 0, 24, 24, pixelsBL);
         newTex.Apply();
 
+        newTex.filterMode = FilterMode.Point;
         byte[] file = newTex.EncodeToPNG();
-        File.WriteAllBytes($"{fullPath}/{_TileSetName}/{_TileSetName}_{index.ToString("000")}.png", file);
-
-
+        string finalPath = $"{fullPath}/{_TileSetName}/{_TileSetName}_{index.ToString("000")}.png";
+        File.WriteAllBytes(finalPath, file);
     }
 }
