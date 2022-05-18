@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 194e3a0f8e9e7ad48a4aca27529a986a, type: 3}
+  m_Name: TileRuleConfigGround
+  m_EditorClassIdentifier: 
+  TileConfigList:
+  - CornerTopLeft: 0
+    CornerTopRight: 0
+    CornerBottomLeft: 0
+    CornerBottomRight: 0
+    RotateConfig: 0
+    _TemplateSprite: {fileID: 772106440, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 1
+    CornerBottomLeft: 1
+    CornerBottomRight: 1
+    RotateConfig: 0
+    _TemplateSprite: {fileID: -1438751302, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 4
+    CornerTopRight: 4
+    CornerBottomLeft: 4
+    CornerBottomRight: 4
+    RotateConfig: 0
+    _TemplateSprite: {fileID: -918147365, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 2
+    CornerBottomRight: 3
+    RotateConfig: 0
+    _TemplateSprite: {fileID: 599544058, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 2
+    CornerTopRight: 3
+    CornerBottomLeft: 3
+    CornerBottomRight: 2
+    RotateConfig: 0
+    _TemplateSprite: {fileID: 49342930, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 2
+    CornerBottomLeft: 3
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 19936667, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 0
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 1458971941, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 1
+    CornerBottomLeft: 3
+    CornerBottomRight: 2
+    RotateConfig: 1
+    _TemplateSprite: {fileID: -1099931676, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 1
+    CornerTopRight: 2
+    CornerBottomLeft: 3
+    CornerBottomRight: 4
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 339808966, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 4
+    CornerTopRight: 4
+    CornerBottomLeft: 0
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: -1737706999, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 4
+    CornerTopRight: 0
+    CornerBottomLeft: 0
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: -509298803, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 4
+    CornerBottomRight: 4
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 1464331190, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 0
+    CornerBottomRight: 4
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 127162366, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}
+  - CornerTopLeft: 3
+    CornerTopRight: 2
+    CornerBottomLeft: 4
+    CornerBottomRight: 0
+    RotateConfig: 1
+    _TemplateSprite: {fileID: 417625851, guid: 3290928c868c1f94895498ecfcbd2ba1, type: 3}

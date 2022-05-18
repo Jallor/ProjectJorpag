@@ -1,10 +1,13 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEditor;
 
+using static TileRuleCreatorConfigScriptObj;
+
 public class TileRuleCreatorWindowEditor : EditorWindow
 {
-    private enum TileCornerType
+    public enum TileCornerType
     {
         EMPTY,
         FULL_CORNER,
@@ -15,21 +18,25 @@ public class TileRuleCreatorWindowEditor : EditorWindow
 
     private static TileRuleCreatorWindowEditor _CurrentWindow;
 
-    private Sprite _SprToUseCenter;
-    private Sprite _SprToUseTopLeft;
-    private Sprite _SprToUseTopRight;
-    private Sprite _SprToUseBottomLeft;
-    private Sprite _SprToUseBottomRight;
-    private Texture2D _TexToUseCenter;
-    private Texture2D _TexToUseTopLeft;
-    private Texture2D _TexToUseTopRight;
-    private Texture2D _TexToUseBottomLeft;
-    private Texture2D _TexToUseBottomRight;
+    private Sprite _SprToUseCenter = null;
+    private Sprite _SprToUseTopLeft = null;
+    private Sprite _SprToUseTopRight = null;
+    private Sprite _SprToUseBottomLeft = null;
+    private Sprite _SprToUseBottomRight = null;
+    private Texture2D _TexToUseCenter = null;
+    private Texture2D _TexToUseTopLeft = null;
+    private Texture2D _TexToUseTopRight = null;
+    private Texture2D _TexToUseBottomLeft = null;
+    private Texture2D _TexToUseBottomRight = null;
 
     private Dictionary<TileCornerType, Texture2D> _TileCornerPartsTopLeft = new Dictionary<TileCornerType,Texture2D>();
     private Dictionary<TileCornerType, Texture2D> _TileCornerPartsTopRight = new Dictionary<TileCornerType,Texture2D>();
     private Dictionary<TileCornerType, Texture2D> _TileCornerPartsBottomLeft = new Dictionary<TileCornerType,Texture2D>();
     private Dictionary<TileCornerType, Texture2D> _TileCornerPartsBottomRight = new Dictionary<TileCornerType,Texture2D>();
+
+    private TileRuleCreatorConfigScriptObj _SelectedTileConfig = null;
+    private string _OutputFolderPath = "/Arts/Sprites/Palettes/TileRules";
+    private string _TileSetName = "";
 
     [MenuItem("Editors/Tile Rule Creator")]
     public static void ShowWindow()
@@ -69,6 +76,18 @@ public class TileRuleCreatorWindowEditor : EditorWindow
             GUILayout.Box(tex);
         }
         GUILayout.EndHorizontal();
+
+        GUILayout.Label("Tile Rule Confif");
+        _SelectedTileConfig = EditorGUILayout.ObjectField(_SelectedTileConfig, typeof(TileRuleCreatorConfigScriptObj)) as TileRuleCreatorConfigScriptObj;
+        GUILayout.Label("Output Folder");
+        _OutputFolderPath = GUILayout.TextField(_OutputFolderPath);
+        GUILayout.Label("TileSet Name");
+        _TileSetName = GUILayout.TextField(_TileSetName);
+
+        if (GUILayout.Button("Export Tile Set"))
+        {
+            ExportTileSet();
+        }
 
         GUILayout.EndVertical();
     }
@@ -193,5 +212,59 @@ public class TileRuleCreatorWindowEditor : EditorWindow
         splitedTexs.Add(texBR);
 
         return (splitedTexs);
+    }
+
+    private void ExportTileSet()
+    {
+        string fullPath = Application.dataPath + _OutputFolderPath;
+        if (!Directory.Exists(fullPath + "/" + _TileSetName))
+        {
+            Directory.CreateDirectory(fullPath + "/" + _TileSetName);
+        }
+
+        int index = 0;
+        foreach (TileConfig tileConfig in _SelectedTileConfig.TileConfigList)
+        {
+            if (tileConfig.RotateConfig)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    CreatTile(tileConfig, fullPath, index, j);
+                    ++index;
+                }
+            }
+            else
+            {
+                CreatTile(tileConfig, fullPath, index, 0);
+                ++index;
+            }
+        }
+    }
+
+    private void CreatTile(TileConfig tileConfig, string fullPath, int index, int cornerOffset)
+    {
+        Texture2D newTex = new Texture2D(48, 48);
+
+        List<TileCornerType> tileCornerTypes = new List<TileCornerType>();
+        tileCornerTypes.Add(tileConfig.CornerTopLeft);
+        tileCornerTypes.Add(tileConfig.CornerTopRight);
+        tileCornerTypes.Add(tileConfig.CornerBottomRight);
+        tileCornerTypes.Add(tileConfig.CornerBottomLeft);
+
+        Color[] pixelsTL = _TileCornerPartsTopLeft[tileCornerTypes[(0 + cornerOffset) % 4]].GetPixels(0, 0, 24, 24);
+        Color[] pixelsTR = _TileCornerPartsTopRight[tileCornerTypes[(1 + cornerOffset) % 4]].GetPixels(0, 0, 24, 24);
+        Color[] pixelsBR = _TileCornerPartsBottomRight[tileCornerTypes[(2 + cornerOffset) % 4]].GetPixels(0, 0, 24, 24);
+        Color[] pixelsBL = _TileCornerPartsBottomLeft[tileCornerTypes[(3 + cornerOffset) % 4]].GetPixels(0, 0, 24, 24);
+
+        newTex.SetPixels(0, 24, 24, 24, pixelsTL);
+        newTex.SetPixels(24, 24, 24, 24, pixelsTR);
+        newTex.SetPixels(24, 0, 24, 24, pixelsBR);
+        newTex.SetPixels(0, 0, 24, 24, pixelsBL);
+        newTex.Apply();
+
+        byte[] file = newTex.EncodeToPNG();
+        File.WriteAllBytes($"{fullPath}/{_TileSetName}/{_TileSetName}_{index.ToString("000")}.png", file);
+
+
     }
 }
