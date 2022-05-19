@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using NaughtyAttributes;
 
 public interface DataList<dataType>
 {
@@ -24,7 +25,8 @@ public class DataAutoList<dataType, selfType> : SingletonScriptable<selfType>, D
         dataList = newList;
     }
 
-    public void RefreshDataList()
+    [Button("Refresh Auto List")]
+    public virtual void RefreshDataList()
     {
 #if UNITY_EDITOR
         string[] allDataGUID = AssetDatabase.FindAssets("t:" + typeof(dataType).ToString());

@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b1e19a5bff52446813094066281feb, type: 3}
+  m_Name: TilesIDs
+  m_EditorClassIdentifier: 
+  FilePathContaningEnumGenerated: Scripts/Enums/ETileType.cs
+  HasDefaulValue: 0
+  DefaultValue:
+    enumValueName: NONE
+    uniqueID: -1
+    resetIDToHash: 0
+  EnumName: ETileType
+  EnumValues:
+  - enumValueName: GroundRuleTile
+    uniqueID: 1081862311
+    resetIDToHash: 0
+  - enumValueName: AcidLakeTileRule
+    uniqueID: -271882386
+    resetIDToHash: 0
+  - enumValueName: CarpetBlueTileRule
+    uniqueID: -1537650167
+    resetIDToHash: 0
+  - enumValueName: CarpetRedTileRule
+    uniqueID: 2085656938
+    resetIDToHash: 0
+  - enumValueName: Dirt00TileRule
+    uniqueID: -1507209527
+    resetIDToHash: 0
+  - enumValueName: FenceTileRule
+    uniqueID: -12988211
+    resetIDToHash: 0
+  - enumValueName: FleshTileRule
+    uniqueID: 1218190878
+    resetIDToHash: 0
+  - enumValueName: Grass00TileRule
+    uniqueID: -1422641546
+    resetIDToHash: 0
+  - enumValueName: StonePlateformTileRule
+    uniqueID: -50347969
+    resetIDToHash: 0
+  - enumValueName: WallBrickTileRule
+    uniqueID: -17244355
+    resetIDToHash: 0
+  - enumValueName: WallDemonTileRule
+    uniqueID: 954437689
+    resetIDToHash: 0
+  - enumValueName: WallMarble02TileRule
+    uniqueID: -1649064709
+    resetIDToHash: 0
+  - enumValueName: WallMarbleTileRule
+    uniqueID: 965896485
+    resetIDToHash: 0
+  - enumValueName: WallRockTileRule
+    uniqueID: -45915079
+    resetIDToHash: 0
+  - enumValueName: WallStoneTileRule
+    uniqueID: 1737219391
+    resetIDToHash: 0
+  - enumValueName: WallRuleTile
+    uniqueID: -1261398564
+    resetIDToHash: 0
