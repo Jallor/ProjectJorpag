@@ -7,6 +7,8 @@ using UnityEngine.Tilemaps;
 public class LevelEditorWindowEditor : EditorWindow
 {
     private const string _LevelEditorSceneName = "LevelEditor";
+    private const string _TileMapsPath = "Datas/TileGridMaps";
+    private string _SelectedTileMapName = "NewTileMap";
     private static LevelEditorWindowEditor _CurrentWindow;
 
     [MenuItem("Editors/Level Editor")]
@@ -40,13 +42,17 @@ public class LevelEditorWindowEditor : EditorWindow
 
         GUILayout.BeginVertical();
 
-        if (GUILayout.Button("Test Read Map"))
+        GUILayout.Label("TileGridMap name");
+        _SelectedTileMapName = GUILayout.TextField(_SelectedTileMapName);
+
+        if (GUILayout.Button("Save TileGridMap"))
         {
-            Tilemap map = FindObjectOfType<Tilemap>();
-            Debug.Log(map.name);
-            TileBase tile = map.GetTile(new Vector3Int(-12, -4, 0));
-            TileBase[] allTile = map.GetTilesBlock(map.cellBounds);
-            // map.SetTiles()
+            GameTileGrid tileGrid = FindObjectOfType<GameTileGrid>();
+            SerializedTileGridMapData tileGrideMapData = tileGrid.SerializeTileGridMap();
+
+            AssetDatabase.CreateAsset(tileGrideMapData, $"Assets/{_TileMapsPath}/{_SelectedTileMapName}.asset");
+            AssetDatabase.Refresh();
+            AllTileGridMapsDataList.Inst.RefreshDataList();
         }
 
         GUILayout.EndVertical();

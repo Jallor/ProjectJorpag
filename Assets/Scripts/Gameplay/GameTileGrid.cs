@@ -22,9 +22,9 @@ public class GameTileGrid : MonoBehaviour
         SerializeTileGridMap();
     }
 
-    public void SerializeTileGridMap()
+    public SerializedTileGridMapData SerializeTileGridMap()
     {
-        SerializedTileGridMapData tileGrideMap = new SerializedTileGridMapData();
+        SerializedTileGridMapData tileGrideMap = ScriptableObject.CreateInstance<SerializedTileGridMapData>();
 
         for (int i = 0; i < _BackgroundTilemaps.Count; i++)
         {
@@ -38,6 +38,8 @@ public class GameTileGrid : MonoBehaviour
         {
             tileGrideMap._TileMapsLayers.Add(SerializeTilemap(_FrontgroundTilemaps[i], TilemapTag.FRONTGROUND, i));
         }
+
+        return (tileGrideMap);
     }
 
     private SerializedTilemapLayer SerializeTilemap(Tilemap tilemap, TilemapTag tag, int index)
@@ -59,7 +61,9 @@ public class GameTileGrid : MonoBehaviour
             }
             else
             {
-                tilemapLayer.TileList.Add(null);
+                SerializedTile mapTile = new SerializedTile();
+                mapTile.TileType = ETileType.NONE;
+                tilemapLayer.TileList.Add(mapTile);
             }
         }
 

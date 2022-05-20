@@ -2,6 +2,7 @@
 //Don't modify this file
 public enum ETileType
 {
+	NONE = -1,
 	GroundRuleTile = 1081862311,
 	AcidLakeTileRule = -271882386,
 	CarpetBlueTileRule = -1537650167,

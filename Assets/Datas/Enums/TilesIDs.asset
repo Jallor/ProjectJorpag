@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TilesIDs
   m_EditorClassIdentifier: 
   FilePathContaningEnumGenerated: Scripts/Enums/ETileType.cs
-  HasDefaulValue: 0
+  HasDefaulValue: 1
   DefaultValue:
     enumValueName: NONE
     uniqueID: -1
-    resetIDToHash: 0
+    resetIDToHash: 1
   EnumName: ETileType
   EnumValues:
   - enumValueName: GroundRuleTile
