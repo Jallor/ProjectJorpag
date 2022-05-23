@@ -3323,7 +3323,7 @@ MonoBehaviour:
   - {fileID: 387843395872203562}
   - {fileID: 686896886248146936}
   - {fileID: 1592645346895920379}
-  _Tilemaps:
+  _WallsTilemaps:
   - {fileID: 5368510724531524253}
   - {fileID: 3553989188178052182}
   - {fileID: 8517467679047900402}
