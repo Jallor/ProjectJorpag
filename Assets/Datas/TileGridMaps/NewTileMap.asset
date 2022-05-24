@@ -1,0 +1,442 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb3cf813c876e942a54f29a36462df8, type: 3}
+  m_Name: NewTileMap
+  m_EditorClassIdentifier: 
+  _TileMapsLayers:
+  - Tag: 0
+    Index: 0
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 0
+    Index: 1
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 0
+    Index: 2
+    BoundsCenter: {x: 2, y: 5, z: 0.5}
+    BoundsSize: {x: 22, y: 16, z: 1}
+    TileList:
+    - TileType: -1
+    - TileType: -1507209527
+    - TileType: -1507209527
+    - TileType: -1507209527
+    - TileType: -1507209527
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -50347969
+    - TileType: -50347969
+    - TileType: -50347969
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1507209527
+    - TileType: -1507209527
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -50347969
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1507209527
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -271882386
+    - TileType: -271882386
+    - TileType: -271882386
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -271882386
+    - TileType: -271882386
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: 1218190878
+    - TileType: -1
+    - TileType: -1
+    - TileType: -206586936
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -271882386
+    - TileType: -271882386
+    - TileType: -1
+    - TileType: -1537650167
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1422641546
+    - TileType: -206586936
+    - TileType: -206586936
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -271882386
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1537650167
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1422641546
+    - TileType: -1
+    - TileType: -1
+    - TileType: -206586936
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1537650167
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1422641546
+    - TileType: -1422641546
+    - TileType: -1
+    - TileType: -206586936
+    - TileType: -206586936
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1537650167
+    - TileType: -1537650167
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -206586936
+    - TileType: -206586936
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1537650167
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -206586936
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -1
+    - TileType: -2018989774
+    - TileType: -2018989774
+    - TileType: -1
+    - TileType: -1
+  - Tag: 0
+    Index: 3
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 0
+    Index: 4
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 1
+    Index: 0
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 1
+    Index: 1
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 1
+    Index: 2
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 1
+    Index: 3
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 1
+    Index: 4
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 2
+    Index: 0
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 2
+    Index: 1
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 2
+    Index: 2
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 2
+    Index: 3
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
+  - Tag: 2
+    Index: 4
+    BoundsCenter: {x: 0, y: 0, z: 0}
+    BoundsSize: {x: 0, y: 0, z: 0}
+    TileList: []
