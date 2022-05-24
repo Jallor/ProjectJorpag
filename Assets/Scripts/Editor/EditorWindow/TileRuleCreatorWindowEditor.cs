@@ -93,11 +93,6 @@ public class TileRuleCreatorWindowEditor : EditorWindow
         {
             ExportTileSet();
         }
-        //if (GUILayout.Button("!! TMP !!")
-        //    && _SelectedTileConfig && _SelectedRuleTilePattern)
-        //{
-        //    func();
-        //}
 
         GUILayout.EndVertical();
     }
@@ -267,6 +262,8 @@ public class TileRuleCreatorWindowEditor : EditorWindow
                 (newTileRule.m_InstanceTile.m_TilingRules[i].m_Sprites[0],
                 spriteOverride);
             overrides.Add(overrideSet);
+
+            spriteOverride.texture.filterMode = FilterMode.Point;
         }
         newTileRule.ApplyOverrides(overrides);
 
@@ -295,7 +292,6 @@ public class TileRuleCreatorWindowEditor : EditorWindow
         newTex.SetPixels(0, 0, 24, 24, pixelsBL);
         newTex.Apply();
 
-        newTex.filterMode = FilterMode.Point;
         byte[] file = newTex.EncodeToPNG();
         string finalPath = $"{fullPath}/{_TileSetName}/{_TileSetName}_{index.ToString("000")}.png";
         File.WriteAllBytes(finalPath, file);

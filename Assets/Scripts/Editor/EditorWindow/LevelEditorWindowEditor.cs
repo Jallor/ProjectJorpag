@@ -28,6 +28,7 @@ public class LevelEditorWindowEditor : EditorWindow
     public static void ResetWindow()
     {
         _CurrentWindow.Close();
+        _CurrentWindow = null;
     }
 
     public void OnGUI()
