@@ -81,13 +81,14 @@ public class GameTileGrid : MonoBehaviour
         foreach (Tilemap tilemap in tilemaps)
         {
             tilemap.ClearAllTiles();
+            tilemap.size = new Vector3Int(0, 0, 0);
+            tilemap.ResizeBounds();
         }
     }
 
     public void LoadTileGridMap(SerializedTileGridMapData tileGridMap)
     {
         Clear();
-
 
         foreach (SerializedTilemapLayer mapLayer in tileGridMap._TileMapsLayers)
         {

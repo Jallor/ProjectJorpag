@@ -44,6 +44,14 @@ public class LevelEditorWindowEditor : EditorWindow
 
         GUILayout.BeginVertical();
 
+        if (GUILayout.Button("Clear Grid"))
+        {
+            GameTileGrid tileGrid = FindObjectOfType<GameTileGrid>();
+            tileGrid.Clear();
+        }
+
+        GUILayout.Space(10);
+
         GUILayout.Label("TileGridMap name to save");
         _SelectedTileMapName = GUILayout.TextField(_SelectedTileMapName);
         if (GUILayout.Button("Save TileGridMap"))
@@ -51,7 +59,7 @@ public class LevelEditorWindowEditor : EditorWindow
             SaveMap();
         }
 
-        GUILayout.Space(5);
+        GUILayout.Space(10);
 
         GUILayout.Label("TileGridMap to open");
         _SelectMapToOpenIndex = EditorGUILayout.Popup(_SelectMapToOpenIndex, _TileGridMapNameList);
