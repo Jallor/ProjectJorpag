@@ -91,6 +91,8 @@ public class LevelEditorWindowEditor : EditorWindow
         GameTileGrid tileGrid = FindObjectOfType<GameTileGrid>();
 
         tileGrid.LoadTileGridMap(tileGridMapData);
+
+        _SelectedTileMapName = _TileGridMapNameList[_SelectMapToOpenIndex];
     }
 
     public void Awake()

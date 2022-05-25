@@ -269,6 +269,7 @@ public class TileRuleCreatorWindowEditor : EditorWindow
 
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
+        AllTilesList.Inst.RefreshDataList();
     }
 
     private void CreatTile(TileConfig tileConfig, string fullPath, int index, int cornerOffset)

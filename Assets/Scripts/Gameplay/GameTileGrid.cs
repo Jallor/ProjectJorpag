@@ -49,15 +49,16 @@ public class GameTileGrid : MonoBehaviour
 
         tilemapLayer.Tag = tag;
         tilemapLayer.Index = index;
-        tilemapLayer.BoundsCenter = tilemap.cellBounds.center;
-        tilemapLayer.BoundsSize = tilemap.cellBounds.size;
+        tilemapLayer.BoundsCenter = tilemap.origin;
+        tilemapLayer.BoundsSize = tilemap.size;
 
         foreach (TileBase tile in tilemap.GetTilesBlock(tilemap.cellBounds))
         {
             if (tile != null)
             {
                 SerializedTile mapTile = new SerializedTile();
-                mapTile.TileType = (ETileType)tile.name.GetHashCode();
+                string tileName =  tile.name.Replace("(Clone)", "");
+                mapTile.TileType = (ETileType)tileName.GetHashCode();
                 tilemapLayer.TileList.Add(mapTile);
             }
             else
@@ -107,8 +108,13 @@ public class GameTileGrid : MonoBehaviour
                 {
                     TileBase tile;
                     string tileNameToFind = mapLayer.TileList[i].TileType.ToString();
-                    tile = Instantiate(AllTilesList.Inst.dataList.Where(t => t.name == tileNameToFind).First());
-                    tileList[i] = tile;
+
+                    IEnumerable<TileBase> foundTiles = AllTilesList.Inst.dataList.Where(t => t.name == tileNameToFind);
+                    if (foundTiles.Count() > 0)
+                    {
+                        tile = Instantiate(foundTiles.First());
+                        tileList[i] = tile;
+                    }
                 }
             }
 
