@@ -201,10 +201,10 @@ public class TileRuleCreatorWindowEditor : EditorWindow
         Texture2D texBL = new Texture2D(24, 24);
         Texture2D texBR = new Texture2D(24, 24);
 
-        texTL.SetPixels(texToSplit.GetPixels(0, 23, 24, 24));
-        texTR.SetPixels(texToSplit.GetPixels(23, 23, 24, 24));
+        texTL.SetPixels(texToSplit.GetPixels(0, 24, 24, 24));
+        texTR.SetPixels(texToSplit.GetPixels(24, 24, 24, 24));
         texBL.SetPixels(texToSplit.GetPixels(0, 0, 24, 24));
-        texBR.SetPixels(texToSplit.GetPixels(23, 0, 24, 24));
+        texBR.SetPixels(texToSplit.GetPixels(24, 0, 24, 24));
 
         texTL.Apply();
         texTR.Apply();
