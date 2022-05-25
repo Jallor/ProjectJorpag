@@ -54,15 +54,29 @@ public class GameTileGrid : MonoBehaviour
 
         foreach (TileBase tile in tilemap.GetTilesBlock(tilemap.cellBounds))
         {
-            if (tile != null)
+            if (tile == null)
             {
                 SerializedTile mapTile = new SerializedTile();
-                string tileName =  tile.name.Replace("(Clone)", "");
+                mapTile.TileType = ETileType.NONE;
+                tilemapLayer.TileList.Add(mapTile);
+            }
+            // Basic Tile
+            //else if ()
+            //{
+            //
+            //}
+            // Rule Override Tile
+            else if (tile.GetType().IsSubclassOf(typeof(RuleOverrideTile))
+                || tile.GetType() == typeof(RuleOverrideTile))
+            {
+                SerializedTile mapTile = new SerializedTile();
+                string tileName = tile.name.Replace("(Clone)", "");
                 mapTile.TileType = (ETileType)tileName.GetHashCode();
                 tilemapLayer.TileList.Add(mapTile);
             }
             else
             {
+                Debug.Log("Tile not saved : " + tile.name + " of type " + tile.GetType());
                 SerializedTile mapTile = new SerializedTile();
                 mapTile.TileType = ETileType.NONE;
                 tilemapLayer.TileList.Add(mapTile);

@@ -24,6 +24,10 @@ public enum ETileType
 	WallMarble01TileRule = 196764074,
 	WallRock00TileRule = -1128012775,
 	WallStone00TileRule = 1615208319,
+	_Pattern_GroundRuleTile = 704368591,
+	Dirt01TileRule = -1651449938,
+	DirtInGrass00TileRule = -206586936,
+	_Pattern_WallRuleTile = -222551194,
 }
 
 
