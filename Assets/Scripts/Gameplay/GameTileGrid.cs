@@ -57,28 +57,32 @@ public class GameTileGrid : MonoBehaviour
             if (tile == null)
             {
                 SerializedTile mapTile = new SerializedTile();
-                mapTile.TileType = ETileType.NONE;
+                mapTile.Tile = null;
                 tilemapLayer.TileList.Add(mapTile);
             }
-            // Basic Tile
-            //else if ()
-            //{
-            //
-            //}
-            // Rule Override Tile
+            // Rule Override Tile & Simple sprite
             else if (tile.GetType().IsSubclassOf(typeof(RuleOverrideTile))
-                || tile.GetType() == typeof(RuleOverrideTile))
+                || tile.GetType() == typeof(RuleOverrideTile)
+                || tile.GetType() == typeof(Tile))
             {
                 SerializedTile mapTile = new SerializedTile();
                 string tileName = tile.name.Replace("(Clone)", "");
-                mapTile.TileType = (ETileType)tileName.GetHashCode();
+                IEnumerable<TileBase> foundTiles = AllTilesList.Inst.dataList.Where(t => t.name == tileName);
+                if (foundTiles.Count() > 0)
+                {
+                    mapTile.Tile = foundTiles.First();
+                }
+                else
+                {
+                    mapTile.Tile = null;
+                }
                 tilemapLayer.TileList.Add(mapTile);
             }
             else
             {
                 Debug.Log("Tile not saved : " + tile.name + " of type " + tile.GetType());
                 SerializedTile mapTile = new SerializedTile();
-                mapTile.TileType = ETileType.NONE;
+                mapTile.Tile = null;
                 tilemapLayer.TileList.Add(mapTile);
             }
         }
@@ -118,17 +122,10 @@ public class GameTileGrid : MonoBehaviour
 
             for (int i = 0; i < mapLayer.TileList.Count; i++)
             {
-                if (mapLayer.TileList[i].TileType != ETileType.NONE)
+                if (mapLayer.TileList[i].Tile != null)
                 {
-                    TileBase tile;
-                    string tileNameToFind = mapLayer.TileList[i].TileType.ToString();
-
-                    IEnumerable<TileBase> foundTiles = AllTilesList.Inst.dataList.Where(t => t.name == tileNameToFind);
-                    if (foundTiles.Count() > 0)
-                    {
-                        tile = Instantiate(foundTiles.First());
-                        tileList[i] = tile;
-                    }
+                    TileBase tile = Instantiate(mapLayer.TileList[i].Tile);
+                    tileList[i] = tile;
                 }
             }
 

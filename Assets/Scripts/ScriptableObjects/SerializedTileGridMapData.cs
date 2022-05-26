@@ -10,7 +10,7 @@ public class SerializedTileGridMapData : ScriptableObject
     [System.Serializable]
     public class SerializedTile
     {
-        public ETileType TileType;
+        public TileBase Tile;
     }
 
     [System.Serializable]
