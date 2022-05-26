@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: AllTileMaps
   m_EditorClassIdentifier: 
   dataList:
-  - {fileID: 11400000, guid: dd27d8aa1fbfeeb41a6d66373309e866, type: 2}
   - {fileID: 11400000, guid: 3171aaecda94f1c47b1a5313f1c97f95, type: 2}
-  - {fileID: 11400000, guid: 606a691245cc63545ad43b036c022f43, type: 2}
-  - {fileID: 11400000, guid: 0b737151148035f4683b3584adf7dad2, type: 2}
-  - {fileID: 11400000, guid: 0b39288ec10d12e4ea61e5578c2998ac, type: 2}
+  - {fileID: 11400000, guid: 073a1d0209619dd479e65d513537e619, type: 2}
   - {fileID: 11400000, guid: 690d32171a4542d428dbe731ea4fb0f9, type: 2}
