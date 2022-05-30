@@ -12,6 +12,7 @@ public abstract class SingletonScriptable<T> : ScriptableObject where T : Script
         {
             if (!_instance)
             {
+                Resources.LoadAll("DataList", typeof(T));
                 T[] findObjects = Resources.FindObjectsOfTypeAll<T>();
                 Debug.Assert(findObjects.Length > 0,
                     "No SingletonScriptable of type " + typeof(T).ToString());
