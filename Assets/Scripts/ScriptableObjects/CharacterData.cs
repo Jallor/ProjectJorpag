@@ -9,7 +9,9 @@ public class CharacterData : ScriptableObject
     [Required] public Sprite FaceSprite;
     [Required] public CharacterSpriteSheetData SpriteSheet;
 
+    [Header("Stats")]
     public int MaxHP = 100;
+    public float MovementSpeed = 5000;
 
     [TextArea(3, 15)]
     public string CharacterQuickDescription;

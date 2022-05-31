@@ -10,20 +10,38 @@ public class CharacterManager : MonoBehaviour
     [Required] [SerializeField] private CharacterMovement _Movement;
     [Required] [SerializeField] private CharacterSpriteAnimator _SpriteAnimator;
     [Required] [SerializeField] private CharacterData _Data;
+    private CharacterStats _Stats = new CharacterStats();
+
+    private bool _IsInitialized = false;
 
     private CharacterOrientation _CurrentOrientation = CharacterOrientation.DOWN;
     private bool _IsMoving = false;
 
     public void Start()
     {
-        _Data = Instantiate(_Data);
-
-        _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
+        Initialize();
     }
 
     public override string ToString()
     {
         return (_Data.CharaName);
+    }
+
+    private void Initialize()
+    {
+        if ( _IsInitialized)
+        {
+            return;
+        }
+
+        _Data = Instantiate(_Data);
+
+        _Stats.Life.Init(_Data.MaxHP);
+        _Stats.MovementSpeed.Init(_Data.MovementSpeed);
+
+        _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
+
+        _IsInitialized = true;
     }
 
     public void GiveMoveInput(Vector2 newDir)
@@ -70,7 +88,8 @@ public class CharacterManager : MonoBehaviour
     #region Getters
     public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
 
-    // TODO : get this var in manageer
-    public int GetMaxHP() => (_Data.MaxHP);
+    public int GetCurrentHP() => ((int)_Stats.Life.CurrentValue);
+    public int GetMaxHP() => ((int)_Stats.Life.MaxValue);
+    public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.CurrentValue);
     #endregion
 }

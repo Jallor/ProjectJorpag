@@ -11,7 +11,7 @@ public class CharacterMovement : MonoBehaviour
     public void Update()
     {
         _Rigidbody2D.velocity /= 100;
-        _Rigidbody2D.AddForce(_LastInputs * Time.deltaTime * 2000);
+        _Rigidbody2D.AddForce(_LastInputs * Time.deltaTime * _CharaManager.GetCurrentMovementSpeed());
     }
 
     public void GiveInput(Vector2 newInput)
