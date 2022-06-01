@@ -36,7 +36,9 @@ public class CharacterManager : MonoBehaviour
 
         _Data = Instantiate(_Data);
 
+        _Stats.Life = new CharacterStats.ConsomableStat();
         _Stats.Life.Init(_Data.MaxHP);
+        _Stats.MovementSpeed = new CharacterStats.ConsomableStat();
         _Stats.MovementSpeed.Init(_Data.MovementSpeed);
 
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);

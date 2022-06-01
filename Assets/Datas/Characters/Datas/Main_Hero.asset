@@ -16,6 +16,7 @@ MonoBehaviour:
   FaceSprite: {fileID: -1720691093, guid: b89ecfc0d29e1d24ba9ae6fd27c6e80a, type: 3}
   SpriteSheet: {fileID: 11400000, guid: 3dab2517f28ee9d409a5d6e163bf8010, type: 2}
   MaxHP: 100
+  MovementSpeed: 3500
   CharacterQuickDescription: "Le perso principale, \xE0 la base pens\xE9 pour se
     baser sur Alphen, y a moyen de s'en d\xE9tacher.\nIl reste n\xE9anmoins la porte
     d'entr\xE9 dans l'histoire et les yeux du joueur.\nDe plus, il aura pour mission
