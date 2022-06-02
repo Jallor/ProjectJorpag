@@ -5,7 +5,6 @@ public class PlayerController : CharacterController
 {
     public void Update()
     {
-
         if (GameManager.Inst && !GameManager.Inst.CanCharactersAct())
         {
             _CharaManager.GiveMoveInput(Vector2.zero);
@@ -30,12 +29,11 @@ public class PlayerController : CharacterController
         {
             ++newDir.x;
         }
-
         _CharaManager.GiveMoveInput(newDir);
 
         if (Input.GetKeyDown(KeyCode.T))
         {
-            // Play tmp skill
+            _CharaManager.TryPlaySkill();
         }
     }
 }

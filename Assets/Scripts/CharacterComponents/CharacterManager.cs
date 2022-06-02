@@ -10,6 +10,7 @@ public class CharacterManager : MonoBehaviour
     [Required] [SerializeField] private CharacterMovement _Movement;
     [Required] [SerializeField] private CharacterSpriteAnimator _SpriteAnimator;
     [Required] [SerializeField] private CharacterData _Data;
+    [Required] [SerializeField] private SkillCharacterManager _SkillManager;
     private CharacterStats _Stats = new CharacterStats();
 
     private bool _IsInitialized = false;
@@ -17,7 +18,6 @@ public class CharacterManager : MonoBehaviour
     private CharacterOrientation _CurrentOrientation = CharacterOrientation.DOWN;
     private bool _IsMoving = false;
 
-    private SkillData _CurrentPlayedSkill = null;
 
     public void Start()
     {
@@ -43,6 +43,8 @@ public class CharacterManager : MonoBehaviour
         _Stats.MovementSpeed = new CharacterStats.ConsomableStat();
         _Stats.MovementSpeed.Init(_Data.MovementSpeed);
 
+        _SkillManager.Initialize(this);
+
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
 
         _IsInitialized = true;
@@ -50,11 +52,15 @@ public class CharacterManager : MonoBehaviour
 
     public void GiveMoveInput(Vector2 newDir)
     {
+        Vector2 modifiedDir = newDir;
 
+        if (!CanCharacterMove())
+        {
+            modifiedDir = Vector2.zero;
+        }
+        _Movement.GiveInput(modifiedDir);
 
-        _Movement.GiveInput(newDir);
-
-        if (newDir == Vector2.zero)
+        if (newDir == Vector2.zero || !CanCharacterRotate())
         {
             if (_IsMoving)
             {
@@ -91,11 +97,16 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void TryPlaySkill()
+    {
+        _SkillManager.TryPlaySkill(_Data.TMP_SkillData);
+    }
+
     public bool CanCharacterMove()
     {
         if (IsPlayingSkill())
         {
-            return (_CurrentPlayedSkill.AllowMovement);
+            return (_SkillManager.IsMovementAllowed());
         }
 
         return (true);
@@ -105,14 +116,14 @@ public class CharacterManager : MonoBehaviour
     {
         if (IsPlayingSkill())
         {
-            return (_CurrentPlayedSkill.AllowRotation);
+            return (_SkillManager.IsRotationAllowed());
         }
 
         return (true);
     }
 
     #region Getters
-    public bool IsPlayingSkill() => (_CurrentPlayedSkill != null);
+    public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
 
     public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
 
