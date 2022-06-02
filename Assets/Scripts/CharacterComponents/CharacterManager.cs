@@ -17,6 +17,8 @@ public class CharacterManager : MonoBehaviour
     private CharacterOrientation _CurrentOrientation = CharacterOrientation.DOWN;
     private bool _IsMoving = false;
 
+    private SkillData _CurrentPlayedSkill = null;
+
     public void Start()
     {
         Initialize();
@@ -48,6 +50,8 @@ public class CharacterManager : MonoBehaviour
 
     public void GiveMoveInput(Vector2 newDir)
     {
+
+
         _Movement.GiveInput(newDir);
 
         if (newDir == Vector2.zero)
@@ -87,11 +91,35 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public bool CanCharacterMove()
+    {
+        if (IsPlayingSkill())
+        {
+            return (_CurrentPlayedSkill.AllowMovement);
+        }
+
+        return (true);
+    }
+
+    public bool CanCharacterRotate()
+    {
+        if (IsPlayingSkill())
+        {
+            return (_CurrentPlayedSkill.AllowRotation);
+        }
+
+        return (true);
+    }
+
     #region Getters
+    public bool IsPlayingSkill() => (_CurrentPlayedSkill != null);
+
     public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
 
     public int GetCurrentHP() => ((int)_Stats.Life.CurrentValue);
+
     public int GetMaxHP() => ((int)_Stats.Life.MaxValue);
+
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.CurrentValue);
     #endregion
 }

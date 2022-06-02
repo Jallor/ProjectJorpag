@@ -9,6 +9,9 @@ public class CharacterData : ScriptableObject
     [Required] public Sprite FaceSprite;
     [Required] public CharacterSpriteSheetData SpriteSheet;
 
+    // TODO to replace
+    public SkillData TMP_SkillData;
+
     [Header("Stats")]
     public int MaxHP = 100;
     public float MovementSpeed = 5000;
