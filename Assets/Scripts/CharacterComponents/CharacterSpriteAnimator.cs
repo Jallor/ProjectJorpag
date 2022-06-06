@@ -7,6 +7,7 @@ public class CharacterSpriteAnimator : MonoBehaviour
     [Required] [SerializeField] private CharacterManager _CharaManager;
 
     [Required] [SerializeField] private SpriteRenderer _SprRend;
+    [Required] [SerializeField] private SpriteRenderer _WeaponObject;
 
     [Header("Animation Parameters")]
     [SerializeField] private float _FrameDuration = 0.5f;
@@ -37,6 +38,7 @@ public class CharacterSpriteAnimator : MonoBehaviour
     public void Start()
     {
         _SprRend.sprite = _SpriteSheet.GetDefaultSprite();
+        HideWeapon();
     }
 
     public void Update()
@@ -82,5 +84,32 @@ public class CharacterSpriteAnimator : MonoBehaviour
         _IsLooping = isLooping;
         _FrameClock = 0;
         _SprRend.sprite = spriteList[0];
+    }
+
+    // Position is for CharacterOrientation down
+    public void DisplayWeapon(Vector2 position)
+    {
+        _WeaponObject.gameObject.gameObject.SetActive(true);
+
+        Vector2 orientedPosition = position;
+        switch (_CharaManager.GetCharacterOrientation())
+        {
+            case CharacterOrientation.LEFT:
+                orientedPosition = new Vector2(orientedPosition.y, -orientedPosition.x);
+                break;
+            case CharacterOrientation.RIGHT:
+                orientedPosition = new Vector2(-orientedPosition.y, orientedPosition.x);
+                break;
+            case CharacterOrientation.TOP:
+                orientedPosition = new Vector2(-orientedPosition.x, -orientedPosition.y);
+                break;
+        }
+        _WeaponObject.transform.localPosition =
+            new Vector3(orientedPosition.x, orientedPosition.y, _WeaponObject.transform.localPosition.z);
+    }
+
+    public void HideWeapon()
+    {
+        _WeaponObject.gameObject.gameObject.SetActive(false);
     }
 }

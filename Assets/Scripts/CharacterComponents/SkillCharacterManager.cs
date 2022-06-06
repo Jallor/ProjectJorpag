@@ -27,9 +27,20 @@ public class SkillCharacterManager : MonoBehaviour
 
     private IEnumerator StartPlaySkill()
     {
-        print("start skill play");
-        yield return new WaitForSeconds(10f);
-        print("end skill");
+        foreach (SkillAnimationPart animPart in _CurrentPlayedSkill.AnimationsList)
+        {
+            if (animPart.DisplayWeapon)
+            {
+                _CharacterManager.GetSpriteAnimator().DisplayWeapon(animPart.WeaponPosition);
+            }
+            else
+            {
+                _CharacterManager.GetSpriteAnimator().HideWeapon();
+            }
+            yield return new WaitForSeconds(animPart.AnimPartDuration);
+        }
+
+        _CharacterManager.GetSpriteAnimator().HideWeapon();
         EndPlayingSkill();
     }
 

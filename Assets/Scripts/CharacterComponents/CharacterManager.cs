@@ -125,7 +125,11 @@ public class CharacterManager : MonoBehaviour
     #region Getters
     public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
 
+    public CharacterSpriteAnimator GetSpriteAnimator() => (_SpriteAnimator);
+
     public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
+
+    public CharacterOrientation GetCharacterOrientation() => (_CurrentOrientation);
 
     public int GetCurrentHP() => ((int)_Stats.Life.CurrentValue);
 

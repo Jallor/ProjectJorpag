@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3830a4bb668d7a4180cada94cf48570, type: 3}
   m_Name: TMP_TEST_SKILL
   m_EditorClassIdentifier: 
-  AllowMovement: 1
+  AllowMovement: 0
   AllowRotation: 0
+  AnimationsList:
+  - AnimPartDuration: 2
+    DisplayWeapon: 1
+    WeaponPosition: {x: 0.05, y: -0.24}
