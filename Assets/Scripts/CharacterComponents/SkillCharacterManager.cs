@@ -31,7 +31,7 @@ public class SkillCharacterManager : MonoBehaviour
         {
             if (animPart.DisplayWeapon)
             {
-                _CharacterManager.GetSpriteAnimator().DisplayWeapon(animPart.WeaponPosition);
+                _CharacterManager.GetSpriteAnimator().DisplayWeapon(animPart.WeaponPosition, animPart.WeaponRotation);
             }
             else
             {

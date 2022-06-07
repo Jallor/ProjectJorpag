@@ -15,6 +15,7 @@ MonoBehaviour:
   AllowMovement: 0
   AllowRotation: 0
   AnimationsList:
-  - AnimPartDuration: 2
+  - AnimPartDuration: 0.25
     DisplayWeapon: 1
-    WeaponPosition: {x: 0.05, y: -0.24}
+    WeaponPosition: {x: 0, y: 0}
+    WeaponRotation: 0

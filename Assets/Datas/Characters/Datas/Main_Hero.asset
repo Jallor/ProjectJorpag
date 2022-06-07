@@ -15,6 +15,7 @@ MonoBehaviour:
   CharaName: '[Hero]'
   FaceSprite: {fileID: -1720691093, guid: b89ecfc0d29e1d24ba9ae6fd27c6e80a, type: 3}
   SpriteSheet: {fileID: 11400000, guid: 3dab2517f28ee9d409a5d6e163bf8010, type: 2}
+  DefaultWeapon: {fileID: 11400000, guid: 897c921b1ddf3dc498310e98df3cd474, type: 2}
   TMP_SkillData: {fileID: 11400000, guid: 1dd850f9de52ce24491913b9f925dcf5, type: 2}
   MaxHP: 100
   MovementSpeed: 3500

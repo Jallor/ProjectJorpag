@@ -45,6 +45,7 @@ public class CharacterManager : MonoBehaviour
 
         _SkillManager.Initialize(this);
 
+        _SpriteAnimator.SetWeapon(GetDefaultWeapon());
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
 
         _IsInitialized = true;
@@ -136,5 +137,7 @@ public class CharacterManager : MonoBehaviour
     public int GetMaxHP() => ((int)_Stats.Life.MaxValue);
 
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.CurrentValue);
+
+    public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
     #endregion
 }

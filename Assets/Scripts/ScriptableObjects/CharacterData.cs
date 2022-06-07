@@ -9,6 +9,7 @@ public class CharacterData : ScriptableObject
     [Required] public Sprite FaceSprite;
     [Required] public CharacterSpriteSheetData SpriteSheet;
 
+    public WeaponData DefaultWeapon;
     // TODO to replace
     public SkillData TMP_SkillData;
 
