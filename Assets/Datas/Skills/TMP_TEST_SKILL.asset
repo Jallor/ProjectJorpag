@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3830a4bb668d7a4180cada94cf48570, type: 3}
   m_Name: TMP_TEST_SKILL
   m_EditorClassIdentifier: 
-  AllowMovement: 0
+  AllowMovement: 1
   AllowRotation: 0
   AnimationsList:
-  - AnimPartDuration: 0.25
-    DisplayWeapon: 1
-    WeaponPosition: {x: 0, y: 0}
-    WeaponRotation: 0
+  - rid: 62676888306843648
+  references:
+    version: 2
+    RefIds:
+    - rid: 62676888306843648
+      type: {class: SkillAnimPart_BasicWpDisplay, ns: , asm: Assembly-CSharp}
+      data:
+        AnimPartDuration: 0.2
+        WeaponPosition: {x: -0.2, y: 0}
+        EndWeaponPosition: {x: 0.2, y: -0.1}
+        WeaponRotation: -45
+        EndWeaponRotation: 45

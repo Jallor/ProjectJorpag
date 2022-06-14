@@ -102,7 +102,7 @@ public class CharacterSpriteAnimator : MonoBehaviour
         _SprRend.sprite = spriteList[0];
     }
 
-    // Position is for CharacterOrientation down
+    // Base Position is for CharacterOrientation down
     public void DisplayWeapon(Vector2 wpPosition, float wpRotation)
     {
         _WeaponObject.gameObject.gameObject.SetActive(true);
@@ -112,30 +112,32 @@ public class CharacterSpriteAnimator : MonoBehaviour
         switch (_CharaManager.GetCharacterOrientation())
         {
             case CharacterOrientation.DOWN:
-                orientedPosition = new Vector2(_WeaponPositionDown.localPosition.x,
-                    _WeaponPositionDown.localPosition.y);
+                orientedPosition = new Vector2(
+                    _WeaponPositionDown.localPosition.x + wpPosition.x,
+                    _WeaponPositionDown.localPosition.y + wpPosition.y);
                 break;
             case CharacterOrientation.LEFT:
-                orientedPosition = new Vector2(_WeaponPositionLeft.localPosition.x,
-                    _WeaponPositionLeft.localPosition.y);
+                orientedPosition = new Vector2(
+                    _WeaponPositionLeft.localPosition.x + wpPosition.y,
+                    _WeaponPositionLeft.localPosition.y + -wpPosition.x);
                 orientedRotation -= 90f;
                 break;
             case CharacterOrientation.RIGHT:
-                orientedPosition = new Vector2(_WeaponPositionRight.localPosition.x,
-                    _WeaponPositionRight.localPosition.y);
+                orientedPosition = new Vector2(
+                    _WeaponPositionRight.localPosition.x + -wpPosition.y,
+                    _WeaponPositionRight.localPosition.y + wpPosition.x);
                 orientedRotation += 90f;
                 break;
             case CharacterOrientation.TOP:
-                orientedPosition = new Vector2(_WeaponPositionUp.localPosition.x,
-                    _WeaponPositionUp.localPosition.y);
+                orientedPosition = new Vector2(
+                    _WeaponPositionUp.localPosition.x + -wpPosition.x,
+                    _WeaponPositionUp.localPosition.y + -wpPosition.y);
                 orientedRotation += 180f;
                 break;
         }
         _WeaponObject.transform.localPosition =
-            new Vector3(orientedPosition.x + wpPosition.x, orientedPosition.y + wpPosition.y,
-            _WeaponObject.transform.localPosition.z);
-        _WeaponObject.transform.localEulerAngles =
-            new Vector3(0, 0, orientedRotation);
+            new Vector3(orientedPosition.x, orientedPosition.y, _WeaponObject.transform.localPosition.z);
+        _WeaponObject.transform.localEulerAngles = new Vector3(0, 0, orientedRotation);
     }
 
     public void HideWeapon()

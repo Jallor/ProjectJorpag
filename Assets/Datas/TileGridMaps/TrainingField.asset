@@ -996,7 +996,7 @@ MonoBehaviour:
     - Tile: {fileID: 0}
     - Tile: {fileID: 0}
     - Tile: {fileID: 0}
-    - Tile: {fileID: 0}
+    - Tile: {fileID: 11400000, guid: bf0ea291bafb5e047b20d0969d20016b, type: 2}
     - Tile: {fileID: 0}
     - Tile: {fileID: 0}
     - Tile: {fileID: 0}
