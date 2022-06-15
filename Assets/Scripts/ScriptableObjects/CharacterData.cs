@@ -1,7 +1,7 @@
 using UnityEngine;
 using NaughtyAttributes;
 
-[CreateAssetMenu(fileName = "NewCharacterData", menuName = "Data/Character Data")]
+[CreateAssetMenu(fileName = "NewCharacterData", menuName = "Data/Character")]
 public class CharacterData : ScriptableObject
 {
     public string CharaName = "";

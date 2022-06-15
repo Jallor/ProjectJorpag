@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b37008b79485c40bf99a565052843d, type: 3}
+  m_Name: Guard
+  m_EditorClassIdentifier: 
+  CharaName: Gard
+  FaceSprite: {fileID: 2010564015, guid: a43ddec7b11938a4cb9b77dbb8ef59ca, type: 3}
+  SpriteSheet: {fileID: 11400000, guid: 2148384649ec2654e87e8f28eea648d3, type: 2}
+  DefaultWeapon: {fileID: 11400000, guid: 57ab2e9bce524794eaf16848d6b1514e, type: 2}
+  TMP_SkillData: {fileID: 11400000, guid: 1dd850f9de52ce24491913b9f925dcf5, type: 2}
+  MaxHP: 100
+  MovementSpeed: 3500
+  CharacterQuickDescription: 
