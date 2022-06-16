@@ -55,6 +55,12 @@ public class CharacterSpriteAnimator : MonoBehaviour
     {
         _CurrentWeapon = weapon;
         _WeaponObject.sprite = _CurrentWeapon.Sprite;
+        PolygonCollider2D collider = _WeaponObject.GetComponent<PolygonCollider2D>();
+        if (collider)
+        {
+            Destroy(collider);
+        }
+        _WeaponObject.gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
     }
 
     public void Update()
