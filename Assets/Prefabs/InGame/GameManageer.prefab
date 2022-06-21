@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7051313399385424348}
   - component: {fileID: 7051313399385424351}
+  - component: {fileID: 3951435707904655689}
   m_Layer: 0
   m_Name: GameManageer
   m_TagString: Untagged
@@ -45,3 +46,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _DontDestroyOnLoad: 0
+  _TileGrid: {fileID: 0}
+  _EntitySpawner: {fileID: 3951435707904655689}
+  _DefaultScenari: {fileID: 0}
+--- !u!114 &3951435707904655689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051313399385424350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 046089f407631e749aa996a98439272e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PlayerPrefab: {fileID: 0}
+  _BaseCharacterPrefab: {fileID: 0}

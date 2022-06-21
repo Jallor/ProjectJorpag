@@ -4,7 +4,7 @@ using NaughtyAttributes;
 using static CharacterSpriteAnimator;
 
 [RequireComponent(typeof(CharacterMovement), typeof(CharacterSpriteAnimator))]
-public class CharacterManager : MonoBehaviour
+public class CharacterManager : MonoBehaviour, IWorldEntity
 {
     [Required] [SerializeField] private CharacterController _Controller;
     [Required] [SerializeField] private CharacterMovement _Movement;
@@ -12,6 +12,8 @@ public class CharacterManager : MonoBehaviour
     [Required] [SerializeField] private CharacterData _Data;
     [Required] [SerializeField] private SkillCharacterManager _SkillManager;
     private CharacterStats _Stats = new CharacterStats();
+
+    private IWorldEntity.EEntityType _EntityType = IWorldEntity.EEntityType.NONE;
 
     private bool _IsInitialized = false;
 
@@ -124,6 +126,10 @@ public class CharacterManager : MonoBehaviour
     }
 
     #region Getters
+    public void SetEntityType(IWorldEntity.EEntityType entityType) => _EntityType = entityType;
+
+    public IWorldEntity.EEntityType GetEntityType() => (_EntityType);
+
     public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
 
     public CharacterSpriteAnimator GetSpriteAnimator() => (_SpriteAnimator);
@@ -139,5 +145,6 @@ public class CharacterManager : MonoBehaviour
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.CurrentValue);
 
     public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
+
     #endregion
 }

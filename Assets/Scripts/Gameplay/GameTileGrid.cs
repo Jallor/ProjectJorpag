@@ -137,4 +137,11 @@ public class GameTileGrid : MonoBehaviour
             tilemapToUse.SetTilesBlock(bounds, tileList);
         }
     }
+
+    public Vector3 GridPositionToWorldPosition(Vector2Int gridPosition)
+    {
+        Vector3 worldPosition = _BackgroundTilemaps[0].GetCellCenterWorld(new Vector3Int(gridPosition.x, gridPosition.y, 0));
+        
+        return (new Vector3(worldPosition.x, worldPosition.y, 0));
+    }
 }
