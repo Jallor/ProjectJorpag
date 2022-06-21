@@ -2,7 +2,7 @@ using UnityEngine;
 using NaughtyAttributes;
 
 [CreateAssetMenu(fileName = "NewCharacterData", menuName = "Data/Character")]
-public class CharacterData : ScriptableObject
+public class CharacterData : ScriptableObject, IWorldEntityData
 {
     public string CharaName = "";
     [ShowAssetPreview]
