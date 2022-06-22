@@ -14,6 +14,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     private CharacterStats _Stats = new CharacterStats();
 
     private IWorldEntity.EEntityType _EntityType = IWorldEntity.EEntityType.NONE;
+    private int _EntityID = -1;
 
     private bool _IsInitialized = false;
 
@@ -127,8 +128,19 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     #region Getters
     public void SetEntityType(IWorldEntity.EEntityType entityType) => _EntityType = entityType;
-
     public IWorldEntity.EEntityType GetEntityType() => (_EntityType);
+
+    public void SetEntityID(int entityID) => _EntityID = entityID;
+    public int GetEntityID() => (_EntityID);
+
+    public Vector2Int GetWorldPosition()
+    {
+        throw new System.NotImplementedException();
+    }
+    public Vector3 GetGridPosition()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
 
@@ -145,6 +157,5 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.CurrentValue);
 
     public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
-
     #endregion
 }

@@ -6,6 +6,7 @@ Each entity have a unique ID. It's an unique unsigned int between 0 and int.maxV
 ID between 0 and 1000 can't be randomly assigned, they are reserved for explicite IDs.
 Those explicite IDs are set by the meta data of the map, for example when you place a character in a specific position
 ID 0 is only for the player
+ID -1 is an error or for an entity that is not initialized. It must not appear during game
 
 Having EntityID will be used by VarSelector to find an entity, wherever it is
 Having EntityID for specified in MapMetaData will be used to link entities with the rest of the logic of the map

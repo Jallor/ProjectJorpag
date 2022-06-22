@@ -9,6 +9,8 @@ public interface IWorldEntity
         BASE_CHARACTER = 2,
     }
 
+    public void SetEntityData(IWorldEntityData entityData);
+
     public void SetEntityType(EEntityType entityType);
     public EEntityType GetEntityType();
 

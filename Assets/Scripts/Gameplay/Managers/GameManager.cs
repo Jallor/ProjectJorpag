@@ -8,7 +8,7 @@ public class GameManager : MonobehaviourSingleton<GameManager>
     [SerializeField] private GameTileGrid _TileGrid;
     [SerializeField] private EntitySpawnerManager _EntitySpawner;
 
-    //
+    // Other stuff ("Defautl value still at the end")
 
     [Header("Defaults value")]
     [SerializeField] private ScenariMapData _DefaultScenari;
