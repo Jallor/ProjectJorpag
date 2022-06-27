@@ -6,7 +6,7 @@ public class GameManager : MonobehaviourSingleton<GameManager>
     [Header("Managers")]
     [Required]
     [SerializeField] private GameTileGrid _TileGrid;
-    [SerializeField] private EntitySpawnerManager _EntitySpawner;
+    [SerializeField] private EntityManager _EntityManager;
 
     // Other stuff ("Defautl value still at the end")
 
@@ -34,13 +34,18 @@ public class GameManager : MonobehaviourSingleton<GameManager>
         foreach (TileMapMetaData.SpawnData spawnData in scenariToLoad.MapMetaData.SpawnDataList)
         {
             Vector3 position = _TileGrid.GridPositionToWorldPosition(spawnData.SpawnPoint);
-            if (spawnData.IsPlayer)
+            if (true) // is character
             {
-
-            }
-            else
-            {
-
+                if (spawnData.IsPlayer)
+                {
+                    _EntityManager.SpawnEntity(IWorldEntity.EEntityType.PLAYER,
+                        spawnData.CharaData, position, 0);
+                }
+                else
+                {
+                    _EntityManager.SpawnEntity(IWorldEntity.EEntityType.BASE_CHARACTER,
+                        spawnData.CharaData, position);
+                }
             }
         }
 

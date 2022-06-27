@@ -3,7 +3,7 @@ They will be mostly character like the player, but it can also something else (t
 
 Entity ID
 Each entity have a unique ID. It's an unique unsigned int between 0 and int.maxValue (~2milliard)
-ID between 0 and 1000 can't be randomly assigned, they are reserved for explicite IDs.
+ID between 0 and 10.000 can't be randomly assigned, they are reserved for explicite IDs.
 Those explicite IDs are set by the meta data of the map, for example when you place a character in a specific position
 ID 0 is only for the player
 ID -1 is an error or for an entity that is not initialized. It must not appear during game

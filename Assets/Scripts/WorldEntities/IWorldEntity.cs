@@ -10,6 +10,7 @@ public interface IWorldEntity
     }
 
     public void SetEntityData(IWorldEntityData entityData);
+    public IWorldEntityData GetEntityData();
 
     public void SetEntityType(EEntityType entityType);
     public EEntityType GetEntityType();

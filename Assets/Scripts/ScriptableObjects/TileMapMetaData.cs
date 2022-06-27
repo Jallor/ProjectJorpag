@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="NewTileMapMetaData", menuName ="Data/Map MetaData")]
 public class TileMapMetaData : ScriptableObject
 {
-    [SerializeField]
+    [System.Serializable]
     public class SpawnData
     {
         public CharacterData CharaData;

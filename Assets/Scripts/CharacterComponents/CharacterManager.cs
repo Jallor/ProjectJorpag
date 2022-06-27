@@ -39,12 +39,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
             return;
         }
 
-        _Data = Instantiate(_Data);
-
-        _Stats.Life = new CharacterStats.ConsomableStat();
-        _Stats.Life.Init(_Data.MaxHP);
-        _Stats.MovementSpeed = new CharacterStats.ConsomableStat();
-        _Stats.MovementSpeed.Init(_Data.MovementSpeed);
+        // To change
+        SetEntityData(_Data);
 
         _SkillManager.Initialize(this);
 
@@ -126,7 +122,20 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         return (true);
     }
 
-    #region Getters
+    #region IWorldEntity
+    public void SetEntityData(IWorldEntityData entityData)
+    {
+        CharacterData dataToApply = (CharacterData)entityData;
+        Debug.Assert(dataToApply != null);
+        _Data = Instantiate(dataToApply);
+
+        _Stats.Life = new CharacterStats.ConsomableStat();
+        _Stats.Life.Init(_Data.MaxHP);
+        _Stats.MovementSpeed = new CharacterStats.ConsomableStat();
+        _Stats.MovementSpeed.Init(_Data.MovementSpeed);
+    }
+    public IWorldEntityData GetEntityData() => (_Data);
+
     public void SetEntityType(IWorldEntity.EEntityType entityType) => _EntityType = entityType;
     public IWorldEntity.EEntityType GetEntityType() => (_EntityType);
 
@@ -141,7 +150,9 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     {
         throw new System.NotImplementedException();
     }
+    #endregion
 
+    #region Getters
     public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
 
     public CharacterSpriteAnimator GetSpriteAnimator() => (_SpriteAnimator);

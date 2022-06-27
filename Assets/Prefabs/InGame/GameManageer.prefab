@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _DontDestroyOnLoad: 0
   _TileGrid: {fileID: 0}
-  _EntitySpawner: {fileID: 3951435707904655689}
-  _DefaultScenari: {fileID: 0}
+  _EntityManager: {fileID: 3951435707904655689}
+  _DefaultScenari: {fileID: 11400000, guid: f26d1f383d7c78a418b4af3361cb34b3, type: 2}
 --- !u!114 &3951435707904655689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,5 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 046089f407631e749aa996a98439272e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _PlayerPrefab: {fileID: 0}
-  _BaseCharacterPrefab: {fileID: 0}
+  _MinAvailableEntityID: 1001
+  _PlayerPrefab: {fileID: 4326294927685828883, guid: 691398baae6c77541a026da28a29839a, type: 3}
+  _BaseCharacterPrefab: {fileID: 4326294927685828883, guid: 691398baae6c77541a026da28a29839a, type: 3}

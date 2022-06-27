@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 public class LevelEditorWindowEditor : EditorWindow
 {
     private const string _LevelEditorSceneName = "LevelEditor";
-    private const string _TileMapsPath = "Datas/TileGridMaps";
+    private const string _TileMapsPath = "Datas/Scenaris/TileGridMaps";
 
     private static LevelEditorWindowEditor _CurrentWindow;
 
