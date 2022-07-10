@@ -4,7 +4,7 @@ using NaughtyAttributes;
 public class FollowCharacterCamera : MonoBehaviour
 {
     private Camera _CurrentCamera = null;
-    [SerializeField] private CharacterManager _CharacterToFollow = null;
+    [SerializeField] private IWorldEntity _EntityToFollow = null;
     [SerializeField] private float _CameraSpeed = 2f;
 
     [MinMaxSlider(0.0f, 1.0f)]
@@ -18,8 +18,12 @@ public class FollowCharacterCamera : MonoBehaviour
 
     public void Update()
     {
-        if (_CharacterToFollow == null)
+        if (_EntityToFollow == null)
         {
+            if (EntityManager.Inst != null)
+            {
+                _EntityToFollow = EntityManager.Inst.TryGetEntityByID(0);
+            }
             return;
         }
         if (_CurrentCamera == null)
@@ -27,7 +31,9 @@ public class FollowCharacterCamera : MonoBehaviour
             _CurrentCamera = Camera.main;
         }
 
-        Vector2 charaCurrentInCamPos = _CurrentCamera.WorldToScreenPoint(_CharacterToFollow.transform.position);
+        Vector3 entityPosition = _EntityToFollow.GetWorldPosition();
+
+        Vector2 charaCurrentInCamPos = _CurrentCamera.WorldToScreenPoint(entityPosition);
         Vector2 charaPercentPos = new Vector2(charaCurrentInCamPos.x / _CurrentCamera.pixelWidth,
             charaCurrentInCamPos.y / _CurrentCamera.pixelHeight);
 
@@ -41,7 +47,7 @@ public class FollowCharacterCamera : MonoBehaviour
             {
                 float leftBound = _CurrentCamera.pixelWidth * _HardHorizontalBound.x;
                 float leftBoundPosition = _CurrentCamera.ScreenToWorldPoint(new Vector3(leftBound, 0, 0)).x;
-                offsetToApply.x += _CharacterToFollow.transform.position.x - leftBoundPosition;
+                offsetToApply.x += entityPosition.x - leftBoundPosition;
             }
         }
         // Check Right
@@ -53,7 +59,7 @@ public class FollowCharacterCamera : MonoBehaviour
             {
                 float rightBound = _CurrentCamera.pixelWidth * _HardHorizontalBound.y;
                 float rightBoundPosition = _CurrentCamera.ScreenToWorldPoint(new Vector3(rightBound, 0, 0)).x;
-                offsetToApply.x += _CharacterToFollow.transform.position.x - rightBoundPosition;
+                offsetToApply.x += entityPosition.x - rightBoundPosition;
             }
         }
         // Check Bottom
@@ -65,7 +71,7 @@ public class FollowCharacterCamera : MonoBehaviour
             {
                 float bottomBound = _CurrentCamera.pixelHeight * _HardVerticalBound.x;
                 float bottomBoundPosition = _CurrentCamera.ScreenToWorldPoint(new Vector3(0, bottomBound, 0)).y;
-                offsetToApply.y += _CharacterToFollow.transform.position.y - bottomBoundPosition;
+                offsetToApply.y += entityPosition.y - bottomBoundPosition;
             }
         }
         // Check Top
@@ -77,7 +83,7 @@ public class FollowCharacterCamera : MonoBehaviour
             {
                 float topBound = _CurrentCamera.pixelHeight * _HardVerticalBound.y;
                 float topBoundPosition = _CurrentCamera.ScreenToWorldPoint(new Vector3(0, topBound, 0)).y;
-                offsetToApply.y += _CharacterToFollow.transform.position.y - topBoundPosition;
+                offsetToApply.y += entityPosition.y - topBoundPosition;
             }
         }
         _CurrentCamera.transform.Translate(offsetToApply);
