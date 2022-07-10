@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8b6080fba7a5a498216aca545327d8, type: 3}
   m_Name: 000_a_TrainingField
   m_EditorClassIdentifier: 
-  TileMap: {fileID: 0}
+  TileMap: {fileID: 11400000, guid: 690d32171a4542d428dbe731ea4fb0f9, type: 2}
   MapMetaData: {fileID: 11400000, guid: 0c6fc8c59b8d91b48b5634b0c3a631a6, type: 2}
   FirstCinematic: {fileID: 0}

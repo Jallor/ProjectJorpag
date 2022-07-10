@@ -129,6 +129,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         Debug.Assert(dataToApply != null);
         _Data = Instantiate(dataToApply);
 
+        _SpriteAnimator.UpdateSpriteSheet(_Data.SpriteSheet);
+
         _Stats.Life = new CharacterStats.ConsomableStat();
         _Stats.Life.Init(_Data.MaxHP);
         _Stats.MovementSpeed = new CharacterStats.ConsomableStat();

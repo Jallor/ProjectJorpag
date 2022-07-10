@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &363860571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6327564463277830320, guid: 977a3c55e568ed849b66a70f1f7f3558, type: 3}
+  m_PrefabInstance: {fileID: 8472124168507191329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85232ee7f8c68984c98f481014c72295, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,7 +426,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184733597397805619, guid: 691398baae6c77541a026da28a29839a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4326294927461228963, guid: 691398baae6c77541a026da28a29839a, type: 3}
       propertyPath: m_RootOrder
@@ -534,6 +545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManageer
       objectReference: {fileID: 0}
+    - target: {fileID: 7051313399385424351, guid: 2a9e4c70831746d499ce419a23d7d6f2, type: 3}
+      propertyPath: _TileGrid
+      value: 
+      objectReference: {fileID: 363860571}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a9e4c70831746d499ce419a23d7d6f2, type: 3}
 --- !u!1001 &7842299647542688430

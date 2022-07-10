@@ -24,6 +24,11 @@ public class BasicMovementCharacterController : CharacterController
             return;
         }
 
+        if (MovementData.Count == 0)
+        {
+            _CharaManager.GiveMoveInput(Vector2.zero);
+            return;
+        }
         _CharaManager.GiveMoveInput(MovementData[_CurrentMovementIndex].Direction);
 
         _CurrentMoveDuration += Time.deltaTime;

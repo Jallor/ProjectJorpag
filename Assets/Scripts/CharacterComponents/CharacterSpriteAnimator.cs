@@ -51,6 +51,12 @@ public class CharacterSpriteAnimator : MonoBehaviour
         HideWeapon();
     }
 
+    public void UpdateSpriteSheet(CharacterSpriteSheetData newSpriteSheet)
+    {
+        _SpriteSheet = newSpriteSheet;
+        PlayIdleAnimation(_CharaManager.GetCharacterOrientation());
+    }
+
     public void SetWeapon(WeaponData weapon)
     {
         _CurrentWeapon = weapon;

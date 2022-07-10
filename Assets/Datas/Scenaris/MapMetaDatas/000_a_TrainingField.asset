@@ -16,3 +16,9 @@ MonoBehaviour:
   - CharaData: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
     IsPlayer: 1
     SpawnPoint: {x: 0, y: 0}
+  - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+    IsPlayer: 0
+    SpawnPoint: {x: 5, y: 5}
+  - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+    IsPlayer: 0
+    SpawnPoint: {x: -5, y: -5}

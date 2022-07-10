@@ -39,6 +39,7 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
         entity.SetEntityData(entityData);
         entity.SetEntityType(entityType);
         entity.SetEntityID(entityID);
+        entity.SetWorldPosition(worldPosition);
 
         _SpawnedEntity.Add(entityID, entity);
     }
