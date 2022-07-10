@@ -142,11 +142,15 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     public void SetEntityID(int entityID) => _EntityID = entityID;
     public int GetEntityID() => (_EntityID);
 
-    public Vector2Int GetWorldPosition()
+    public void SetWorldPosition(Vector3 worldPosition)
     {
-        throw new System.NotImplementedException();
+        transform.position = worldPosition;
     }
-    public Vector3 GetGridPosition()
+    public Vector3 GetWorldPosition()
+    {
+        return (transform.position);
+    }
+    public Vector2Int GetGridPosition()
     {
         throw new System.NotImplementedException();
     }

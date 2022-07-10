@@ -63,4 +63,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _MinAvailableEntityID: 1001
   _PlayerPrefab: {fileID: 4326294927685828883, guid: 691398baae6c77541a026da28a29839a, type: 3}
-  _BaseCharacterPrefab: {fileID: 4326294927685828883, guid: 691398baae6c77541a026da28a29839a, type: 3}
+  _BaseCharacterPrefab: {fileID: 4326294927685828883, guid: d3989ca917ac7e94499f5201f0de2b01, type: 3}

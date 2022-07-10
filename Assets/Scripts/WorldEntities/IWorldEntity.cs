@@ -18,6 +18,7 @@ public interface IWorldEntity
     public void SetEntityID(int entityID);
     public int GetEntityID();
 
-    public Vector2Int GetWorldPosition();
-    public Vector3 GetGridPosition();
+    public void SetWorldPosition(Vector3 worldPosition);
+    public Vector3 GetWorldPosition();
+    public Vector2Int GetGridPosition();
 }

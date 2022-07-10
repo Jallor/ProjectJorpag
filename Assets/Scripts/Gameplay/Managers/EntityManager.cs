@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityManager : MonoBehaviour
+public class EntityManager : MonobehaviourSingleton<EntityManager>
 {
     [Header("Data")]
     [SerializeField] private int _MinAvailableEntityID = 10001;
@@ -41,5 +41,14 @@ public class EntityManager : MonoBehaviour
         entity.SetEntityID(entityID);
 
         _SpawnedEntity.Add(entityID, entity);
+    }
+
+    public IWorldEntity TryGetEntityByID(int ID)
+    {
+        if (_SpawnedEntity.ContainsKey(ID))
+        {
+            return _SpawnedEntity[ID];
+        }
+        return (null);
     }
 }

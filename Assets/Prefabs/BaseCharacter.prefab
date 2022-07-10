@@ -274,11 +274,11 @@ GameObject:
   - component: {fileID: 4326294927685828887}
   - component: {fileID: 4326294927685829096}
   - component: {fileID: 4326294927685828884}
-  - component: {fileID: 4326294927685828885}
   - component: {fileID: 4326294927685829097}
+  - component: {fileID: 4057854631739539382}
   - component: {fileID: 1303506710462756771}
   m_Layer: 0
-  m_Name: Character
+  m_Name: BaseCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8c435feb729e64cb7dada68cb84908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Controller: {fileID: 4326294927685828885}
+  _Controller: {fileID: 4057854631739539382}
   _Movement: {fileID: 4326294927685828884}
   _SpriteAnimator: {fileID: 4326294927685829097}
   _Data: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
@@ -371,19 +371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _CharaManager: {fileID: 4326294927685829096}
   _Rigidbody2D: {fileID: 4326294927685828887}
---- !u!114 &4326294927685828885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4326294927685828883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c5fcb0d283e0fe4b920bb1d54f70d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _CharaManager: {fileID: 4326294927685829096}
 --- !u!114 &4326294927685829097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +391,20 @@ MonoBehaviour:
   _WeaponPositionRight: {fileID: 4806999714522496563}
   _WeaponPositionUp: {fileID: 2452370768479387821}
   _FrameDuration: 0.2
+--- !u!114 &4057854631739539382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326294927685828883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62d97529fd6c8c458868070363a1821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _CharaManager: {fileID: 4326294927685829096}
+  MovementData: []
 --- !u!114 &1303506710462756771
 MonoBehaviour:
   m_ObjectHideFlags: 0
