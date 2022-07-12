@@ -24,6 +24,6 @@ MonoBehaviour:
       data:
         AnimPartDuration: 0.2
         WeaponPosition: {x: -0.2, y: 0}
-        EndWeaponPosition: {x: 0.2, y: -0.1}
+        EndWeaponPosition: {x: 0.2, y: 0}
         WeaponRotation: -45
         EndWeaponRotation: 45
