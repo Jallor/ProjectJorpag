@@ -16,7 +16,7 @@ public class CharacterStats
         }
     }
 
-    // Stat like life or mana that will increase and decrease during game
+    // Stat like life or mana that will changes during game
     public class ConsomableStat : SimpleStat
     {
         public float MaxValue { get; private set; }

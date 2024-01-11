@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfa8e3c7217a9b042920ca5be92f9448, type: 3}
-  m_Name: Gard
+  m_Name: Guard
   m_EditorClassIdentifier: 
   _DefaultSprite: {fileID: 1114052453, guid: 8df80f05985132c43b1995c5bd891a13, type: 3}
   _DownSpriteList:
