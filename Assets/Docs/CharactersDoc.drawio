@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net" modified="2024-01-11T13:06:23.623Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="i4Akw01N2mlL9F1_XUS1" version="22.1.18" type="device" pages="2">
+  <diagram name="Class Structure" id="B6inTqU4DtRaaWnzecf0">
+    <mxGraphModel dx="1709" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-5" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamondThin;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;shadow=0;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-6" target="zSkf2-dP-hwZXAmFSiwr-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-4" value="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-9" target="zSkf2-dP-hwZXAmFSiwr-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-6" value="CharactetrManager" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="260" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-11" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-7" target="zSkf2-dP-hwZXAmFSiwr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-7" value="CharacterController" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=blockThin;endFill=0;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-8" target="zSkf2-dP-hwZXAmFSiwr-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-8" value="BasicMovementCharacterController" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="260" width="230" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-9" value="PlayerController" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="40" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-21" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-12" target="zSkf2-dP-hwZXAmFSiwr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-15" target="zSkf2-dP-hwZXAmFSiwr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-23" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-16" target="zSkf2-dP-hwZXAmFSiwr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-14" target="zSkf2-dP-hwZXAmFSiwr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-20" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamondThin;endFill=1;" edge="1" parent="1" source="zSkf2-dP-hwZXAmFSiwr-18" target="zSkf2-dP-hwZXAmFSiwr-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-12" value="CharacterData" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="700" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-15" value="CharacterMovement" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="270" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-16" value="CharacterStats" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="1130" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-14" value="SkillCharacterManager" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="zSkf2-dP-hwZXAmFSiwr-18" value="CharacterSpriteAnimator" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="480" width="200" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="4d_luot05ThcBNDe1ofk" name="Input Pipeline">
+    <mxGraphModel dx="1709" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="QmO0H16Yjdd_9R_2weGL-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="QmO0H16Yjdd_9R_2weGL-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="590" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="QmO0H16Yjdd_9R_2weGL-1" value="Character Controller" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

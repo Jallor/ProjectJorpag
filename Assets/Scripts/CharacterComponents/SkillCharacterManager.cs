@@ -34,7 +34,7 @@ public class SkillCharacterManager : MonoBehaviour
             animPartStartTime = Time.time;
             animPart.OnEnterAnimPart(_CharacterManager);
 
-            while (Time.time - animPartStartTime < animPart.AnimPartDuration)
+            while ((Time.time - animPartStartTime) < animPart.AnimPartDuration)
             {
                 animPart.OnUpdateAnimPart(_CharacterManager, Time.time - animPartStartTime);
 
@@ -56,19 +56,11 @@ public class SkillCharacterManager : MonoBehaviour
 
     public bool IsMovementAllowed()
     {
-        if (!IsPlayingSkill())
-        {
-            return (true);
-        }
         return (_CurrentPlayedSkill.AllowMovement);
     }
 
     public bool IsRotationAllowed()
     {
-        if (!IsPlayingSkill())
-        {
-            return (true);
-        }
         return (_CurrentPlayedSkill.AllowRotation);
     }
 }

@@ -15,9 +15,12 @@ MonoBehaviour:
   CharaName: "[Passionn\xE9e]"
   FaceSprite: {fileID: 0}
   SpriteSheet: {fileID: 0}
+  DefaultWeapon: {fileID: 0}
+  TMP_SkillData: {fileID: 0}
   MaxHP: 100
+  MovementSpeed: 5000
   CharacterQuickDescription: "Surement \xE0 terme le love interest, il y a cependant
-    plus \xE0 creuser dasn son charact\xE8re \xE0 elle.\nC'est une passionn\xE9 de
+    plus \xE0 creuser dans son charact\xE8re \xE0 elle.\nC'est une passionn\xE9 de
     connaissance, d'histoire et de culture ce qui d\xE9montre son intelligence, tr\xE8s
     certainement la plus intelligente du groupe.\nIl y a d\xE9j\xE0 pas mal d'histoire
     et de qu\xEAte auquelle la lier, dont celles qui se basent sur le choix entre
