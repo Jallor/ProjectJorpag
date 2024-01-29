@@ -13,7 +13,7 @@ public class TriggerArea : MonoBehaviour
     {
         foreach (OnEnterAreaActionTrigger actionTrigger in _OnEnterActionTrigger)
         {
-            actionTrigger.TriggerAction();
+            actionTrigger.TriggerAction(new GameContext());
         }
     }
 
@@ -21,7 +21,7 @@ public class TriggerArea : MonoBehaviour
     {
         foreach (OnExitAreaActionTrigger actionTrigger in _OnExitActionTrigger)
         {
-            actionTrigger.TriggerAction();
+            actionTrigger.TriggerAction(new GameContext());
         }
     }
 }

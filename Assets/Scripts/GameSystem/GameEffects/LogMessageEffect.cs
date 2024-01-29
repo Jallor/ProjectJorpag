@@ -6,7 +6,7 @@ public class LogMessageEffect : GameEffect
     public LogType LogTypeToUse;
     [SerializeReference] [SelectImplementation]
     public FirstGameVarSelector DataToDisplay;
-    public override void PlayEffect(GameContext context)
+    public override bool PlayEffect(GameContext context)
     {
         string messageToDisplay = DataToDisplay.StartGetFinalVarWrapper(context).ToString();
 
@@ -28,5 +28,7 @@ public class LogMessageEffect : GameEffect
                 Debug.LogError(messageToDisplay);
                 break;
         }
+
+        return true;
     }
 }

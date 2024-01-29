@@ -50,4 +50,19 @@ public class ConstIntVarSelector : FirstGameVarSelector
     }
 }
 
+[SelectImplementationName("Constant/String")]
+public class ConstStringVarSelector : FirstGameVarSelector
+{
+    public string ConstStringValue = "";
+
+    public override EGameVarType GetGameVarType() => (EGameVarType.STRING);
+
+    public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
+
+    public override GameVarWrapper StartGetFinalVarWrapper(GameContext context)
+    {
+        return (new StringVarWrapper(ConstStringValue));
+    }
+}
+
 #endregion

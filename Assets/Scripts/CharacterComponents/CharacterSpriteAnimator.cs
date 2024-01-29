@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine.UIElements;
 
 public class CharacterSpriteAnimator : MonoBehaviour
 {
@@ -117,36 +118,26 @@ public class CharacterSpriteAnimator : MonoBehaviour
     // Base Position is for CharacterOrientation down
     public void DisplayWeapon(Vector2 wpPosition, float wpRotation)
     {
-        _WeaponObject.gameObject.gameObject.SetActive(true);
+        _WeaponObject.gameObject.SetActive(true);
 
-        Vector2 orientedPosition = new Vector2();
+        Vector2 orientedPosition = GetForwardWeaponLocalPosition();
         float orientedRotation = _CurrentWeapon.BaseRotation + wpRotation;
+        wpPosition = CustomMathLib.RotateVector2(wpPosition, _CharaManager.GetCharacterOrientation());
         switch (_CharaManager.GetCharacterOrientation())
         {
             case CharacterOrientation.DOWN:
-                orientedPosition = new Vector2(
-                    _WeaponPositionDown.localPosition.x + wpPosition.x,
-                    _WeaponPositionDown.localPosition.y + wpPosition.y);
                 break;
             case CharacterOrientation.LEFT:
-                orientedPosition = new Vector2(
-                    _WeaponPositionLeft.localPosition.x + wpPosition.y,
-                    _WeaponPositionLeft.localPosition.y + -wpPosition.x);
                 orientedRotation -= 90f;
                 break;
             case CharacterOrientation.RIGHT:
-                orientedPosition = new Vector2(
-                    _WeaponPositionRight.localPosition.x + -wpPosition.y,
-                    _WeaponPositionRight.localPosition.y + wpPosition.x);
                 orientedRotation += 90f;
                 break;
             case CharacterOrientation.TOP:
-                orientedPosition = new Vector2(
-                    _WeaponPositionUp.localPosition.x + -wpPosition.x,
-                    _WeaponPositionUp.localPosition.y + -wpPosition.y);
                 orientedRotation += 180f;
                 break;
         }
+        orientedPosition += wpPosition;
         _WeaponObject.transform.localPosition =
             new Vector3(orientedPosition.x, orientedPosition.y, _WeaponObject.transform.localPosition.z);
         _WeaponObject.transform.localEulerAngles = new Vector3(0, 0, orientedRotation);
@@ -155,5 +146,39 @@ public class CharacterSpriteAnimator : MonoBehaviour
     public void HideWeapon()
     {
         _WeaponObject.gameObject.gameObject.SetActive(false);
+    }
+
+    public Vector2 GetForwardWeaponLocalPosition()
+    {
+        switch (_CharaManager.GetCharacterOrientation())
+        {
+            case CharacterOrientation.DOWN:
+                return _WeaponPositionDown.localPosition;
+            case CharacterOrientation.LEFT:
+                return _WeaponPositionLeft.localPosition;
+            case CharacterOrientation.RIGHT:
+                return _WeaponPositionRight.localPosition;
+            case CharacterOrientation.TOP:
+                return _WeaponPositionUp.localPosition;
+            default:
+                return _WeaponPositionDown.localPosition;
+        }
+    }
+
+    public Vector2 GetForwardWeaponWorldPosition()
+    {
+        switch (_CharaManager.GetCharacterOrientation())
+        {
+            case CharacterOrientation.DOWN:
+                return _WeaponPositionDown.position;
+            case CharacterOrientation.LEFT:
+                return _WeaponPositionLeft.position;
+            case CharacterOrientation.RIGHT:
+                return _WeaponPositionRight.position;
+            case CharacterOrientation.TOP:
+                return _WeaponPositionUp.position;
+            default:
+                return _WeaponPositionDown.position;
+        }
     }
 }

@@ -9,10 +9,8 @@ public abstract class ActionTrigger
 
     // TODO : Allow to send events
 
-    public void TriggerAction()
+    public void TriggerAction(GameContext context)
     {
-        GameContext context = new GameContext();
-
         foreach (ConditionnalEffect conditionnalEffect in _ConditionnalsEffects)
         {
             conditionnalEffect.TryPlayEffects(context);

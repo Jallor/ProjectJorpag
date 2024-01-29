@@ -1,5 +1,5 @@
 [System.Serializable]
 public abstract class GameEffect
 {
-    public abstract void PlayEffect(GameContext context);
+    public abstract bool PlayEffect(GameContext context);
 }

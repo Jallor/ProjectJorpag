@@ -27,6 +27,14 @@ public class SkillCharacterManager : MonoBehaviour
 
     private IEnumerator StartPlaySkill()
     {
+        GameContext context = new GameContext(new CharacterVarWrapper(_CharacterManager),
+            new CharacterVarWrapper(_CharacterManager), new NullVarWrapper());
+
+        foreach (ConditionnalEffect effect in _CurrentPlayedSkill.GameEffectList)
+        {
+            effect.TryPlayEffects(context);
+        }
+
         float animPartStartTime;
 
         foreach (SkillAnimationPart animPart in _CurrentPlayedSkill.AnimationsList)

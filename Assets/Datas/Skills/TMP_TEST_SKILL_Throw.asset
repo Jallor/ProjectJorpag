@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3830a4bb668d7a4180cada94cf48570, type: 3}
+  m_Name: TMP_TEST_SKILL_Throw
+  m_EditorClassIdentifier: 
+  AllowMovement: 1
+  AllowRotation: 0
+  GameEffectList:
+  - rid: 6029475044650385408
+  AnimationsList:
+  - rid: 62676888306843648
+  references:
+    version: 2
+    RefIds:
+    - rid: 62676888306843648
+      type: {class: SkillAnimPart_BasicWpDisplay, ns: , asm: Assembly-CSharp}
+      data:
+        AnimPartDuration: 0.2
+        WeaponPosition: {x: -0.2, y: 0}
+        EndWeaponPosition: {x: 0.2, y: 0}
+        WeaponRotation: -45
+        EndWeaponRotation: 45
+    - rid: 6029475044650385408
+      type: {class: ConditionnalEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _Conditions: []
+        _GameEffects:
+        - rid: 6029475044650385410
+        - rid: 6029475044650385409
+    - rid: 6029475044650385409
+      type: {class: ThrowEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _ThrowableObject: {fileID: 4579666328449271416, guid: 757455427939e124c8fc8bb8015a5a3c, type: 3}
+        ThrowSpeed: {x: 0, y: -1}
+    - rid: 6029475044650385410
+      type: {class: LogMessageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        LogTypeToUse: 3
+        DataToDisplay:
+          rid: 6029475044650385412
+    - rid: 6029475044650385412
+      type: {class: ConstStringVarSelector, ns: , asm: Assembly-CSharp}
+      data:
+        ConstStringValue: BANANE
