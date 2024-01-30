@@ -9,6 +9,7 @@ public abstract class GameVarSelector
     public abstract EGameVarType GetFinalGameVarType();
 }
 
+[System.Serializable]
 public abstract class FirstGameVarSelector : GameVarSelector
 {
     public abstract GameVarWrapper StartGetFinalVarWrapper(GameContext context);
@@ -66,3 +67,27 @@ public class ConstStringVarSelector : FirstGameVarSelector
 }
 
 #endregion
+
+[SelectImplementationName("Complexe String")]
+public class ComplexeStringVarSelector : FirstGameVarSelector
+{
+    [SelectImplementation] [SerializeReference]
+    [SerializeField] private List<FirstGameVarSelector> StringList = new List<FirstGameVarSelector>();
+
+    public override EGameVarType GetGameVarType() => (EGameVarType.STRING);
+
+    public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
+
+    public override GameVarWrapper StartGetFinalVarWrapper(GameContext context)
+    {
+        string stringToDisplay = "";
+
+        foreach (FirstGameVarSelector selector in StringList)
+        {
+            stringToDisplay += selector.StartGetFinalVarWrapper(context).ToString();
+        }
+        return (new StringVarWrapper(stringToDisplay));
+    }
+}
+
+

@@ -29,3 +29,11 @@ public class BoolCondition : Condition
         }
     }
 }
+
+public class TestEquivalenceCondition : Condition
+{
+    public override bool IsConditionValid(GameContext context)
+    {
+        throw new System.NotImplementedException();
+    }
+}

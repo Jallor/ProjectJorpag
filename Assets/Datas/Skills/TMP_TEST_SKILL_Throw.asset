@@ -34,20 +34,10 @@ MonoBehaviour:
       data:
         _Conditions: []
         _GameEffects:
-        - rid: 6029475044650385410
         - rid: 6029475044650385409
     - rid: 6029475044650385409
       type: {class: ThrowEffect, ns: , asm: Assembly-CSharp}
       data:
-        _ThrowableObject: {fileID: 4579666328449271416, guid: 757455427939e124c8fc8bb8015a5a3c, type: 3}
-        ThrowSpeed: {x: 0, y: -1}
-    - rid: 6029475044650385410
-      type: {class: LogMessageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        LogTypeToUse: 3
-        DataToDisplay:
-          rid: 6029475044650385412
-    - rid: 6029475044650385412
-      type: {class: ConstStringVarSelector, ns: , asm: Assembly-CSharp}
-      data:
-        ConstStringValue: BANANE
+        ThrowableObject: {fileID: 4579666328449271416, guid: 757455427939e124c8fc8bb8015a5a3c, type: 3}
+        ThrowSpeed: 2
+        ThrowDirection: {x: 0, y: -1}

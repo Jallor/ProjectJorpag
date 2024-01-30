@@ -8,7 +8,7 @@ public abstract class ActionTriggerArea : ActionTrigger
 }
 
 
-[System.Serializable] [SelectImplementationName("On ENter Area")]
+[System.Serializable] [SelectImplementationName("On Enter Area")]
 public class OnEnterAreaActionTrigger : ActionTriggerArea
 {
 }

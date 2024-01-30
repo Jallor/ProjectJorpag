@@ -32,10 +32,10 @@ public class VarSelectorCharacter : FirstGameVarSelector
                 finalWrapper = new CharacterVarWrapper(GameManager.Inst.GetPlayer());
                 break;
             case EPossibleTarget.CASTER:
-                finalWrapper = context.GetCaster();
+                finalWrapper = context.Caster;
                 break;
             case EPossibleTarget.TARGET:
-                finalWrapper = context.GetTarget();
+                finalWrapper = context.Target;
                 break;
             default:
                 Debug.LogError("VarSelectorCharacter : " + Target + " not implemented");
