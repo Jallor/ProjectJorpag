@@ -4,7 +4,7 @@ using NaughtyAttributes;
 
 using static CharacterSpriteAnimator;
 
-[CreateAssetMenu(fileName = "NewCharacterSpriteSheeet", menuName = "Data/Character SpriteSheet")]
+[CreateAssetMenu(fileName = "NewCharacterSpriteSheet", menuName = "Data/Character SpriteSheet")]
 public class CharacterSpriteSheetData : ScriptableObject
 {
     [ShowAssetPreview]
