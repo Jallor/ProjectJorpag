@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class AutoDestruct : MonoBehaviour
 {
-    // TODO !
+    [SerializeField] private float _TimeRemainingBeforeDestruct = 5f;
 
     void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        Destroy(gameObject, _TimeRemainingBeforeDestruct);
     }
 }
