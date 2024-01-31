@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7568004435062029667}
   - component: {fileID: 3324152470768303329}
   - component: {fileID: -7437967111639098019}
+  - component: {fileID: 8015500029324440739}
   m_Layer: 0
   m_Name: Throwable_Potion
   m_TagString: Untagged
@@ -118,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Speed: 1
   _Direction: {x: 0, y: -1}
+  _TriggerArea: {fileID: -7437967111639098019}
 --- !u!114 &3324152470768303329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,15 +145,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0558b9e8a74ab124c816917d1505cafc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Owner: {fileID: 0}
   _OnEnterActionTrigger:
   - _ConditionnalsEffects:
-    - _Conditions: []
+    - _Conditions:
+      - rid: 6029475090738446336
       _GameEffects:
       - rid: 8951898909494476802
   _OnExitActionTrigger: []
   references:
     version: 2
     RefIds:
+    - rid: 6029475090738446336
+      type: {class: CheckTypeCondition, ns: , asm: Assembly-CSharp}
+      data:
+        IsNot: 0
+        _VarToTest:
+          rid: 6029475090738446337
+        _VarType: 100
+    - rid: 6029475090738446337
+      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
+      data:
+        Target: 2
+        NextVarSelector:
+          rid: 6029475090738446338
+    - rid: 6029475090738446338
+      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
+      data: 
     - rid: 8951898909494476802
       type: {class: LogMessageEffect, ns: , asm: Assembly-CSharp}
       data:
@@ -167,3 +187,16 @@ MonoBehaviour:
     - rid: 8951898909494476804
       type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
       data: 
+--- !u!114 &8015500029324440739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579666328449271416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d13c5b420763c4383f302e6368abab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _TimeRemainingBeforeDestruct: 5

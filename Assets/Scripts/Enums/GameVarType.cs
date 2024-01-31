@@ -14,6 +14,8 @@ public abstract class GameVarWrapper
     public abstract EGameVarType GetGameVarType();
 
     public abstract string ToString();
+
+    public abstract bool IsSameAs(GameVarWrapper other);
 }
 
 public class NullVarWrapper : GameVarWrapper
@@ -25,6 +27,12 @@ public class NullVarWrapper : GameVarWrapper
     public override EGameVarType GetGameVarType() => EGameVarType.NULL;
 
     public override string ToString() => "NULL";
+
+    public override bool IsSameAs(GameVarWrapper other)
+    {
+        return (other.GetGameVarType() == EGameVarType.NULL);
+    }
+
 }
 
 public class BoolVarWrapper : GameVarWrapper
@@ -39,6 +47,16 @@ public class BoolVarWrapper : GameVarWrapper
     public override EGameVarType GetGameVarType() => EGameVarType.BOOL;
 
     public override string ToString() => BoolValue.ToString();
+
+    public override bool IsSameAs(GameVarWrapper other)
+    {
+        if (other.GetGameVarType() != EGameVarType.BOOL)
+        {
+            return false;
+        }
+
+        return ((other as BoolVarWrapper).BoolValue == BoolValue);
+    }
 }
 
 public class IntVarWrapper : GameVarWrapper
@@ -53,6 +71,16 @@ public class IntVarWrapper : GameVarWrapper
     public override EGameVarType GetGameVarType() => EGameVarType.INT;
 
     public override string ToString() => IntValue.ToString();
+
+    public override bool IsSameAs(GameVarWrapper other)
+    {
+        if (other.GetGameVarType() != EGameVarType.INT)
+        {
+            return false;
+        }
+
+        return ((other as IntVarWrapper).IntValue == IntValue);
+    }
 }
 
 public class StringVarWrapper : GameVarWrapper
@@ -67,6 +95,16 @@ public class StringVarWrapper : GameVarWrapper
     public override EGameVarType GetGameVarType() => EGameVarType.STRING;
 
     public override string ToString() => StringValue;
+
+    public override bool IsSameAs(GameVarWrapper other)
+    {
+        if (other.GetGameVarType() != EGameVarType.STRING)
+        {
+            return false;
+        }
+
+        return ((other as StringVarWrapper).StringValue.Equals(StringValue));
+    }
 }
 
 public class CharacterVarWrapper : GameVarWrapper
@@ -81,4 +119,14 @@ public class CharacterVarWrapper : GameVarWrapper
     public override EGameVarType GetGameVarType() => EGameVarType.CHARACTER;
 
     public override string ToString() => Character.ToString();
+
+    public override bool IsSameAs(GameVarWrapper other)
+    {
+        if (other.GetGameVarType() != EGameVarType.CHARACTER)
+        {
+            return false;
+        }
+
+        return ((other as CharacterVarWrapper).Character.GetEntityID() == Character.GetEntityID());
+    }
 }
