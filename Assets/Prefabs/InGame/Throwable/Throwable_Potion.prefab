@@ -150,12 +150,58 @@ MonoBehaviour:
   - _ConditionnalsEffects:
     - _Conditions:
       - rid: 6029475090738446336
+      - rid: 1048843967487803397
       _GameEffects:
       - rid: 8951898909494476802
   _OnExitActionTrigger: []
   references:
     version: 2
     RefIds:
+    - rid: 1048843967487803393
+      type: {class: ComplexeStringVarSelector, ns: , asm: Assembly-CSharp}
+      data:
+        StringList:
+        - rid: 1048843967487803394
+        - rid: 1048843967487803395
+    - rid: 1048843967487803394
+      type: {class: ConstStringVarSelector, ns: , asm: Assembly-CSharp}
+      data:
+        ConstStringValue: 'Hit : '
+    - rid: 1048843967487803395
+      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
+      data:
+        Target: 2
+        NextVarSelector:
+          rid: 1048843967487803396
+    - rid: 1048843967487803396
+      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 1048843967487803397
+      type: {class: TestEquivalenceCondition, ns: , asm: Assembly-CSharp}
+      data:
+        IsNot: 1
+        _FirstVar:
+          rid: 1048843967487803398
+        _SecondVar:
+          rid: 1048843967487803400
+    - rid: 1048843967487803398
+      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
+      data:
+        Target: 2
+        NextVarSelector:
+          rid: 1048843967487803399
+    - rid: 1048843967487803399
+      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
+      data: 
+    - rid: 1048843967487803400
+      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
+      data:
+        Target: 1
+        NextVarSelector:
+          rid: 1048843967487803401
+    - rid: 1048843967487803401
+      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
+      data: 
     - rid: 6029475090738446336
       type: {class: CheckTypeCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -177,16 +223,7 @@ MonoBehaviour:
       data:
         LogTypeToUse: 3
         DataToDisplay:
-          rid: 8951898909494476803
-    - rid: 8951898909494476803
-      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
-      data:
-        Target: 2
-        NextVarSelector:
-          rid: 8951898909494476804
-    - rid: 8951898909494476804
-      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
-      data: 
+          rid: 1048843967487803393
 --- !u!114 &8015500029324440739
 MonoBehaviour:
   m_ObjectHideFlags: 0

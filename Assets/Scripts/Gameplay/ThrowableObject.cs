@@ -31,5 +31,9 @@ public class ThrowableObject : MonoBehaviour
 
     public void SetSpeed(float speed) { _Speed = speed; }
     public void SetDirection(Vector2 direction) { _Direction = direction;}
-    public void SetOwner(CharacterManager newOwner) { _Owner = newOwner; }
+    public void SetOwner(CharacterManager newOwner)
+    {
+        _Owner = newOwner;
+        _TriggerArea.OverrideOwner(_Owner);
+    }
 }

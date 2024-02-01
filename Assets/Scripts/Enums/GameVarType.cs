@@ -1,3 +1,6 @@
+using UnityEngine;
+using System.Diagnostics;
+
 public enum EGameVarType
 {
     NULL = 0,
@@ -125,6 +128,17 @@ public class CharacterVarWrapper : GameVarWrapper
         if (other.GetGameVarType() != EGameVarType.CHARACTER)
         {
             return false;
+        }
+
+        CharacterManager otherChara = (other as CharacterVarWrapper).Character;
+
+        if (otherChara.GetEntityID() == -1
+            || Character.GetEntityID() == -1)
+        {
+            UnityEngine.Debug.LogWarning("One of those two character has an ID at -1\n"
+                + otherChara.name + " ID : " + otherChara.GetEntityID() + "\n"
+                + Character.name + " ID : " + Character.GetEntityID());
+            return (otherChara.name.Equals(Character.name));
         }
 
         return ((other as CharacterVarWrapper).Character.GetEntityID() == Character.GetEntityID());

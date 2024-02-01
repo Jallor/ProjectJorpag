@@ -97,19 +97,6 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         }
     }
 
-    public void TryPlaySkill()
-    {
-        _SkillManager.TryPlaySkill(_Data.TMP_SkillData);
-    }
-
-    public GameObject InstantiateThrowableObject(GameObject prefab)
-    {
-        GameObject throwableObj = Instantiate(prefab);
-        throwableObj.transform.position = _SpriteAnimator.GetForwardWeaponWorldPosition();
-
-        return throwableObj;
-    }
-
     public bool CanCharacterMove()
     {
         if (IsPlayingSkill())
@@ -128,6 +115,24 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         }
 
         return (true);
+    }
+
+    public void TryPlaySkill()
+    {
+        _SkillManager.TryPlaySkill(_Data.TMP_SkillData);
+    }
+
+    public GameObject InstantiateThrowableObject(GameObject prefab)
+    {
+        GameObject throwableObj = Instantiate(prefab);
+        throwableObj.transform.position = _SpriteAnimator.GetForwardWeaponWorldPosition();
+
+        return throwableObj;
+    }
+
+    public void ReceiveDamage(float damageQuantity)
+    {
+        _Stats.Life.Reduce
     }
 
     #region IWorldEntity

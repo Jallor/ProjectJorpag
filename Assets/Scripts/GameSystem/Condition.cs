@@ -43,7 +43,7 @@ public class BoolCondition : Condition
     }
 }
 
-[System.Serializable] [SelectImplementationName("Test Is Same Type")]
+[System.Serializable] [SelectImplementationName("Test Is Of Type")]
 public class CheckTypeCondition : Condition
 {
     [SerializeReference] [SelectImplementation]
