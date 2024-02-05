@@ -132,7 +132,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     public void ReceiveDamage(float damageQuantity)
     {
-        _Stats.Life.Reduce
+        _Stats.Life.
     }
 
     #region IWorldEntity

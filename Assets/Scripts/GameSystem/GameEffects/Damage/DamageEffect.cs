@@ -19,7 +19,7 @@ public class DamageEffect : GameEffect
         }
 
         CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
-        characterTarget.Character.
+        characterTarget.Character.ReceiveDamage(_DamageQuantity);
 
         return true;
     }
