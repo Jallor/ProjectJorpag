@@ -153,6 +153,7 @@ MonoBehaviour:
       - rid: 1048843967487803397
       _GameEffects:
       - rid: 8951898909494476802
+      - rid: 1268382456204492800
   _OnExitActionTrigger: []
   references:
     version: 2
@@ -202,6 +203,10 @@ MonoBehaviour:
     - rid: 1048843967487803401
       type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
       data: 
+    - rid: 1268382456204492800
+      type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _DamageQuantity: 10
     - rid: 6029475090738446336
       type: {class: CheckTypeCondition, ns: , asm: Assembly-CSharp}
       data:

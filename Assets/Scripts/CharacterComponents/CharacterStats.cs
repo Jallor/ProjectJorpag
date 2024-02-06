@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEngine;
 
 public class CharacterStats
 {
     public class SimpleStat
     {
-        public float InitialValue { get; private set; }
-        public float CurrentValue { get; private set; }
+        public float InitialValue { get; protected set; }
+        public float CurrentValue { get; protected set; }
+
+        /// <summary> Send the value that modifie this stat </summary>
+        public DelegateWithFloat OnValueUpdated;
 
         public virtual void Init(float initialValue)
         {
@@ -24,8 +28,8 @@ public class CharacterStats
     // Stat like life or mana that will changes during game
     public class ConsomableStat : SimpleStat
     {
-        public float InitialMaxValue { get; private set; }
-        public float MaxValue { get; private set; }
+        public float InitialMaxValue { get; protected set; }
+        public float MaxValue { get; protected set; }
 
         public override void Init(float initialValue)
         {
@@ -39,9 +43,32 @@ public class CharacterStats
             base.Reset();
             MaxValue = InitialMaxValue;
         }
+
+        public void Add(float quantity, bool allowOverload = false)
+        {
+            CurrentValue += quantity;
+
+            if (!allowOverload)
+            {
+                float quantityAdded = quantity;
+                if (CurrentValue > MaxValue)
+                {
+                    quantityAdded = MaxValue + quantity - CurrentValue;
+                }
+                else if (CurrentValue < 0)
+                {
+                    quantityAdded = CurrentValue - quantity;
+                }
+                CurrentValue = Mathf.Clamp(CurrentValue, 0, MaxValue);
+                OnValueUpdated?.Invoke(quantityAdded);
+            }
+            else
+            {
+                OnValueUpdated?.Invoke(quantity);
+            }
+        }
     }
 
-    public ConsomableStat Life;
-
     public SimpleStat MovementSpeed;
+    public ConsomableStat Life;
 }

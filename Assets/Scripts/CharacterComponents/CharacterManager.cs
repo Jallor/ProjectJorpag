@@ -48,8 +48,12 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
 
         _IsInitialized = true;
+
+        // Bind delegates
+        _Stats.Life.OnValueUpdated += CheckLifeUpdated;
     }
 
+    #region Movement Stuff
     public void GiveMoveInput(Vector2 newDir)
     {
         Vector2 modifiedDir = newDir;
@@ -116,6 +120,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
         return (true);
     }
+    #endregion
 
     public void TryPlaySkill()
     {
@@ -132,7 +137,17 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     public void ReceiveDamage(float damageQuantity)
     {
-        _Stats.Life.
+        _Stats.Life.Add(-damageQuantity);
+    }
+
+    public void CheckLifeUpdated(float lifeModifier)
+    {
+        print("my lifehas changed !!!");
+
+        if (_Stats.Life.CurrentValue <= 0)
+        {
+            print("Oups I'm dead !");
+        }
     }
 
     #region IWorldEntity
