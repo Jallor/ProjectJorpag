@@ -21,4 +21,7 @@ MonoBehaviour:
     SpawnPoint: {x: 5, y: 5}
   - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
     IsPlayer: 0
+    SpawnPoint: {x: 6, y: 5}
+  - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+    IsPlayer: 0
     SpawnPoint: {x: -5, y: -5}

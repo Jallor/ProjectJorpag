@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ebe7a56eead3e4880e9cc35bf3ca1f, type: 3}
   m_Name: BasicSwordData
   m_EditorClassIdentifier: 
+  WeaponName: Hero Sword
   Sprite: {fileID: 1636515634, guid: ce683f6001551014ea79e27fa3e1b61c, type: 3}
+  WeaponObject: {fileID: 6991872657372620373, guid: 9372e1ebc5b0418469411a7f1ab436fa, type: 3}
   BaseRotation: 135
