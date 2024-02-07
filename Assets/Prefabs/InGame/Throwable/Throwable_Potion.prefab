@@ -152,31 +152,11 @@ MonoBehaviour:
       - rid: 6029475090738446336
       - rid: 1048843967487803397
       _GameEffects:
-      - rid: 8951898909494476802
       - rid: 1268382456204492800
   _OnExitActionTrigger: []
   references:
     version: 2
     RefIds:
-    - rid: 1048843967487803393
-      type: {class: ComplexeStringVarSelector, ns: , asm: Assembly-CSharp}
-      data:
-        StringList:
-        - rid: 1048843967487803394
-        - rid: 1048843967487803395
-    - rid: 1048843967487803394
-      type: {class: ConstStringVarSelector, ns: , asm: Assembly-CSharp}
-      data:
-        ConstStringValue: 'Hit : '
-    - rid: 1048843967487803395
-      type: {class: VarSelectorCharacter, ns: , asm: Assembly-CSharp}
-      data:
-        Target: 2
-        NextVarSelector:
-          rid: 1048843967487803396
-    - rid: 1048843967487803396
-      type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
-      data: 
     - rid: 1048843967487803397
       type: {class: TestEquivalenceCondition, ns: , asm: Assembly-CSharp}
       data:
@@ -223,12 +203,6 @@ MonoBehaviour:
     - rid: 6029475090738446338
       type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
       data: 
-    - rid: 8951898909494476802
-      type: {class: LogMessageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        LogTypeToUse: 3
-        DataToDisplay:
-          rid: 1048843967487803393
 --- !u!114 &8015500029324440739
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[SelectImplementationName("Damage/Damage Effect")]
+[SelectImplementationName("Damage/Damage Brut Effect")]
 public class DamageEffect : GameEffect
 {
     [SerializeField] float _DamageQuantity = 10;

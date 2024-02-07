@@ -140,14 +140,19 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         _Stats.Life.Add(-damageQuantity);
     }
 
-    public void CheckLifeUpdated(float lifeModifier)
+    void CheckLifeUpdated(float lifeModifier)
     {
-        print("my lifehas changed !!!");
-
         if (_Stats.Life.CurrentValue <= 0)
         {
-            print("Oups I'm dead !");
+            Death();
         }
+    }
+
+    void Death()
+    {
+        print("Oups I'm dead !");
+        EntityManager.Inst.DeleteEntityFromList(_EntityID);
+        Destroy(gameObject);
     }
 
     #region IWorldEntity
