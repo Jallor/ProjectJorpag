@@ -144,7 +144,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     {
         print("my lifehas changed !!!");
 
-        if (_Stats.Life.CurrentValue <= 0)
+        if (_Stats.Life.GetCurrentValue() <= 0)
         {
             print("Oups I'm dead !");
         }
@@ -195,11 +195,11 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     public CharacterOrientation GetCharacterOrientation() => (_CurrentOrientation);
 
-    public int GetCurrentHP() => ((int)_Stats.Life.CurrentValue);
+    public int GetCurrentHP() => ((int)_Stats.Life.GetCurrentValue());
 
     public int GetMaxHP() => ((int)_Stats.Life.MaxValue);
 
-    public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.CurrentValue);
+    public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.GetCurrentValue());
 
     public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
     #endregion

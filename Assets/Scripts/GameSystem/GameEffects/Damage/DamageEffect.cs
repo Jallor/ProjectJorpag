@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// ((baseState + baseStateBuff) + buff%) * finalBuff
+// This formula show the three possibilities to increase a stat
+
 [SelectImplementationName("Damage/Damage Effect")]
 public class DamageEffect : GameEffect
 {

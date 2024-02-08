@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static CharacterStats;
 
 public class CharacterStats
 {
     public class SimpleStat
     {
-        public float InitialValue { get; protected set; }
-        public float CurrentValue { get; protected set; }
+        protected float InitialValue;
+        protected float CurrentValue;
 
         /// <summary> Send the value that modifie this stat </summary>
         public DelegateWithFloat OnValueUpdated;
@@ -17,6 +18,16 @@ public class CharacterStats
         {
             InitialValue = initialValue;
             CurrentValue = initialValue;
+        }
+
+        public float GetInitialValue()
+        {
+            return InitialValue;
+        }
+
+        public float GetCurrentValue()
+        {
+            return CurrentValue; 
         }
 
         public virtual void Reset()
@@ -69,6 +80,12 @@ public class CharacterStats
         }
     }
 
+    public class ImprovableStat : SimpleStat
+    {
+
+    }
+
     public SimpleStat MovementSpeed;
     public ConsomableStat Life;
 }
+
