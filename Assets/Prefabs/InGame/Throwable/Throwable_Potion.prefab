@@ -153,6 +153,7 @@ MonoBehaviour:
       - rid: 1048843967487803397
       _GameEffects:
       - rid: 1268382456204492800
+      - rid: 1048844126405263362
   _OnExitActionTrigger: []
   references:
     version: 2
@@ -183,6 +184,16 @@ MonoBehaviour:
     - rid: 1048843967487803401
       type: {class: VarSelectorCharacterFromCharacter, ns: , asm: Assembly-CSharp}
       data: 
+    - rid: 1048844126405263362
+      type: {class: ApplyStatusEffectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _StatusEffectToApply:
+          rid: 1048844126405263363
+    - rid: 1048844126405263363
+      type: {class: DamageOverTime_StatusEffect, ns: , asm: Assembly-CSharp}
+      data:
+        _TickDuration: 5
+        _DamagePerTick: 5
     - rid: 1268382456204492800
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}
       data:

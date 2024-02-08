@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     [Required] [SerializeField] private CharacterSpriteAnimator _SpriteAnimator;
     [Required] [SerializeField] private CharacterData _Data;
     [Required] [SerializeField] private SkillCharacterManager _SkillManager;
+    [Required] [SerializeField] private StatusEffectsCharacterManager _StatusManager;
     private CharacterStats _Stats = new CharacterStats();
 
     private IWorldEntity.EEntityType _EntityType = IWorldEntity.EEntityType.NONE;
@@ -43,6 +44,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         SetEntityData(_Data);
 
         _SkillManager.Initialize(this);
+        _StatusManager.Initialize(this);
 
         _SpriteAnimator.SetWeapon(GetDefaultWeapon());
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
@@ -135,13 +137,19 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         return throwableObj;
     }
 
-    public void ReceiveDamage(float damageQuantity)
+    public void InflictDamage(float damageQuantity)
     {
         _Stats.Life.Add(-damageQuantity);
     }
 
+    public void ApplyStatusEffect(StatusEffect statusEffectToApply)
+    {
+        _StatusManager.ApplyStatusEffect(statusEffectToApply);
+    }
+
     void CheckLifeUpdated(float lifeModifier)
     {
+        print("DEBUG : Life " + _Stats.Life.CurrentValue + "   modified by " + lifeModifier);
         if (_Stats.Life.CurrentValue <= 0)
         {
             Death();

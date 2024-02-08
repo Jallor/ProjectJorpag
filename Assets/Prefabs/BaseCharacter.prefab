@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 4326294927685829097}
   - component: {fileID: 4057854631739539382}
   - component: {fileID: 1303506710462756771}
+  - component: {fileID: 7397963733663514923}
   m_Layer: 0
   m_Name: BaseCharacter
   m_TagString: Untagged
@@ -357,6 +358,7 @@ MonoBehaviour:
   _SpriteAnimator: {fileID: 4326294927685829097}
   _Data: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
   _SkillManager: {fileID: 1303506710462756771}
+  _StatusManager: {fileID: 7397963733663514923}
 --- !u!114 &4326294927685828884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +417,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 706ef48f72c641a4d9924a0fc5f858d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7397963733663514923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4326294927685828883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43b865d3116397348bc37d15a76111a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4891089640591308100

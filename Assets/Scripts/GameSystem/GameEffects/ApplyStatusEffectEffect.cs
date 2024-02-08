@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[SelectImplementationName("Damage/Damage Brut Effect")]
-public class DamageEffect : GameEffect
+[SelectImplementationName("Apply Status Effect")]
+public class ApplyStatusEffectEffect : GameEffect
 {
-    [SerializeField] float _DamageQuantity = 10;
-    [SerializeField] FirstGameVarSelector _DamageTarget
+    [SelectImplementation] [SerializeReference]
+    [SerializeField] private StatusEffect _StatusEffectToApply;
+    [SerializeField] FirstGameVarSelector _Target
         = new VarSelectorCharacter() { Target = VarSelectorCharacter.EPossibleTarget.TARGET };
 
     public override bool PlayEffect(GameContext context)
     {
-        GameVarWrapper targetWrapper = _DamageTarget.StartGetFinalVarWrapper(context);
+        GameVarWrapper targetWrapper = _Target.StartGetFinalVarWrapper(context);
 
         if (targetWrapper.GetGameVarType() != EGameVarType.CHARACTER)
         {
@@ -19,8 +20,9 @@ public class DamageEffect : GameEffect
         }
 
         CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
-        characterTarget.Character.InflictDamage(_DamageQuantity);
+        characterTarget.Character.ApplyStatusEffect(_StatusEffectToApply);
 
         return true;
+
     }
 }
