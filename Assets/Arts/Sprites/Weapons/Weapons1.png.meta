@@ -3,7 +3,7 @@ guid: ce683f6001551014ea79e27fa3e1b61c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -531,8 +532,8 @@ TextureImporter:
         y: 128
         width: 96
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.46240965, y: 0.19845939}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -828,40 +829,40 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Weapons1_32: 256998853
-      Weapons1_13: -829542138
+      Weapons1_0: -1947036618
+      Weapons1_1: 1928595261
       Weapons1_10: -836284668
-      Weapons1_15: -1244339122
-      Weapons1_24: 1951617560
-      Weapons1_20: -605324035
-      Weapons1_14: -1410373031
-      Weapons1_33: -98655108
-      Weapons1_19: -279610807
       Weapons1_11: -1102501334
       Weapons1_12: 1654212904
-      Weapons1_6: 847535359
-      Weapons1_1: 1928595261
-      Weapons1_28: -1584541331
-      Weapons1_22: 1205804672
-      Weapons1_0: -1947036618
-      Weapons1_27: -235933352
+      Weapons1_13: -829542138
+      Weapons1_14: -1410373031
+      Weapons1_15: -1244339122
       Weapons1_16: -227873575
-      Weapons1_26: -351681397
-      Weapons1_9: 1238100419
-      Weapons1_25: 1952724931
-      Weapons1_31: 851951917
-      Weapons1_5: 1271099745
-      Weapons1_18: -409471681
-      Weapons1_29: -978827883
-      Weapons1_21: 320308335
       Weapons1_17: -951549897
+      Weapons1_18: -409471681
+      Weapons1_19: -279610807
+      Weapons1_2: 1636515634
+      Weapons1_20: -605324035
+      Weapons1_21: 320308335
+      Weapons1_22: 1205804672
+      Weapons1_23: 274821794
+      Weapons1_24: 1951617560
+      Weapons1_25: 1952724931
+      Weapons1_26: -351681397
+      Weapons1_27: -235933352
+      Weapons1_28: -1584541331
+      Weapons1_29: -978827883
       Weapons1_3: -609702764
       Weapons1_30: 1599668112
+      Weapons1_31: 851951917
+      Weapons1_32: 256998853
+      Weapons1_33: -98655108
       Weapons1_4: 640839173
+      Weapons1_5: 1271099745
+      Weapons1_6: 847535359
       Weapons1_7: 1099034538
-      Weapons1_2: 1636515634
-      Weapons1_23: 274821794
       Weapons1_8: 1032802198
+      Weapons1_9: 1238100419
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

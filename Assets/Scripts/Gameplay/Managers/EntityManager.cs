@@ -12,7 +12,7 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
 
     private Dictionary<int, IWorldEntity> _SpawnedEntity = new Dictionary<int, IWorldEntity>();
 
-    public void SpawnEntity(IWorldEntity.EEntityType entityType, IWorldEntityData entityData,
+    public int SpawnEntity(IWorldEntity.EEntityType entityType, IWorldEntityData entityData,
         Vector3 worldPosition, int entityID = -1)
     {
         while (entityID == -1 || _SpawnedEntity.ContainsKey(entityID))
@@ -33,7 +33,7 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                 break;
             default:
                 Debug.LogError(entityType.ToString() + " not currently handle for spawn");
-                return;
+                return -1;
         }
 
         entity.SetEntityData(entityData);
@@ -42,6 +42,8 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
         entity.SetWorldPosition(worldPosition);
 
         _SpawnedEntity.Add(entityID, entity);
+
+        return entityID;
     }
 
     public IWorldEntity TryGetEntityByID(int ID)
@@ -51,5 +53,17 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
             return _SpawnedEntity[ID];
         }
         return (null);
+    }
+
+    public void DeleteEntity(int ID)
+    {
+        // TODO : search the object of this entity and go delete it
+
+        DeleteEntityFromList(ID);
+    }
+
+    public void DeleteEntityFromList(int ID)
+    {
+        _SpawnedEntity.Remove(ID);
     }
 }

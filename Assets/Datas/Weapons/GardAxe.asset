@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ebe7a56eead3e4880e9cc35bf3ca1f, type: 3}
   m_Name: GardAxe
   m_EditorClassIdentifier: 
+  WeaponName: Soldier Axe
   Sprite: {fileID: 652229512, guid: 27928b2f3971b0c40a4ff1aca88e6a93, type: 3}
+  WeaponObject: {fileID: 0}
   BaseRotation: 135

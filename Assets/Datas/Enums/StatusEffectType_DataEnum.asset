@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b1e19a5bff52446813094066281feb, type: 3}
+  m_Name: StatusEffectType_DataEnum
+  m_EditorClassIdentifier: 
+  FilePathContaningEnumGenerated: Scripts/Enums/EStatusEffectType.cs
+  HasDefaulValue: 0
+  DefaultValue:
+    enumValueName: NONE
+    uniqueID: -1
+    resetIDToHash: 0
+  EnumName: EStatusEffectType
+  EnumValues:
+  - enumValueName: DamageOverTime
+    uniqueID: -480676448
+    resetIDToHash: 0
+  - enumValueName: DOT_Bleed
+    uniqueID: -1370136894
+    resetIDToHash: 0
+  - enumValueName: Slow
+    uniqueID: 520217391
+    resetIDToHash: 0
