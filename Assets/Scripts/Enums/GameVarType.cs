@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Diagnostics;
+using static CharacterStats;
 
 public enum EGameVarType
 {
@@ -9,7 +10,8 @@ public enum EGameVarType
     FLOAT = 3,
     STRING = 4,
 
-    CHARACTER = 100
+    CHARACTER = 100,
+    CHARACTER_STAT = 200
 }
 
 public abstract class GameVarWrapper
@@ -142,5 +144,31 @@ public class CharacterVarWrapper : GameVarWrapper
         }
 
         return ((other as CharacterVarWrapper).Character.GetEntityID() == Character.GetEntityID());
+    }
+}
+
+public class CharacterStatVarWrapper : GameVarWrapper
+{
+    public ImprovableStat CharacterStat;
+
+    public CharacterStatVarWrapper(ImprovableStat value)
+    {
+        CharacterStat = value;
+    }
+
+    public override EGameVarType GetGameVarType() => EGameVarType.CHARACTER;
+
+    public override string ToString() => CharacterStat.ToString();
+
+    public override bool IsSameAs(GameVarWrapper other)
+    {
+        if (other.GetGameVarType() != EGameVarType.CHARACTER_STAT)
+        {
+            return false;
+        }
+
+        ImprovableStat otherStat = (other as CharacterStatVarWrapper).CharacterStat;
+
+        return CharacterStat == otherStat;
     }
 }

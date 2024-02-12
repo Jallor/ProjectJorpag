@@ -149,8 +149,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     void CheckLifeUpdated(float lifeModifier)
     {
-        print("DEBUG : Life " + _Stats.Life.CurrentValue + "   modified by " + lifeModifier);
-        if (_Stats.Life.CurrentValue <= 0)
+        print("DEBUG : Life " + _Stats.Life.GetCurrentValue() + "   modified by " + lifeModifier);
+        if (_Stats.Life.GetCurrentValue() <= 0)
         {
             Death();
         }

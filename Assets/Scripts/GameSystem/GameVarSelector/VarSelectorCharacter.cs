@@ -118,3 +118,19 @@ public class VarSelectorCharacterFromCharacter : NextVarSelectorFromCharacter
         throw new System.NotImplementedException();
     }
 }
+
+[SelectImplementationName("Character Stat")]
+public class VarSelectorCharacterStatFromCharacter : NextVarSelectorFromCharacter
+{
+    public override EGameVarType GetGameVarType() => EGameVarType.CHARACTER;
+
+    public override EGameVarType GetFinalGameVarType()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override GameVarWrapper GetFinalGameVarWrapper(GameVarWrapper varWrapper)
+    {
+        throw new System.NotImplementedException();
+    }
+}

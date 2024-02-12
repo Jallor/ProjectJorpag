@@ -82,7 +82,7 @@ public class CharacterStats
 
     public class ImprovableStat : SimpleStat
     {
-
+        public ECharacterStat StatType;
     }
 
     public SimpleStat MovementSpeed;
