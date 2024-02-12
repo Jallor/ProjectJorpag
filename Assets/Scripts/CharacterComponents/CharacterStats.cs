@@ -82,10 +82,55 @@ public class CharacterStats
 
     public class ImprovableStat : SimpleStat
     {
-        public ECharacterStat StatType;
+        public ECharacterStat StatType { get; protected set; }
+
+        public float BaseBuff { get; protected set; }
+        public float PercentBuff { get; protected set; }
+        public float MultBuff { get; protected set; }
     }
 
-    public SimpleStat MovementSpeed;
+    public ImprovableStat MovementSpeed;
     public ConsomableStat Life;
+
+    public List<ImprovableStat> CharacerStats = new List<ImprovableStat>();
+
+    public ImprovableStat AddStat(ECharacterStat newStatType)
+    {
+        if (HasStat(newStatType))
+        {
+            return TryGetCharaStat(newStatType);
+        }
+        else
+        {
+            ImprovableStat newStat = new ImprovableStat();
+            CharacerStats.Add(newStat);
+            return newStat;
+        }
+    }
+
+    public bool HasStat(ECharacterStat statType)
+    {
+        foreach (ImprovableStat stat in CharacerStats)
+        {
+            if (stat.StatType == statType)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public ImprovableStat TryGetCharaStat(ECharacterStat statType)
+    {
+        foreach (ImprovableStat stat in CharacerStats)
+        {
+            if (stat.StatType == statType)
+            {
+                return stat;
+            }
+        }
+
+        return null;
+    }
 }
 
