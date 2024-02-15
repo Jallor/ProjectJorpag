@@ -56,6 +56,10 @@ public class StatusEffectsCharacterManager : MonoBehaviour
     {
         // TODO normalement ici on doit dupliquer l'effet pour éviter tout soucis !
         _ActiveStatusEffects.Add(statusEffect);
-        statusEffect.Applied(new GameContext());
+
+        GameContext context = new GameContext();
+        context.Target = new CharacterVarWrapper(_CharacterManager);
+
+        statusEffect.Applied(context);
     }
 }

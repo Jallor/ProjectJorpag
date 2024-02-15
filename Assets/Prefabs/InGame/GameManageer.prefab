@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7051313399385424348}
   - component: {fileID: 7051313399385424351}
   - component: {fileID: 3951435707904655689}
+  - component: {fileID: 5024802584435637632}
   m_Layer: 0
   m_Name: GameManageer
   m_TagString: Untagged
@@ -65,3 +66,21 @@ MonoBehaviour:
   _MinAvailableEntityID: 1001
   _PlayerPrefab: {fileID: 7549042020678751776, guid: 1d558e4d24567eb4e952a510040c19bb, type: 3}
   _BaseCharacterPrefab: {fileID: 4326294927685828883, guid: d3989ca917ac7e94499f5201f0de2b01, type: 3}
+--- !u!114 &5024802584435637632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7051313399385424350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa918145c8940a248a8b6d31e734da7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _DontDestroyOnLoad: 0
+  _AllStatusVfx:
+  - StatusVFXType: -1110394808
+    StatusVFXObject: {fileID: 6770738289790211627, guid: 777fc6cef417b3f458113999112136c7, type: 3}
+  - StatusVFXType: 709899764
+    StatusVFXObject: {fileID: 6770738289790211627, guid: 250f9fc348448df43bdc8bd217fa4f1b, type: 3}

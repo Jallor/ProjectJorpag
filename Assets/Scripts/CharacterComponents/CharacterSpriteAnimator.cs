@@ -10,13 +10,13 @@ public class CharacterSpriteAnimator : MonoBehaviour
     [Required] [SerializeField] private SpriteRenderer _SprRend;
     [Required] [SerializeField] private SpriteRenderer _WeaponObject;
 
-    [Foldout("Weapons Positions")]
+    [Foldout("Key Positions")]
     [Required][SerializeField] private Transform _WeaponPositionDown;
-    [Foldout("Weapons Positions")]
+    [Foldout("Key Positions")]
     [Required][SerializeField] private Transform _WeaponPositionLeft;
-    [Foldout("Weapons Positions")]
+    [Foldout("Key Positions")]
     [Required][SerializeField] private Transform _WeaponPositionRight;
-    [Foldout("Weapons Positions")]
+    [Foldout("Key Positions")]
     [Required][SerializeField] private Transform _WeaponPositionUp;
 
     [Header("Animation Parameters")]

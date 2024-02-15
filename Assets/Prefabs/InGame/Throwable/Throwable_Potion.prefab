@@ -193,6 +193,10 @@ MonoBehaviour:
       type: {class: DamageOverTime_StatusEffect, ns: , asm: Assembly-CSharp}
       data:
         _TickDuration: 5
+        _HasUiToDisplay: 0
+        _HasVfx: 1
+        _UiIconNameTmp: "Ha haaa !\xE7a sert \xE0 rien (pour l'instant)"
+        _VfxToApply: 709899764
         _DamagePerTick: 5
     - rid: 1268382456204492800
       type: {class: DamageEffect, ns: , asm: Assembly-CSharp}

@@ -14,6 +14,11 @@ public class CharacterStats
         /// <summary> Send the value that modifie this stat </summary>
         public DelegateWithFloat OnValueUpdated;
 
+        public SimpleStat()
+        {
+            Init(0);
+        }
+
         public virtual void Init(float initialValue)
         {
             InitialValue = initialValue;
@@ -41,6 +46,11 @@ public class CharacterStats
     {
         public float InitialMaxValue { get; protected set; }
         public float MaxValue { get; protected set; }
+
+        public ConsomableStat()
+        {
+            Init(0);
+        }
 
         public override void Init(float initialValue)
         {
@@ -87,6 +97,21 @@ public class CharacterStats
         public float BaseBuff { get; protected set; }
         public float PercentBuff { get; protected set; }
         public float MultBuff { get; protected set; }
+
+        public ImprovableStat()
+        {
+            Init(0);
+        }
+
+        public override void Init(float initialValue)
+        {
+            base.Init(initialValue);
+
+            BaseBuff = 0;
+            PercentBuff = 0;
+            MultBuff = 1;
+        }
+
     }
 
     public ImprovableStat MovementSpeed;

@@ -1,5 +1,7 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 
 [System.Serializable]
@@ -9,15 +11,42 @@ public abstract class StatusEffect
     private float _RemainingTick;
     public abstract EStatusEffectType _EffectType { get; }
 
-     // private CharacterManager _Caster; // TODO !
-     // private CharacterManager _Target; // TODO !
+    // private CharacterManager _Caster; // TODO !
+    // private CharacterManager _Target; // TODO !
+
+    [SerializeField] private bool _HasUiToDisplay = false;
+    [SerializeField] private bool _HasVfx = false;
+
+    [ShowIf("_HasUiToDisplay")] [AllowNesting]
+    [SerializeField] private string _UiIconNameTmp = "Ha haaa ! ça sert à rien (pour l'instant)";
+
+    [ShowIf("_HasVfx")][AllowNesting]
+    [SerializeField] private EStatusVfx _VfxToApply = EStatusVfx.NONE;
+    private int _VfxId = -1;
 
     public void Applied(GameContext context)
     {
         _RemainingTick = _TickDuration;
         OnApplied(context);
+        ApplyVfx(context);
     }
     public abstract void OnApplied(GameContext context);
+    public void ApplyVfx(GameContext context)
+    {
+        if (!_HasVfx)
+        {
+            return;
+        }
+
+        GameVarWrapper targetWrapper = context.Target;
+        if (targetWrapper.GetGameVarType() != EGameVarType.CHARACTER)
+        {
+            return;
+        }
+        CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
+
+        _VfxId = characterTarget.Character.AddStatusVfx(_VfxToApply);
+    }
 
     public void Tick(GameContext context)
     {
@@ -31,9 +60,27 @@ public abstract class StatusEffect
         if (_RemainingTick <= 0)
         {
             OnRemoved(context);
+            RemoveVfx(context);
             return false;
         }
         return true;
     }
     public abstract void OnRemoved(GameContext context);
+    public void RemoveVfx(GameContext context)
+    {
+        if (!_HasVfx)
+        {
+            return;
+        }
+
+        GameVarWrapper targetWrapper = context.Target;
+        if (targetWrapper.GetGameVarType() != EGameVarType.CHARACTER)
+        {
+            return;
+        }
+        CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
+
+        characterTarget.Character.RemoveVfx(_VfxId);
+    }
+
 }

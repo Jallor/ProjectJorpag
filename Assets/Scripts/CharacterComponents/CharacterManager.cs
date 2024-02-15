@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     [Required] [SerializeField] private CharacterData _Data;
     [Required] [SerializeField] private SkillCharacterManager _SkillManager;
     [Required] [SerializeField] private StatusEffectsCharacterManager _StatusManager;
+    [Required] [SerializeField] private CharacterVfxManager _VfxManager;
     private CharacterStats _Stats = new CharacterStats();
 
     private IWorldEntity.EEntityType _EntityType = IWorldEntity.EEntityType.NONE;
@@ -45,6 +46,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
         _SkillManager.Initialize(this);
         _StatusManager.Initialize(this);
+        _VfxManager.Initialize(this);
 
         _SpriteAnimator.SetWeapon(GetDefaultWeapon());
         _SpriteAnimator.PlayIdleAnimation(CharacterOrientation.DOWN);
@@ -147,6 +149,16 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         _StatusManager.ApplyStatusEffect(statusEffectToApply);
     }
 
+    public int AddStatusVfx(EStatusVfx statusVfxToAdd)
+    {
+        return (_VfxManager.AddStatusVfx(statusVfxToAdd));
+    }
+
+    public void RemoveVfx(int idToRemove)
+    {
+        _VfxManager.RemoveVfx(idToRemove);
+    }
+
     void CheckLifeUpdated(float lifeModifier)
     {
         print("DEBUG : Life " + _Stats.Life.GetCurrentValue() + "   modified by " + lifeModifier);
@@ -174,7 +186,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
         _Stats.Life = new CharacterStats.ConsomableStat();
         _Stats.Life.Init(_Data.MaxHP);
-        _Stats.MovementSpeed = new CharacterStats.ConsomableStat();
+        _Stats.MovementSpeed = new CharacterStats.ImprovableStat();
         _Stats.MovementSpeed.Init(_Data.MovementSpeed);
     }
     public IWorldEntityData GetEntityData() => (_Data);
