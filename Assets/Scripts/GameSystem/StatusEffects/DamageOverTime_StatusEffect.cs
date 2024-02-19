@@ -5,7 +5,7 @@ using UnityEngine;
 [SelectImplementationName("Damage Over Time")]
 public class DamageOverTime_StatusEffect : StatusEffect
 {
-    [SerializeField] private float _DamagePerTick = 5;
+    public float _DamagePerTick = 5;
 
     public override EStatusEffectType _EffectType => EStatusEffectType.DamageOverTime;
 

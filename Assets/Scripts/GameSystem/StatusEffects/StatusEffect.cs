@@ -14,15 +14,20 @@ public abstract class StatusEffect
     // private CharacterManager _Caster; // TODO !
     // private CharacterManager _Target; // TODO !
 
-    [SerializeField] private bool _HasUiToDisplay = false;
-    [SerializeField] private bool _HasVfx = false;
+    public bool _HasUiToDisplay = false;
+    public bool _HasVfx = false;
 
     [ShowIf("_HasUiToDisplay")] [AllowNesting]
-    [SerializeField] private string _UiIconNameTmp = "Ha haaa ! ça sert à rien (pour l'instant)";
+    public string _UiIconNameTmp = "Ha haaa ! ça sert à rien (pour l'instant)";
 
     [ShowIf("_HasVfx")][AllowNesting]
-    [SerializeField] private EStatusVfx _VfxToApply = EStatusVfx.NONE;
-    private int _VfxId = -1;
+    public EStatusVfx _VfxToApply = EStatusVfx.NONE;
+    public int _VfxId = -1;
+
+    public virtual T ShallowCopy<T>()
+    {
+        return (T)this.MemberwiseClone();
+    }
 
     public void Applied(GameContext context)
     {

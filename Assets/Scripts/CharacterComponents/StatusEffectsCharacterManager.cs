@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,12 +55,12 @@ public class StatusEffectsCharacterManager : MonoBehaviour
 
     public void ApplyStatusEffect(StatusEffect statusEffect)
     {
-        // TODO normalement ici on doit dupliquer l'effet pour éviter tout soucis !
-        _ActiveStatusEffects.Add(statusEffect);
+        StatusEffect newStatusEffect = statusEffect.ShallowCopy<StatusEffect>();
+        _ActiveStatusEffects.Add(newStatusEffect);
 
         GameContext context = new GameContext();
         context.Target = new CharacterVarWrapper(_CharacterManager);
 
-        statusEffect.Applied(context);
+        newStatusEffect.Applied(context);
     }
 }
