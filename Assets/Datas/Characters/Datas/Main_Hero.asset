@@ -18,7 +18,7 @@ MonoBehaviour:
   DefaultWeapon: {fileID: 11400000, guid: 897c921b1ddf3dc498310e98df3cd474, type: 2}
   TMP_SkillData: {fileID: 11400000, guid: 1dd850f9de52ce24491913b9f925dcf5, type: 2}
   MaxHP: 100
-  MovementSpeed: 3500
+  MovementSpeed: 5000
   CharacterQuickDescription: "Le perso principale, \xE0 la base pens\xE9 pour se
     baser sur Alphen, y a moyen de s'en d\xE9tacher.\nIl reste n\xE9anmoins la porte
     d'entr\xE9 dans l'histoire et les yeux du joueur.\nDe plus, il aura pour mission
