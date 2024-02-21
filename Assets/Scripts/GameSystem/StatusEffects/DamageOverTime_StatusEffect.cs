@@ -9,24 +9,21 @@ public class DamageOverTime_StatusEffect : StatusEffect
 
     public override EStatusEffectType _EffectType => EStatusEffectType.DamageOverTime;
 
-    public override void OnApplied(GameContext context)
+    public override void OnApplied()
     {
     }
 
-    public override void OnTick(GameContext context)
+    public override void OnTick()
     {
-        GameVarWrapper targetWrapper = context.Target;
-
-        if (targetWrapper.GetGameVarType() != EGameVarType.CHARACTER)
+        if (!_Target)
         {
             return ;
         }
 
-        CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
-        characterTarget.Character.InflictDamage(_DamagePerTick);
+        _Target.InflictDamage(_DamagePerTick);
     }
 
-    public override void OnRemoved(GameContext context)
+    public override void OnRemoved()
     {
 
     }

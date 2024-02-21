@@ -7,12 +7,12 @@ using UnityEngine;
 [System.Serializable]
 public abstract class StatusEffect
 {
-    [SerializeField] private float _TickDuration = 5;
+    [SerializeField] private const float _TickDuration = 5;
     private float _RemainingTick;
     public abstract EStatusEffectType _EffectType { get; }
 
-    // private CharacterManager _Caster; // TODO !
-    // private CharacterManager _Target; // TODO !
+    protected CharacterManager _Caster = null;
+    protected CharacterManager _Target = null;
 
     public bool _HasUiToDisplay = false;
     public bool _HasVfx = false;
@@ -32,60 +32,56 @@ public abstract class StatusEffect
     public void Applied(GameContext context)
     {
         _RemainingTick = _TickDuration;
-        OnApplied(context);
-        ApplyVfx(context);
+
+        if (context.Caster.GetGameVarType() == EGameVarType.CHARACTER)
+        {
+            _Caster = (context.Caster as CharacterVarWrapper).Character;
+        }
+        if (context.Target.GetGameVarType() == EGameVarType.CHARACTER)
+        {
+            _Target = (context.Target as CharacterVarWrapper).Character;
+        }
+
+        OnApplied();
+        ApplyVfx();
     }
-    public abstract void OnApplied(GameContext context);
-    public void ApplyVfx(GameContext context)
+    public abstract void OnApplied();
+    public void ApplyVfx()
     {
-        if (!_HasVfx)
+        if (!_HasVfx || !_Target)
         {
             return;
         }
 
-        GameVarWrapper targetWrapper = context.Target;
-        if (targetWrapper.GetGameVarType() != EGameVarType.CHARACTER)
-        {
-            return;
-        }
-        CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
-
-        _VfxId = characterTarget.Character.AddStatusVfx(_VfxToApply);
+        _VfxId = _Target.AddStatusVfx(_VfxToApply);
     }
 
-    public void Tick(GameContext context)
+    public void Tick()
     {
-        OnTick(context);
+        OnTick();
         --_RemainingTick;
     }
-    public abstract void OnTick(GameContext context);
+    public abstract void OnTick();
 
-    public bool TestIsStillActive(GameContext context)
+    public bool TestIsStillActive()
     {
         if (_RemainingTick <= 0)
         {
-            OnRemoved(context);
-            RemoveVfx(context);
+            OnRemoved();
+            RemoveVfx();
             return false;
         }
         return true;
     }
-    public abstract void OnRemoved(GameContext context);
-    public void RemoveVfx(GameContext context)
+    public abstract void OnRemoved();
+    public void RemoveVfx()
     {
-        if (!_HasVfx)
+        if (!_HasVfx || !_Target)
         {
             return;
         }
 
-        GameVarWrapper targetWrapper = context.Target;
-        if (targetWrapper.GetGameVarType() != EGameVarType.CHARACTER)
-        {
-            return;
-        }
-        CharacterVarWrapper characterTarget = targetWrapper as CharacterVarWrapper;
-
-        characterTarget.Character.RemoveVfx(_VfxId);
+        _Target.RemoveVfx(_VfxId);
     }
 
 }
