@@ -53,6 +53,9 @@ public class StatusEffectsCharacterManager : MonoBehaviour
     public void ApplyStatusEffect(StatusEffect statusEffect)
     {
         StatusEffect newStatusEffect = statusEffect.ShallowCopy<StatusEffect>();
+
+        // TODO : need to check if this type of status already exist (see comit 21/02/2024 ~14h40)
+
         _ActiveStatusEffects.Add(newStatusEffect);
 
         GameContext context = new GameContext();

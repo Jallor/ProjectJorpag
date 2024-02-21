@@ -17,7 +17,7 @@ public abstract class StatusEffect
     public bool _HasUiToDisplay = false;
     public bool _HasVfx = false;
 
-    [ShowIf("_HasUiToDisplay")] [AllowNesting]
+    [ShowIf("_HasUiToDisplay")][AllowNesting]
     public string _UiIconNameTmp = "Ha haaa ! ça sert à rien (pour l'instant)";
 
     [ShowIf("_HasVfx")][AllowNesting]
@@ -54,6 +54,11 @@ public abstract class StatusEffect
         }
 
         _VfxId = _Target.AddStatusVfx(_VfxToApply);
+    }
+
+    public bool TryApplyStatusOfSameType(/*something*/)
+    {
+        throw new System.NotImplementedException();
     }
 
     public void Tick()

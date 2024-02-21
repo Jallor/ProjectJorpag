@@ -26,6 +26,6 @@ MonoBehaviour:
   - enumValueName: DOT_Bleed
     uniqueID: -1370136894
     resetIDToHash: 0
-  - enumValueName: Slow
-    uniqueID: 520217391
+  - enumValueName: ChangeStat
+    uniqueID: -541375120
     resetIDToHash: 0

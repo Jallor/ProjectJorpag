@@ -4,7 +4,7 @@ public enum EStatusEffectType
 {
 	DamageOverTime = -480676448,
 	DOT_Bleed = -1370136894,
-	Slow = 520217391,
+	ChangeStat = -541375120,
 }
 
 
