@@ -56,6 +56,7 @@ public class VarSelectorIntFromCharacter : NextVarSelectorFromCharacter
     {
         MAX_HP = 0,
         CURRENT_HP = 1,
+        ENTITY_ID = 2,
     }
 
     public EPossibleTarget Target;
@@ -78,6 +79,9 @@ public class VarSelectorIntFromCharacter : NextVarSelectorFromCharacter
             case EPossibleTarget.CURRENT_HP:
                 finalValue = charaWrapper.Character.GetMaxHP();
                 break;
+            case EPossibleTarget.ENTITY_ID:
+                finalValue = charaWrapper.Character.GetEntityID();
+                break;
             default:
                 Debug.LogError("VarSelectorIntFromCharacter : " + Target + " not implemented");
                 break;
@@ -90,16 +94,34 @@ public class VarSelectorIntFromCharacter : NextVarSelectorFromCharacter
 [SelectImplementationName("String")]
 public class VarSelectorStringFromCharacter : NextVarSelectorFromCharacter
 {
+    public enum EPossibleTarget
+    {
+        CHARACTER_NAME = 0,
+    }
+
+    public EPossibleTarget Target;
+
     public override EGameVarType GetGameVarType() => EGameVarType.STRING;
 
-    public override EGameVarType GetFinalGameVarType()
-    {
-        throw new System.NotImplementedException();
-    }
+    public override EGameVarType GetFinalGameVarType() => GetGameVarType();
 
     public override GameVarWrapper GetFinalGameVarWrapper(GameVarWrapper varWrapper)
     {
-        throw new System.NotImplementedException();
+        Debug.Assert(varWrapper is CharacterVarWrapper);
+        CharacterVarWrapper charaWrapper = varWrapper as CharacterVarWrapper;
+
+        string finalValue = "";
+        switch (Target)
+        {
+            case EPossibleTarget.CHARACTER_NAME:
+                finalValue = charaWrapper.Character.ToString();
+                break;
+            default:
+                Debug.LogError("VarSelectorStringFromCharacter : " + Target + " not implemented");
+                break;
+        }
+
+        return (new StringVarWrapper(finalValue));
     }
 }
 

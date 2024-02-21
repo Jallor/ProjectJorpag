@@ -161,7 +161,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     void CheckLifeUpdated(float lifeModifier)
     {
-        print("DEBUG : Life " + _Stats.Life.GetCurrentValue() + "   modified by " + lifeModifier);
+        print("DEBUG : Life " + _Stats.Life.GetCurrentValue() + "   modified by " + lifeModifier + " (" + GetEntityID() + ")");
         if (_Stats.Life.GetCurrentValue() <= 0)
         {
             Death();
@@ -171,7 +171,9 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     void Death()
     {
         print("Oups I'm dead !");
+
         EntityManager.Inst.DeleteEntityFromList(_EntityID);
+
         Destroy(gameObject);
     }
 

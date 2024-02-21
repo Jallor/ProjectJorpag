@@ -21,6 +21,19 @@ public abstract class NextGameVarSelector : GameVarSelector
 }
 
 #region Constant Values
+[SelectImplementationName("Constant/Null")]
+public class ConstNullVarSelector : FirstGameVarSelector
+{
+    public override EGameVarType GetGameVarType() => (EGameVarType.NULL);
+
+    public override EGameVarType GetFinalGameVarType() => (GetGameVarType());
+
+    public override GameVarWrapper StartGetFinalVarWrapper(GameContext context)
+    {
+        return (new NullVarWrapper());
+    }
+}
+
 [SelectImplementationName("Constant/Bool")]
 public class ConstBoolVarSelector : FirstGameVarSelector
 {
