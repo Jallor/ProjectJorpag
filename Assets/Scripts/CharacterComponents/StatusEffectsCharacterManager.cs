@@ -31,18 +31,15 @@ public class StatusEffectsCharacterManager : MonoBehaviour
             // - gérer le tick dans chaque statusEffect
         if (_TimeBeforeNextTick <= 0)
         {
-            GameContext context = new GameContext();
-            context.Target = new CharacterVarWrapper(_CharacterManager);
-
             foreach (StatusEffect effect in _ActiveStatusEffects)
             {
-                effect.Tick(context);
+                effect.Tick();
             }
 
             // Remove status effects that has ended
             for (int i = _ActiveStatusEffects.Count - 1; i >= 0; i--)
             {
-                if (!_ActiveStatusEffects[i].TestIsStillActive(context))
+                if (!_ActiveStatusEffects[i].TestIsStillActive())
                 {
                     _ActiveStatusEffects.RemoveAt(i);
                 }
