@@ -26,6 +26,7 @@ public class CharacterVfxManager : MonoBehaviour
         GameObject newStatusVfx = Instantiate(prefabVfx);
 
         newStatusVfx.transform.position = _VfxPosition.position;
+        newStatusVfx.transform.SetParent(_VfxPosition.transform);
 
         int newVfxId = Random.Range(0, int.MaxValue);
         while (_InstantiedVfx.Keys.Contains(newVfxId))
