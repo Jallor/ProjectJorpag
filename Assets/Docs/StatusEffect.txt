@@ -1,0 +1,8 @@
+ == Adding Status of same type ==
+The first issue is that adding a status may result in two situation :
+	- They don't stack, so each time a status is applied, it create a new instance of it
+	- They stack on them, meaning that the new one is not applied but it increse or reset values of the current one. 
+It will depend the status effect. However, the second situation will trigger other situation.
+E.g. applying a fire DoT or a poison DoT result in the same gameplay effect but different intention.
+
+TODO : status effect may be scriptableObject to facilitate implementation of common effects in data

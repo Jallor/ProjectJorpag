@@ -11,6 +11,13 @@ public class ChangeStat_StatusEffect : StatusEffect
         throw new System.NotImplementedException();
     }
 
+    public override bool TryApplyStatusOfSameType(StatusEffect otherStatusEffect)
+    {
+        return true;
+
+        // TODO : Status effect : need to check if it can be added
+    }
+
     public override void OnTick()
     {
         throw new System.NotImplementedException();
@@ -20,5 +27,4 @@ public class ChangeStat_StatusEffect : StatusEffect
     {
         throw new System.NotImplementedException();
     }
-
 }

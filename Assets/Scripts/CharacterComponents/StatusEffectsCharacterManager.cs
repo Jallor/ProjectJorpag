@@ -53,14 +53,28 @@ public class StatusEffectsCharacterManager : MonoBehaviour
     public void ApplyStatusEffect(StatusEffect statusEffect)
     {
         StatusEffect newStatusEffect = statusEffect.ShallowCopy<StatusEffect>();
+        bool canBeApplied = true;
 
-        // TODO : need to check if this type of status already exist (see comit 21/02/2024 ~14h40)
+        foreach (StatusEffect effect in _ActiveStatusEffects)
+        {
+            Type type = newStatusEffect.GetType();
+            if (effect._EffectType == newStatusEffect._EffectType)
+            {
+                if (!effect.TryApplyStatusOfSameType(newStatusEffect))
+                {
+                    canBeApplied = false;
+                }
+            }
+        }
 
-        _ActiveStatusEffects.Add(newStatusEffect);
+        if (canBeApplied)
+        {
+            _ActiveStatusEffects.Add(newStatusEffect);
 
-        GameContext context = new GameContext();
-        context.Target = new CharacterVarWrapper(_CharacterManager);
+            GameContext context = new GameContext();
+            context.Target = new CharacterVarWrapper(_CharacterManager);
 
-        newStatusEffect.Applied(context);
+            newStatusEffect.Applied(context);
+        }
     }
 }

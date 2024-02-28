@@ -10,6 +10,7 @@ public abstract class StatusEffect
     [SerializeField] private const float _TickDuration = 5;
     private float _RemainingTick;
     public abstract EStatusEffectType _EffectType { get; }
+    public List<EStatusEffectTag> Tags { get; private set; }
 
     protected CharacterManager _Caster = null;
     protected CharacterManager _Target = null;
@@ -56,10 +57,11 @@ public abstract class StatusEffect
         _VfxId = _Target.AddStatusVfx(_VfxToApply);
     }
 
-    public bool TryApplyStatusOfSameType(/*something*/)
-    {
-        throw new System.NotImplementedException();
-    }
+    /// <summary>
+    /// To call if another statusEffect try to be applied applied on the same character
+    /// </summary>
+    /// <returns>FALSE if it CAN NOT be applied</returns>
+    public abstract bool TryApplyStatusOfSameType(StatusEffect otherStatusEffect);
 
     public void Tick()
     {

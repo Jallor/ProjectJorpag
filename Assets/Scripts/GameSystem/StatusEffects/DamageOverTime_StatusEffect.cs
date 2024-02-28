@@ -13,6 +13,13 @@ public class DamageOverTime_StatusEffect : StatusEffect
     {
     }
 
+    public override bool TryApplyStatusOfSameType(StatusEffect otherStatusEffect)
+    {
+        return true;
+
+        // TODO : Status effect : need to check if it can be added
+    }
+
     public override void OnTick()
     {
         if (!_Target)
