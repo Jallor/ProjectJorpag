@@ -2,19 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicMovementCharacterController : CharacterController
+public class BasicGridBasedMovementCharacterController : CharacterController
 {
     [System.Serializable]
-    public class BasicMovementData
+    public class GridMovementData
     {
-        public float Duration;
-        public Vector2 Direction;
+        public Vector2Int Direction;
     }
 
-    public List<BasicMovementData> MovementData = new List<BasicMovementData>();
+    public List<GridMovementData> MovementData = new List<GridMovementData>();
 
-    private float _CurrentMoveDuration = 0f;
-    private int _CurrentMovementIndex = 0;
+    private Vector2Int PreviousPosition;
+    private int _CurrentMovementIndex = -1;
 
     public void Update()
     {
@@ -23,23 +22,28 @@ public class BasicMovementCharacterController : CharacterController
             _CharaManager.GiveMoveInput(Vector2.zero);
             return;
         }
-
         if (MovementData.Count == 0)
         {
             _CharaManager.GiveMoveInput(Vector2.zero);
             return;
         }
+
+        if (_CurrentMovementIndex == -1)
+        {
+            PreviousPosition = _CharaManager.GetGridPosition();
+            _CurrentMovementIndex = 0;
+        }
+
         _CharaManager.GiveMoveInput(MovementData[_CurrentMovementIndex].Direction);
 
-        _CurrentMoveDuration += Time.deltaTime;
-        if (_CurrentMoveDuration >= MovementData[_CurrentMovementIndex].Duration)
+        if (_CharaManager.GetGridPosition() == PreviousPosition + MovementData[_CurrentMovementIndex].Direction)
         {
-            _CurrentMoveDuration = 0f;
             ++_CurrentMovementIndex;
             if (_CurrentMovementIndex >= MovementData.Count)
             {
                 _CurrentMovementIndex = 0;
             }
+            PreviousPosition = _CharaManager.GetGridPosition();
         }
     }
 }

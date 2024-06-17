@@ -13,6 +13,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     [Required] [SerializeField] private SkillCharacterManager _SkillManager;
     [Required] [SerializeField] private StatusEffectsCharacterManager _StatusManager;
     [Required] [SerializeField] private CharacterVfxManager _VfxManager;
+
     private CharacterStats _Stats = new CharacterStats();
 
     private IWorldEntity.EEntityType _EntityType = IWorldEntity.EEntityType.NONE;
@@ -161,7 +162,6 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     void CheckLifeUpdated(float lifeModifier)
     {
-        print("DEBUG : Life " + _Stats.Life.GetCurrentValue() + "   modified by " + lifeModifier + " (" + GetEntityID() + ")");
         if (_Stats.Life.GetCurrentValue() <= 0)
         {
             Death();
@@ -190,6 +190,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         _Stats.Life.Init(_Data.MaxHP);
         _Stats.MovementSpeed = new CharacterStats.ImprovableStat();
         _Stats.MovementSpeed.Init(_Data.MovementSpeed);
+
+        name = dataToApply.name;
     }
     public IWorldEntityData GetEntityData() => (_Data);
 
