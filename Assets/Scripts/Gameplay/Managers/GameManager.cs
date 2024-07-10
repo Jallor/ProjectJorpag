@@ -34,18 +34,24 @@ public class GameManager : MonobehaviourSingleton<GameManager>
         foreach (TileMapMetaData.SpawnData spawnData in scenariToLoad.MapMetaData.SpawnDataList)
         {
             Vector3 position = _TileGrid.GridPositionToWorldPosition(spawnData.SpawnPoint);
-            if (true) // is character
+            if (spawnData is TileMapMetaData.CharacterSpawnData)
             {
-                if (spawnData.IsPlayer)
+                TileMapMetaData.CharacterSpawnData charaSpawnData = spawnData as TileMapMetaData.CharacterSpawnData;
+
+                if (charaSpawnData.IsPlayer)
                 {
                     _EntityManager.SpawnEntity(IWorldEntity.EEntityType.PLAYER,
-                        spawnData.CharaData, position, 0);
+                        charaSpawnData.CharaData, position, 0);
                 }
                 else
                 {
                     _EntityManager.SpawnEntity(IWorldEntity.EEntityType.BASE_CHARACTER,
-                        spawnData.CharaData, position);
+                        charaSpawnData.CharaData, position);
                 }
+            }
+            else
+            {
+                Debug.LogError("Spawn data not implemented");
             }
         }
 

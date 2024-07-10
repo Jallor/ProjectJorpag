@@ -13,15 +13,34 @@ MonoBehaviour:
   m_Name: 000_a_TrainingField
   m_EditorClassIdentifier: 
   SpawnDataList:
-  - CharaData: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
-    IsPlayer: 1
-    SpawnPoint: {x: 0, y: 0}
-  - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
-    IsPlayer: 0
-    SpawnPoint: {x: 5, y: 5}
-  - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
-    IsPlayer: 0
-    SpawnPoint: {x: 6, y: 5}
-  - CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
-    IsPlayer: 0
-    SpawnPoint: {x: -5, y: -5}
+  - rid: 8492876540025765891
+  - rid: 8492876540025765892
+  - rid: 8492876540025765893
+  - rid: 8492876540025765894
+  references:
+    version: 2
+    RefIds:
+    - rid: 8492876540025765891
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: 0, y: 0}
+        CharaData: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
+        IsPlayer: 1
+    - rid: 8492876540025765892
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: 1, y: 0}
+        CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+        IsPlayer: 0
+    - rid: 8492876540025765893
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: 0, y: 1}
+        CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+        IsPlayer: 0
+    - rid: 8492876540025765894
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: 1, y: 1}
+        CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+        IsPlayer: 0

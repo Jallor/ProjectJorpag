@@ -4,13 +4,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="NewTileMapMetaData", menuName ="Data/Map MetaData")]
 public class TileMapMetaData : ScriptableObject
 {
-    [System.Serializable]
-    public class SpawnData
+    [SelectImplementationName("Character Spawn Data")]
+    public class CharacterSpawnData : SpawnData
     {
         public CharacterData CharaData;
         public bool IsPlayer = false;
+    }
+
+    [System.Serializable]
+    public abstract class SpawnData
+    {
         public Vector2Int SpawnPoint;
     }
 
-    public List<SpawnData> SpawnDataList;
+    [SelectImplementation] [SerializeReference]
+    [SerializeField] public List<SpawnData> SpawnDataList;
 }

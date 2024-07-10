@@ -5,7 +5,7 @@ using System.Linq;
 
 using static SerializedTileGridMapData;
 
-public class GameTileGrid : MonoBehaviour
+public class GameTileGrid : MonobehaviourSingleton<GameTileGrid>
 {
     public enum TilemapTag
     {
@@ -14,9 +14,18 @@ public class GameTileGrid : MonoBehaviour
         FRONTGROUND = 2
     }
 
+    [SerializeField] private Grid _GameGrid = null;
     [SerializeField] private List<Tilemap> _BackgroundTilemaps = new List<Tilemap>();
     [SerializeField] private List<Tilemap> _WallsTilemaps = new List<Tilemap>();
     [SerializeField] private List<Tilemap> _FrontgroundTilemaps = new List<Tilemap>();
+
+    public void Awake()
+    {
+        if (_GameGrid == null)
+        {
+            _GameGrid = GetComponent<Grid>();
+        }
+    }
 
     public void Start()
     {
