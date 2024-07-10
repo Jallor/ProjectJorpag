@@ -153,4 +153,11 @@ public class GameTileGrid : MonobehaviourSingleton<GameTileGrid>
         
         return (new Vector3(worldPosition.x, worldPosition.y, 0));
     }
+
+    public Vector3Int WorldPositionToGridPosition(Vector3 worldPosition)
+    {
+        Vector3Int gridPosition = _BackgroundTilemaps[0].WorldToCell(worldPosition);
+        
+        return (gridPosition);
+    }
 }

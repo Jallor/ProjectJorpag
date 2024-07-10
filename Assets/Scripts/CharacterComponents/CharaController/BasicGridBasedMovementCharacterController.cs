@@ -17,6 +17,7 @@ public class BasicGridBasedMovementCharacterController : CharacterController
 
     public void Update()
     {
+        // Case when you can't move
         if (GameManager.Inst && !GameManager.Inst.CanCharactersAct())
         {
             _CharaManager.GiveMoveInput(Vector2.zero);

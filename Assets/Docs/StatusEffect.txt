@@ -6,3 +6,4 @@ It will depend the status effect. However, the second situation will trigger oth
 E.g. applying a fire DoT or a poison DoT result in the same gameplay effect but different intention.
 
 TODO : status effect may be scriptableObject to facilitate implementation of common effects in data
+TODO : confirm that the tryAdd may be canceled if the target is imune to this status

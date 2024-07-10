@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3830a4bb668d7a4180cada94cf48570, type: 3}
   m_Name: TMP_TEST_SKILL
   m_EditorClassIdentifier: 
+  SkillName: '[Default Skill Name]'
   AllowMovement: 1
   AllowRotation: 0
+  GameEffectList: []
+  EffectOnWeaponHit: []
   AnimationsList:
   - rid: 62676888306843648
   references:

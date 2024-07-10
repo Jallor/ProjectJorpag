@@ -211,7 +211,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     }
     public Vector2Int GetGridPosition()
     {
-        throw new System.NotImplementedException();
+        Vector3Int gridPosition = GameTileGrid.instance.WorldPositionToGridPosition(transform.position);
+        return (new Vector2Int(gridPosition.x, gridPosition.y));
     }
     #endregion
 
