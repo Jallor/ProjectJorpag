@@ -9,6 +9,8 @@ public abstract class CharacterController : MonoBehaviour
         PLAYER_CONTROLLER = 1,
         BASIC_WORLD_BASED_MOVE = 2,
         BASIC_GRID_BASED_MOVE = 3,
+        // RandomController
+        // OrderReceiver
     }
 
     [Required] [SerializeField] protected CharacterManager _CharaManager;

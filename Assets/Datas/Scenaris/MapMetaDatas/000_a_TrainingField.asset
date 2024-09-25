@@ -30,7 +30,7 @@ MonoBehaviour:
     - rid: 1191574323230932993
       type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
       data:
-        SpawnPoint: {x: 0, y: 0}
+        SpawnPoint: {x: -1, y: -1}
         CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
         IsPlayer: 0
         CharaControllerType: 3
