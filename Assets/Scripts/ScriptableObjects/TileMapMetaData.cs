@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class TileMapMetaData : ScriptableObject
     {
         public CharacterData CharaData;
         public bool IsPlayer = false;
+        [HideIf("IsPlayer")] [AllowNesting]
+        public CharacterController.ECharacterControllerType CharaControllerType = CharacterController.ECharacterControllerType.NULL;
     }
 
     [System.Serializable]

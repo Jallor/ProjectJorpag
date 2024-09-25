@@ -15,6 +15,9 @@ public class BasicGridBasedMovementCharacterController : CharacterController
     private Vector2Int PreviousPosition;
     private int _CurrentMovementIndex = -1;
 
+    public override ECharacterControllerType GetCharacterControllerType()
+        => ECharacterControllerType.BASIC_GRID_BASED_MOVE;
+
     public void Update()
     {
         // Case when you can't move

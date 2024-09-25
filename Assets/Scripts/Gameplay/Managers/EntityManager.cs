@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static TileMapMetaData;
 
 public class EntityManager : MonobehaviourSingleton<EntityManager>
 {
@@ -12,8 +13,8 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
 
     private Dictionary<int, IWorldEntity> _SpawnedEntity = new Dictionary<int, IWorldEntity>();
 
-    public int SpawnEntity(IWorldEntity.EEntityType entityType, IWorldEntityData entityData,
-        Vector3 worldPosition, int entityID = -1)
+    public int SpawnEntity(IWorldEntity.EEntityType entityType, CharacterSpawnData spawnData,
+        IWorldEntityData entityData, Vector3 worldPosition, int entityID = -1)
     {
         while (entityID == -1 || _SpawnedEntity.ContainsKey(entityID))
         {
@@ -30,6 +31,20 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
             case IWorldEntity.EEntityType.BASE_CHARACTER:
                 GameObject character = Instantiate(_BaseCharacterPrefab);
                 entity = character.GetComponent<CharacterManager>();
+
+                // Set up character controller
+                TileMapMetaData.CharacterSpawnData charaSpawnData = spawnData as TileMapMetaData.CharacterSpawnData;
+                if (charaSpawnData != null
+                    && charaSpawnData.CharaControllerType != CharacterController.ECharacterControllerType.NULL
+                    && charaSpawnData.CharaControllerType != CharacterController.ECharacterControllerType.PLAYER_CONTROLLER)
+                {
+                    CharacterController[] previousControllerComps = character.GetComponents<CharacterController>();
+                    foreach (CharacterController oldController in previousControllerComps)
+                    {
+                        Destroy(oldController);
+                    }
+                    character.GetComponent<CharacterManager>().SetNewCharacterControllerOfType(charaSpawnData.CharaControllerType);
+                }
                 break;
             default:
                 Debug.LogError(entityType.ToString() + " not currently handle for spawn");

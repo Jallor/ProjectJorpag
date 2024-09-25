@@ -16,6 +16,9 @@ public class BasicWorldBasedMovementCharacterController : CharacterController
     private float _CurrentMoveDuration = 0f;
     private int _CurrentMovementIndex = 0;
 
+    public override ECharacterControllerType GetCharacterControllerType()
+        => ECharacterControllerType.BASIC_WORLD_BASED_MOVE;
+
     public void Update()
     {
         if (GameManager.Inst && !GameManager.Inst.CanCharactersAct())

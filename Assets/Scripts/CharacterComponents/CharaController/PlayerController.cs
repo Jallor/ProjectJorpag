@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayerController : CharacterController
 {
+    public override ECharacterControllerType GetCharacterControllerType()
+        => ECharacterControllerType.PLAYER_CONTROLLER;
+
     public void Update()
     {
         if (GameManager.Inst && !GameManager.Inst.CanCharactersAct())

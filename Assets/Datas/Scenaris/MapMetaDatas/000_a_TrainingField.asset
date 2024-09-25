@@ -13,34 +13,38 @@ MonoBehaviour:
   m_Name: 000_a_TrainingField
   m_EditorClassIdentifier: 
   SpawnDataList:
-  - rid: 8492876540025765891
-  - rid: 8492876540025765892
-  - rid: 8492876540025765893
-  - rid: 8492876540025765894
+  - rid: 1191574323230932992
+  - rid: 1191574323230932993
+  - rid: 1191574323230932995
+  - rid: 1191574323230932994
   references:
     version: 2
     RefIds:
-    - rid: 8492876540025765891
+    - rid: 1191574323230932992
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: 0, y: 1}
+        CharaData: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
+        IsPlayer: 1
+        CharaControllerType: 0
+    - rid: 1191574323230932993
       type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
       data:
         SpawnPoint: {x: 0, y: 0}
-        CharaData: {fileID: 11400000, guid: e5c5523ec1b2aa64b8b3c8356cd5925c, type: 2}
-        IsPlayer: 1
-    - rid: 8492876540025765892
+        CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
+        IsPlayer: 0
+        CharaControllerType: 3
+    - rid: 1191574323230932994
       type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
       data:
         SpawnPoint: {x: 1, y: 0}
         CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
         IsPlayer: 0
-    - rid: 8492876540025765893
-      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
-      data:
-        SpawnPoint: {x: 0, y: 1}
-        CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
-        IsPlayer: 0
-    - rid: 8492876540025765894
+        CharaControllerType: 0
+    - rid: 1191574323230932995
       type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
       data:
         SpawnPoint: {x: 1, y: 1}
         CharaData: {fileID: 11400000, guid: b748385ff829a2748aab9a55f448d6c3, type: 2}
         IsPlayer: 0
+        CharaControllerType: 0

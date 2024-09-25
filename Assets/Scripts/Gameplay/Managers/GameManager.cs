@@ -15,9 +15,9 @@ public class GameManager : MonobehaviourSingleton<GameManager>
 
     private CharacterManager _Player = null;
 
-    private void Awake()
+    public override void Awake()
     {
-        
+        base.Awake();
     }
 
     private void Start()
@@ -41,12 +41,12 @@ public class GameManager : MonobehaviourSingleton<GameManager>
                 if (charaSpawnData.IsPlayer)
                 {
                     _EntityManager.SpawnEntity(IWorldEntity.EEntityType.PLAYER,
-                        charaSpawnData.CharaData, position, 0);
+                        charaSpawnData, charaSpawnData.CharaData, position, 0);
                 }
                 else
                 {
                     _EntityManager.SpawnEntity(IWorldEntity.EEntityType.BASE_CHARACTER,
-                        charaSpawnData.CharaData, position);
+                        charaSpawnData, charaSpawnData.CharaData, position);
                 }
             }
             else

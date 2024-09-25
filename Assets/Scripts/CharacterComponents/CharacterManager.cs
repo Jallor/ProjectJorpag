@@ -2,6 +2,7 @@ using UnityEngine;
 using NaughtyAttributes;
 
 using static CharacterSpriteAnimator;
+using UnityEditor.SceneManagement;
 
 [RequireComponent(typeof(CharacterMovement), typeof(CharacterSpriteAnimator))]
 public class CharacterManager : MonoBehaviour, IWorldEntity
@@ -211,7 +212,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     }
     public Vector2Int GetGridPosition()
     {
-        Vector3Int gridPosition = GameTileGrid.instance.WorldPositionToGridPosition(transform.position);
+        Vector3Int gridPosition = GameTileGrid.Inst.WorldPositionToGridPosition(transform.position);
         return (new Vector2Int(gridPosition.x, gridPosition.y));
     }
     #endregion
@@ -232,5 +233,28 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.GetCurrentValue());
 
     public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
+    #endregion
+
+    #region Setters
+    public void SetNewCharacterControllerOfType(CharacterController.ECharacterControllerType controllerType)
+    {
+        CharacterController newController = null;
+
+        switch (controllerType)
+        {
+            case CharacterController.ECharacterControllerType.PLAYER_CONTROLLER:
+                newController = gameObject.AddComponent<PlayerController>();
+                break;
+            case CharacterController.ECharacterControllerType.BASIC_WORLD_BASED_MOVE:
+                newController = gameObject.AddComponent<BasicWorldBasedMovementCharacterController>();
+                break;
+            case CharacterController.ECharacterControllerType.BASIC_GRID_BASED_MOVE:
+                newController = gameObject.AddComponent<BasicGridBasedMovementCharacterController>();
+                break;
+        }
+        Debug.Assert(newController);
+        newController.SetCharaManager(this);
+        _Controller = newController;
+    }
     #endregion
 }

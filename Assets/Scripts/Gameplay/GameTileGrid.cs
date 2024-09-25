@@ -4,6 +4,7 @@ using UnityEngine.Tilemaps;
 using System.Linq;
 
 using static SerializedTileGridMapData;
+using Unity.VisualScripting;
 
 public class GameTileGrid : MonobehaviourSingleton<GameTileGrid>
 {
@@ -19,8 +20,9 @@ public class GameTileGrid : MonobehaviourSingleton<GameTileGrid>
     [SerializeField] private List<Tilemap> _WallsTilemaps = new List<Tilemap>();
     [SerializeField] private List<Tilemap> _FrontgroundTilemaps = new List<Tilemap>();
 
-    public void Awake()
+    public override void Awake()
     {
+        base.Awake();
         if (_GameGrid == null)
         {
             _GameGrid = GetComponent<Grid>();
