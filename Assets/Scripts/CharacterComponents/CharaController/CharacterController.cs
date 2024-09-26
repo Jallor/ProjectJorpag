@@ -6,10 +6,10 @@ public abstract class CharacterController : MonoBehaviour
     public enum ECharacterControllerType
     {
         NULL = 0,
-        PLAYER_CONTROLLER = 1,
-        BASIC_WORLD_BASED_MOVE = 2,
-        BASIC_GRID_BASED_MOVE = 3,
-        // RandomController
+        PLAYER_CONTROLLER,
+        BASIC_WORLD_BASED_MOVE,
+        BASIC_GRID_BASED_MOVE,
+        RANDOM_MOVEMENT,
         // OrderReceiver
     }
 
