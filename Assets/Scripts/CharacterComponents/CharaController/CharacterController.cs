@@ -10,7 +10,7 @@ public abstract class CharacterController : MonoBehaviour
         BASIC_WORLD_BASED_MOVE,
         BASIC_GRID_BASED_MOVE,
         RANDOM_MOVEMENT,
-        // OrderReceiver
+        ORDER_RECEIVER,
     }
 
     [Required] [SerializeField] protected CharacterManager _CharaManager;
