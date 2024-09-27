@@ -32,7 +32,7 @@ public class BasicGridBasedMovementCharacterController : CharacterController
             return;
         }
 
-        if (_CurrentMovementIndex == -1)
+        if (_CurrentMovementIndex <= -1)
         {
             PreviousPosition = _CharaManager.GetGridPosition();
             _CurrentMovementIndex = 0;

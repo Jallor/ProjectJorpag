@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     [Required] [SerializeField] private Rigidbody2D _Rigidbody2D;
 
     private Vector2 _LastInputs;
-    public void Update()
+    public void FixedUpdate()
     {
         _Rigidbody2D.velocity /= 100;
         _Rigidbody2D.AddForce(_LastInputs * Time.deltaTime * _CharaManager.GetCurrentMovementSpeed());

@@ -251,6 +251,12 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
             case CharacterController.ECharacterControllerType.BASIC_GRID_BASED_MOVE:
                 newController = gameObject.AddComponent<BasicGridBasedMovementCharacterController>();
                 break;
+            case CharacterController.ECharacterControllerType.RANDOM_MOVEMENT:
+                newController = gameObject.AddComponent<RandomMovementCharacterController>();
+                break;
+            case CharacterController.ECharacterControllerType.ORDER_RECEIVER:
+                newController = gameObject.AddComponent<OrderReceiverCharacterController>();
+                break;
         }
         Debug.Assert(newController);
         newController.SetCharaManager(this);
