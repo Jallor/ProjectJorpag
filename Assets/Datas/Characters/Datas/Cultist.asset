@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91b37008b79485c40bf99a565052843d, type: 3}
-  m_Name: Enemy
+  m_Name: Cultist
   m_EditorClassIdentifier: 
-  CharaName: Enemy
-  FaceSprite: {fileID: 1923449964, guid: b89ecfc0d29e1d24ba9ae6fd27c6e80a, type: 3}
-  SpriteSheet: {fileID: 11400000, guid: 3dab2517f28ee9d409a5d6e163bf8010, type: 2}
+  CharaName: Cultist
+  FaceSprite: {fileID: 1082748953, guid: c23dedacf5d278645abec3dfd8b55d5c, type: 3}
+  SpriteSheet: {fileID: 11400000, guid: 0b102ac5dca80134f996e6206f7b9277, type: 2}
   DefaultWeapon: {fileID: 11400000, guid: 897c921b1ddf3dc498310e98df3cd474, type: 2}
-  TMP_SkillData: {fileID: 0}
+  TMP_SkillData: {fileID: 11400000, guid: 1dd850f9de52ce24491913b9f925dcf5, type: 2}
   MaxHP: 100
-  MovementSpeed: 5000
+  MovementSpeed: 3500
   CharacterQuickDescription: 

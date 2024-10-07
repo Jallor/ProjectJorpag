@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1328f428b2c1378428427c293818816a, type: 3}
+  m_Name: 001_HiveMap
+  m_EditorClassIdentifier: 
+  SpawnDataList:
+  - rid: 130736499959267328
+  - rid: 130736499959267329
+  references:
+    version: 2
+    RefIds:
+    - rid: 130736499959267328
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: -4, y: -1}
+        CharaData: {fileID: 11400000, guid: 2642d69c5193dd240a50ab6eba68b5c5, type: 2}
+        IsPlayer: 0
+        CharaControllerType: 0
+        DisableCollider: 1
+    - rid: 130736499959267329
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: -1, y: -1}
+        CharaData: {fileID: 11400000, guid: 72b1fd2779d3d3848a4d1c50908fd5e4, type: 2}
+        IsPlayer: 0
+        CharaControllerType: 5
+        DisableCollider: 1
