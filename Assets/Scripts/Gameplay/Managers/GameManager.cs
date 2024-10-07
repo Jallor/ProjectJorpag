@@ -49,6 +49,12 @@ public class GameManager : MonobehaviourSingleton<GameManager>
                         charaSpawnData, charaSpawnData.CharaData, position);
                 }
             }
+            else if (spawnData is TileMapMetaData.ManagerSpawnData)
+            {
+                TileMapMetaData.ManagerSpawnData managerSpawnData = spawnData as TileMapMetaData.ManagerSpawnData;
+                _EntityManager.SpawnEntity(IWorldEntity.EEntityType.SPAWNABLE_MANAGER,
+                    managerSpawnData, null, Vector3.zero);
+            }
             else
             {
                 Debug.LogError("Spawn data not implemented");

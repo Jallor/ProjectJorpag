@@ -233,6 +233,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.GetCurrentValue());
 
     public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
+
+    public Collider2D GetCollider2D() => (GetComponent<Collider2D>());
     #endregion
 
     #region Setters

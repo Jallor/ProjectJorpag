@@ -5,6 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="NewTileMapMetaData", menuName ="Data/Map MetaData")]
 public class TileMapMetaData : ScriptableObject
 {
+    [SelectImplementationName("Manager Spawn Data")]
+    public class ManagerSpawnData : SpawnData
+    {
+        public enum ESpawnableManager
+        {
+            HIVE_MIND = 0,
+        }
+    }
+
     [SelectImplementationName("Character Spawn Data")]
     public class CharacterSpawnData : SpawnData
     {
@@ -12,6 +21,7 @@ public class TileMapMetaData : ScriptableObject
         public bool IsPlayer = false;
         [HideIf("IsPlayer")] [AllowNesting]
         public CharacterController.ECharacterControllerType CharaControllerType = CharacterController.ECharacterControllerType.NULL;
+        public bool DisableCollider = false;
     }
 
     [System.Serializable]

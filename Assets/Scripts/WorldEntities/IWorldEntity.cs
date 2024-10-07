@@ -7,6 +7,7 @@ public interface IWorldEntity
         NONE = -1,
         PLAYER = 1,
         BASE_CHARACTER = 2,
+        SPAWNABLE_MANAGER = 3,
     }
 
     public void SetEntityData(IWorldEntityData entityData);

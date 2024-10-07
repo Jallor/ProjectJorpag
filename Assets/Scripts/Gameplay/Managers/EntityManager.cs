@@ -13,7 +13,7 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
 
     private Dictionary<int, IWorldEntity> _SpawnedEntity = new Dictionary<int, IWorldEntity>();
 
-    public int SpawnEntity(IWorldEntity.EEntityType entityType, CharacterSpawnData spawnData,
+    public int SpawnEntity(IWorldEntity.EEntityType entityType, SpawnData spawnData,
         IWorldEntityData entityData, Vector3 worldPosition, int entityID = -1)
     {
         while (entityID == -1 || _SpawnedEntity.ContainsKey(entityID))
@@ -29,8 +29,9 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                 entity = player.GetComponent<CharacterManager>();
                 break;
             case IWorldEntity.EEntityType.BASE_CHARACTER:
-                GameObject character = Instantiate(_BaseCharacterPrefab);
-                entity = character.GetComponent<CharacterManager>();
+                GameObject charaObj = Instantiate(_BaseCharacterPrefab);
+                CharacterManager charaManager = charaObj.GetComponent<CharacterManager>();
+                entity = charaManager;
 
                 // Set up character controller
                 TileMapMetaData.CharacterSpawnData charaSpawnData = spawnData as TileMapMetaData.CharacterSpawnData;
@@ -38,13 +39,21 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                     && charaSpawnData.CharaControllerType != CharacterController.ECharacterControllerType.NULL
                     && charaSpawnData.CharaControllerType != CharacterController.ECharacterControllerType.PLAYER_CONTROLLER)
                 {
-                    CharacterController[] previousControllerComps = character.GetComponents<CharacterController>();
+                    CharacterController[] previousControllerComps = charaObj.GetComponents<CharacterController>();
                     foreach (CharacterController oldController in previousControllerComps)
                     {
                         Destroy(oldController);
                     }
-                    character.GetComponent<CharacterManager>().SetNewCharacterControllerOfType(charaSpawnData.CharaControllerType);
+                    charaManager.SetNewCharacterControllerOfType(charaSpawnData.CharaControllerType);
+
+                    if(charaSpawnData.DisableCollider)
+                    {
+                        charaManager.GetCollider2D().enabled = false;
+                    }
                 }
+                break;
+            case IWorldEntity.EEntityType.SPAWNABLE_MANAGER:
+
                 break;
             default:
                 Debug.LogError(entityType.ToString() + " not currently handle for spawn");
