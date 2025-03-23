@@ -69,6 +69,8 @@ public class VarSelectorIntFromCharacter : NextVarSelectorFromCharacter
     {
         Debug.Assert(varWrapper is CharacterVarWrapper);
         CharacterVarWrapper charaWrapper = varWrapper as CharacterVarWrapper;
+        // TODO je fais 2 cast ici je pense, il faudrait plutôt Assert APRES le as
+        // Fix a applique partout !
 
         int finalValue = 0;
         switch (Target)
