@@ -54,6 +54,10 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                 break;
             case IWorldEntity.EEntityType.SPAWNABLE_MANAGER:
 
+                // TODO : Finish to do stuff here to spawn manager
+                // je crais que j'avais créé le SpawnableManagerData justement pour pouvoir instantier des manager,
+                // mais je suis pas sur, à vérifier
+                // en tout cas il faut un moyen de spawn des manager, pas seulement le HiveMind
                 break;
             default:
                 Debug.LogError(entityType.ToString() + " not currently handle for spawn");

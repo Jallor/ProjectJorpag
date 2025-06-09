@@ -12,6 +12,8 @@ public class TileMapMetaData : ScriptableObject
         {
             HIVE_MIND = 0,
         }
+
+        public ESpawnableManager ManagerType;
     }
 
     [SelectImplementationName("Character Spawn Data")]
@@ -19,6 +21,7 @@ public class TileMapMetaData : ScriptableObject
     {
         public CharacterData CharaData;
         public bool IsPlayer = false;
+
         [HideIf("IsPlayer")] [AllowNesting]
         public CharacterController.ECharacterControllerType CharaControllerType = CharacterController.ECharacterControllerType.NULL;
         public bool DisableCollider = false;

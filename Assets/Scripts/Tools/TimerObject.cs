@@ -29,7 +29,6 @@ public class TimerObject : MonoBehaviour
     private float _CurrentTimePassed = 0;
     [SerializeField] private float _TargetTime = 2;
 
-    // différent format pour le text : % / temps(int) / temps(float)
     // delegate à certains %
 
     private void Start()

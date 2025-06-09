@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class RandomMovementCharacterController : CharacterController
 {
+    // TODO : Enchainer les ordre de direction
+    // TODO : les position semblent ne pas être alignés avec la grille. Décallage de 0.5
+
     [SerializeField] private KeyValuePair<int, int> _MoveDistanceGap
         = new KeyValuePair<int, int>(-3, 3);
 

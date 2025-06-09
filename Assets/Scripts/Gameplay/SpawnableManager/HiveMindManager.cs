@@ -25,16 +25,4 @@ public class HiveMindManager : MonoBehaviour, IWorldEntity
     public void SetEntityData(IWorldEntityData entityData) { }
     public void SetWorldPosition(Vector3 worldPosition) { }
     #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
