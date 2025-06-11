@@ -1,11 +1,11 @@
 using NaughtyAttributes;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonobehaviourSingleton<GameManager>
 {
     [Header("Managers")]
-    [Required]
-    [SerializeField] private GameTileGrid _TileGrid;
+    [Required] [SerializeField] private GameTileGrid _TileGrid;
     [SerializeField] private EntityManager _EntityManager;
 
     // Other stuff ("Defautl value still at the end")
@@ -14,6 +14,7 @@ public class GameManager : MonobehaviourSingleton<GameManager>
     [SerializeField] private ScenariMapData _DefaultScenari;
 
     private CharacterManager _Player = null;
+    private List<LandmarkData> _LandmarkList = new List<LandmarkData>();
 
     public override void Awake()
     {
@@ -61,6 +62,8 @@ public class GameManager : MonobehaviourSingleton<GameManager>
             }
         }
 
+        _LandmarkList.AddRange(scenariToLoad.MapMetaData.LandmarkList);
+
         // cinematic
     }
 
@@ -75,6 +78,20 @@ public class GameManager : MonobehaviourSingleton<GameManager>
             }
         }
         return (_Player);
+    }
+
+    public List<LandmarkData> GetLandmarksOfType(ELandmarkType landmarkType)
+    {
+        List<LandmarkData> landmarkList = new List<LandmarkData>();
+        foreach (LandmarkData landmark in _LandmarkList)
+        {
+            if (landmark.Type == landmarkType)
+            {
+                landmarkList.Add(landmark);
+            }
+        }
+
+        return (landmarkList);
     }
 
     public bool CanCharactersAct()

@@ -2,9 +2,10 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="NewTileMapMetaData", menuName ="Data/Map MetaData")]
+[CreateAssetMenu(fileName = "NewTileMapMetaData", menuName = "Data/Map MetaData")]
 public class TileMapMetaData : ScriptableObject
 {
+    #region SpawnData (CharacterSpawnData, ManagerSpawnData, ...)
     [SelectImplementationName("Manager Spawn Data")]
     public class ManagerSpawnData : SpawnData
     {
@@ -32,7 +33,10 @@ public class TileMapMetaData : ScriptableObject
     {
         public Vector2Int SpawnPoint;
     }
+    #endregion // Spawn Data
 
     [SelectImplementation] [SerializeReference]
     [SerializeField] public List<SpawnData> SpawnDataList;
+
+    [SerializeField] public List<LandmarkData> LandmarkList;
 }

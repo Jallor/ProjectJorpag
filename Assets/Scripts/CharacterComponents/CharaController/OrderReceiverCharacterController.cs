@@ -58,6 +58,6 @@ public class OrderReceiverCharacterController : CharacterController
     private void SelectNewTargetPosition(Vector2Int newTarget)
     {
         _TargetGridPos = newTarget;
-        _TargetPosReached = false
+        _TargetPosReached = false;
     }
 }
