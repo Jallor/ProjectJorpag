@@ -55,9 +55,9 @@ public class OrderReceiverCharacterController : CharacterController
         _OwningHiveMind = newHiveMind;
     }
 
-    private void SelectNewTargetPosition(Vector2Int newTarget)
+    public void SelectNewTargetPosition(Vector2Int newGridTarget)
     {
-        _TargetGridPos = newTarget;
+        _TargetGridPos = newGridTarget;
         _TargetPosReached = false;
     }
 }

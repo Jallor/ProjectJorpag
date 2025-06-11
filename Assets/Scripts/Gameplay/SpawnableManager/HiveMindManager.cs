@@ -21,7 +21,10 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
             RegisterToHiveMind(charaController);
         }
 
-        // Give initial order to all controlledCharacter 
+        foreach (OrderReceiverCharacterController charaController in _ControlledCharacterList)
+        {
+            GiveOrderToCharacter(charaController);
+        }
     }
 
     public void InitializeManager(TileMapMetaData.ManagerSpawnData managerData)
@@ -35,6 +38,25 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
     {
         _ControlledCharacterList.Add(charaController);
         charaController.SetOwningHiveMind(this);
+    }
+
+    public void GiveOrderToCharacter(OrderReceiverCharacterController charaController)
+    {
+        CharacterInventory inventory = charaController.GetCharaManager().GetCharaInventory();
+
+        // Go search ressources
+        if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
+        {
+            List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.GoldMine);
+            charaController.SelectNewTargetPosition(allLandmark[0].Position);
+            // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
+        }
+        // Come back to the hive
+        else
+        {
+            List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.HiveSpawn);
+            charaController.SelectNewTargetPosition(allLandmark[0].Position);
+        }
     }
 
     #region Getters

@@ -14,6 +14,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     [Required] [SerializeField] private SkillCharacterManager _SkillManager;
     [Required] [SerializeField] private StatusEffectsCharacterManager _StatusManager;
     [Required] [SerializeField] private CharacterVfxManager _VfxManager;
+    [Required] [SerializeField] private CharacterInventory _Inventory;
 
     private CharacterStats _Stats = new CharacterStats();
 
@@ -222,7 +223,10 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     public CharacterSpriteAnimator GetSpriteAnimator() => (_SpriteAnimator);
 
+    // TODO : T'es sur de ce Instantiate ? Dans un getter ? à voir où c'est appelé
     public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
+
+    public CharacterInventory GetCharaInventory() => (_Inventory);
 
     public CharacterOrientation GetCharacterOrientation() => (_CurrentOrientation);
 
