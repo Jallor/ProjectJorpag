@@ -53,11 +53,24 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                 }
                 break;
             case IWorldEntity.EEntityType.SPAWNABLE_MANAGER:
+                TileMapMetaData.ManagerSpawnData managerSpawnData = spawnData as TileMapMetaData.ManagerSpawnData;
+
+                GameObject newManagerObj = new GameObject(managerSpawnData.ManagerType.ToString());
+                switch (managerSpawnData.ManagerType)
+                {
+                    case ManagerSpawnData.ESpawnableManager.HIVE_MIND:
+                        HiveMindManager managerComponent = newManagerObj.AddComponent<HiveMindManager>();
+                        managerComponent.InitializeManager(managerSpawnData);
+                        break;
+                    default:
+                        Debug.LogError(managerSpawnData.ManagerType.ToString() + " manager not currently handle for spawn");
+                        Destroy(newManagerObj);
+                        return -1;
+                }
 
                 // TODO : Finish to do stuff here to spawn manager
-                // je crais que j'avais créé le SpawnableManagerData justement pour pouvoir instantier des manager,
-                // mais je suis pas sur, à vérifier
                 // en tout cas il faut un moyen de spawn des manager, pas seulement le HiveMind
+
                 break;
             default:
                 Debug.LogError(entityType.ToString() + " not currently handle for spawn");

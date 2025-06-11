@@ -6,9 +6,11 @@ using UnityEngine.Rendering;
 public class OrderReceiverCharacterController : CharacterController
 {
     [SerializeField] private Vector2Int _TargetGridPos;
-    [SerializeField] private bool _TargetPosReached = false;
 
     private Vector2 _PreviousWorldPos;
+    private bool _TargetPosReached = false;
+
+    private HiveMindManager _OwningHiveMind = null;
 
     public override ECharacterControllerType GetCharacterControllerType()
         => ECharacterControllerType.ORDER_RECEIVER;
@@ -16,6 +18,11 @@ public class OrderReceiverCharacterController : CharacterController
     private void Start()
     {
         _PreviousWorldPos = _CharaManager.GetWorldPosition();
+
+        if (_OwningHiveMind == null && HiveMindManager.Inst != null)
+        {
+            HiveMindManager.Inst.RegisterToHiveMind(this);
+        }
     }
 
     public void Update()
@@ -43,8 +50,14 @@ public class OrderReceiverCharacterController : CharacterController
         _CharaManager.GiveMoveInput(direction);
     }
 
+    public void SetOwningHiveMind(HiveMindManager newHiveMind)
+    {
+        _OwningHiveMind = newHiveMind;
+    }
+
     private void SelectNewTargetPosition(Vector2Int newTarget)
     {
         _TargetGridPos = newTarget;
+        _TargetPosReached = false
     }
 }
