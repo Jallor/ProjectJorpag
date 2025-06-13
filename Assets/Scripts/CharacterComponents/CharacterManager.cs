@@ -220,25 +220,15 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
 
     #region Getters
     public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
-
     public CharacterSpriteAnimator GetSpriteAnimator() => (_SpriteAnimator);
-
-    // TODO : T'es sur de ce Instantiate ? Dans un getter ? à voir où c'est appelé
-    public CharacterSpriteSheetData GetCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
-
     public CharacterInventory GetCharaInventory() => (_Inventory);
-
     public CharacterOrientation GetCharacterOrientation() => (_CurrentOrientation);
-
     public int GetCurrentHP() => ((int)_Stats.Life.GetCurrentValue());
-
     public int GetMaxHP() => ((int)_Stats.Life.MaxValue);
-
     public float GetCurrentMovementSpeed() => (_Stats.MovementSpeed.GetCurrentValue());
-
     public WeaponData GetDefaultWeapon() => (_Data.DefaultWeapon);
-
     public Collider2D GetCollider2D() => (GetComponent<Collider2D>());
+    public CharacterSpriteSheetData InstantiateCharaSpriteSheet() => (Instantiate(_Data.SpriteSheet));
     #endregion
 
     #region Setters

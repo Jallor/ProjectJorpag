@@ -43,7 +43,7 @@ public class CharacterSpriteAnimator : MonoBehaviour
 
     public void Awake()
     {
-        _SpriteSheet = _CharaManager.GetCharaSpriteSheet();
+        _SpriteSheet = _CharaManager.InstantiateCharaSpriteSheet();
     }
 
     public void Start()

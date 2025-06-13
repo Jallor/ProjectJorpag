@@ -68,9 +68,6 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                         return -1;
                 }
 
-                // TODO : Finish to do stuff here to spawn manager
-                // en tout cas il faut un moyen de spawn des manager, pas seulement le HiveMind
-
                 break;
             default:
                 Debug.LogError(entityType.ToString() + " not currently handle for spawn");

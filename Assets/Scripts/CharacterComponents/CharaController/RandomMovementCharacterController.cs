@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO y a encore des trucs qui vont pas.
+// TODO : y a encore des trucs qui vont pas.
 // Le controller penche vers en bas à gauche, surement du aux écart entre GridPos et WorldPos
 
 public class RandomMovementCharacterController : CharacterController
 {
-    // TODO : Enchainer les ordre de direction
     // TODO : les position semblent ne pas être alignés avec la grille. Décallage de 0.5
 
     [SerializeField] private KeyValuePair<int, int> _MoveDistanceGap
@@ -36,6 +35,9 @@ public class RandomMovementCharacterController : CharacterController
         }
         else
         {
+            // TODO : Enchainer les ordre de direction
+                // A tester
+            SelectNewDirection();
         }
     }
 
