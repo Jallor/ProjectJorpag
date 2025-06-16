@@ -61,6 +61,7 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
                     case ManagerSpawnData.ESpawnableManager.HIVE_MIND:
                         HiveMindManager managerComponent = newManagerObj.AddComponent<HiveMindManager>();
                         managerComponent.InitializeManager(managerSpawnData);
+                        entity = managerComponent;
                         break;
                     default:
                         Debug.LogError(managerSpawnData.ManagerType.ToString() + " manager not currently handle for spawn");

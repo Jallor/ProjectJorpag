@@ -10,7 +10,7 @@ public class RandomMovementCharacterController : CharacterController
     // TODO : les position semblent ne pas être alignés avec la grille. Décallage de 0.5
 
     [SerializeField] private KeyValuePair<int, int> _MoveDistanceGap
-        = new KeyValuePair<int, int>(-3, 3);
+        = new KeyValuePair<int, int>(-6, 6);
 
     Vector2Int _PreviousPosition = Vector2Int.zero;
     Vector2Int _TargetMovement = Vector2Int.zero;

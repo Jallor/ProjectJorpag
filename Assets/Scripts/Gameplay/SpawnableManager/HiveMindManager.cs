@@ -43,13 +43,21 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
     public void GiveOrderToCharacter(OrderReceiverCharacterController charaController)
     {
         CharacterInventory inventory = charaController.GetCharaManager().GetCharaInventory();
+        // TODO : à terme, à remplacer par une fonction qui "load" les instructions à executer
 
         // Go search ressources
         if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
         {
             List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.GoldMine);
-            charaController.SelectNewTargetPosition(allLandmark[0].Position);
-            // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
+            if (allLandmark.Count > 0)
+            {
+                charaController.SelectNewTargetPosition(allLandmark[0].Position);
+                // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
+            }
+            else
+            {
+                Debug.LogError("No landmark");
+            }
         }
         // Come back to the hive
         else

@@ -89,10 +89,7 @@ public class LevelEditorWindowEditor : EditorWindow
             Color[] pix = new Color[2 * 2];
             for (int i = 0; i < pix.Length; i++)
             {
-                // if (isSceneEdited)
-                //     pix[i] = Color.red;
-                // else
-                //     pix[i] = new Color(0.25f, 0.6f, 0);
+                pix[i] = Color.red;
             }
             Texture2D result = new Texture2D(2, 2);
             result.SetPixels(pix);
@@ -103,37 +100,16 @@ public class LevelEditorWindowEditor : EditorWindow
             g.normal.textColor = Color.white;
             g.alignment = TextAnchor.MiddleCenter;
 
+            // TODO : finish to compute the grid position
             Handles.BeginGUI();
             GUI.skin.label.fontSize = 11;
-            GUI.Label(new Rect(0, 0, 800, 20), "SCENE BUILDING", g);
-
-            // if (isSceneEdited)
-            // {
-            //     if (GUI.Button(new Rect(0, 0, 70, 19), "Save"))
-            //     {
-            //         saveCurrentProfile();
-            //         cleanGameObjectHasChanged();
-            //         isSceneEdited = false;
-            //     }
-            // }
-            // Handles.EndGUI();
-
-            for (int i = 0; i < pix.Length; i++)
-            {
-                pix[i] = Color.magenta;
-            }
-            result = new Texture2D(2, 2);
-            result.SetPixels(pix);
-            result.Apply();
-            g.normal.background = result;
-
-            // if (isPhysicTesing)
-            // {
-            //     Handles.BeginGUI();
-            //     GUI.skin.label.fontSize = 11;
-            //     GUI.Label(new Rect(0, 20, 800, 20), "TESTING", g);
-            //     Handles.EndGUI();
-            // }
+            float mult = EditorGUIUtility.pixelsPerPoint;
+            Vector2 mouseScreenPosition = Event.current.mousePosition * mult;
+            mouseScreenPosition.y -= sceneview.position.height;
+            GameTileGrid grid = FindAnyObjectByType<GameTileGrid>();
+            Vector3 mouseGridPosition = grid.WorldPositionToGridPosition(sceneview.camera.ScreenToWorldPoint(mouseScreenPosition));
+            GUI.Label(new Rect(0, 0, sceneview.position.width, 20),
+                "LEVEL EDITOR (" + mouseGridPosition.x + "; " + mouseGridPosition.y + ")", g);
         }
     }
 
