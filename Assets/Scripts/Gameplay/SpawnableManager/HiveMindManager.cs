@@ -51,7 +51,7 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
             List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.GoldMine);
             if (allLandmark.Count > 0)
             {
-                charaController.SelectNewTargetPosition(allLandmark[0].Position);
+                charaController.ForceNewTargetPosition(allLandmark[0].Position);
                 // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
             }
             else
@@ -63,7 +63,7 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         else
         {
             List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.HiveSpawn);
-            charaController.SelectNewTargetPosition(allLandmark[0].Position);
+            charaController.ForceNewTargetPosition(allLandmark[0].Position);
         }
     }
 

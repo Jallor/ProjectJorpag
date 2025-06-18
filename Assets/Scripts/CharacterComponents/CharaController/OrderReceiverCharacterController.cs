@@ -15,6 +15,23 @@ public class OrderReceiverCharacterController : CharacterController
     public override ECharacterControllerType GetCharacterControllerType()
         => ECharacterControllerType.ORDER_RECEIVER;
 
+
+    // TODO Later : Peut être qu'à terme il faudra externaliser ça (la class et l'enum)
+    public enum EOrderType
+    {
+        NONE,
+        MOVE,
+        INTERRACT
+    }
+    public class OrderData
+    {
+        public EOrderType OrderType = EOrderType.NONE;
+        public Vector2 Position;
+    }
+
+    private OrderData _CurrentOrder = null;
+    private List<OrderData> _QueuedOrders = new List<OrderData>();
+
     private void Start()
     {
         _PreviousWorldPos = _CharaManager.GetWorldPosition();
@@ -25,8 +42,27 @@ public class OrderReceiverCharacterController : CharacterController
         }
     }
 
+
     public void Update()
     {
+        if (_CurrentOrder == null)
+        {
+            if (_QueuedOrders.Count <= 0)
+            {
+                return;
+            }
+            else
+            {
+                _CurrentOrder = _QueuedOrders[0];
+                _QueuedOrders.RemoveAt(0);
+            }
+        }
+
+
+
+
+
+
         if (_TargetPosReached)
         {
             return;
@@ -55,7 +91,7 @@ public class OrderReceiverCharacterController : CharacterController
         _OwningHiveMind = newHiveMind;
     }
 
-    public void SelectNewTargetPosition(Vector2Int newGridTarget)
+    public void ForceNewTargetPosition(Vector2Int newGridTarget)
     {
         _TargetGridPos = newGridTarget;
         _TargetPosReached = false;
