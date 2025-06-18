@@ -20,6 +20,8 @@ public class LevelEditorWindowEditor : EditorWindow
     private int _SelectMapToOpenIndex = 0;
     private string[] _TileGridMapNameList = new string[0];
 
+    private bool _isToolBarDisplayed = true;
+
     // TODO Add a bool to partially hide other layer of the game grid
 
     [MenuItem("Editors/Level Editor")]
@@ -78,6 +80,11 @@ public class LevelEditorWindowEditor : EditorWindow
             LoadMap();
         }
 
+        GUILayout.Space(10);
+
+        GUILayout.BeginHorizontal();
+        _isToolBarDisplayed = GUILayout.Toggle(_isToolBarDisplayed, "Is toolbar displayed");
+        GUILayout.EndHorizontal();
 
         GUILayout.EndVertical();
     }
@@ -104,12 +111,18 @@ public class LevelEditorWindowEditor : EditorWindow
             Handles.BeginGUI();
             GUI.skin.label.fontSize = 11;
             float mult = EditorGUIUtility.pixelsPerPoint;
-            Vector2 mouseScreenPosition = Event.current.mousePosition * mult;
-            mouseScreenPosition.y -= sceneview.position.height;
+            Vector2 mouseScreenPosition = Event.current.mousePosition; // * mult;
+            mouseScreenPosition.y = sceneview.position.height - mouseScreenPosition.y;
+            if (_isToolBarDisplayed)
+                mouseScreenPosition.y -= 25;
             GameTileGrid grid = FindAnyObjectByType<GameTileGrid>();
-            Vector3 mouseGridPosition = grid.WorldPositionToGridPosition(sceneview.camera.ScreenToWorldPoint(mouseScreenPosition));
+            Vector3 cursorWorldPosition = sceneview.camera.ScreenToWorldPoint(mouseScreenPosition);
+            Vector3 mouseGridPosition = grid.WorldPositionToGridPosition(cursorWorldPosition);
             GUI.Label(new Rect(0, 0, sceneview.position.width, 20),
                 "LEVEL EDITOR (" + mouseGridPosition.x + "; " + mouseGridPosition.y + ")", g);
+
+            Handles.EndGUI();
+
         }
     }
 
