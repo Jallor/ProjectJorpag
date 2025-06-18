@@ -16,6 +16,11 @@ MonoBehaviour:
   - rid: 130736499959267328
   - rid: 130736499959267329
   - rid: 8151424281231491072
+  LandmarkList:
+  - Position: {x: 5, y: 4}
+    Type: 1
+  - Position: {x: -4, y: -1}
+    Type: 2
   references:
     version: 2
     RefIds:
