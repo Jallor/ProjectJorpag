@@ -7,8 +7,8 @@ public class OrderReceiverCharacterController : CharacterController
 {
     [SerializeField] private Vector2Int _TargetGridPos;
 
-    private Vector2 _PreviousWorldPos;
-    private bool _TargetPosReached = false;
+    // private Vector2 _PreviousWorldPos;
+    // private bool _TargetPosReached = false;
 
     private HiveMindManager _OwningHiveMind = null;
 
@@ -26,7 +26,13 @@ public class OrderReceiverCharacterController : CharacterController
     public class OrderData
     {
         public EOrderType OrderType = EOrderType.NONE;
-        public Vector2 Position;
+        public Vector2Int Position;
+
+        public OrderData(EOrderType orderType, Vector2Int orderPosition)
+        {
+            OrderType = orderType;
+            Position = orderPosition;
+        }
     }
 
     private OrderData _CurrentOrder = null;
@@ -34,7 +40,7 @@ public class OrderReceiverCharacterController : CharacterController
 
     private void Start()
     {
-        _PreviousWorldPos = _CharaManager.GetWorldPosition();
+        // _PreviousWorldPos = _CharaManager.GetWorldPosition();
 
         if (_OwningHiveMind == null && HiveMindManager.Inst != null)
         {
@@ -58,32 +64,17 @@ public class OrderReceiverCharacterController : CharacterController
             }
         }
 
-
-
-
-
-
-        if (_TargetPosReached)
+        switch (_CurrentOrder.OrderType)
         {
-            return;
+            case EOrderType.MOVE:
+                ExecuteOrderMove(_CurrentOrder.Position);
+                break;
+            case EOrderType.INTERRACT:
+                break;
+            default:
+                Debug.LogError("Order of type " + _CurrentOrder.OrderType.ToString() + " not implemented !");
+                break;
         }
-
-        Vector2 targetWorldPos = GameTileGrid.Inst.GridPositionToWorldPosition(_TargetGridPos);
-        Vector2 currentWorldPos = _CharaManager.GetWorldPosition();
-        Vector2 direction = targetWorldPos - currentWorldPos;
-        direction.Normalize();
-
-        // Is Position Reached ?
-        if ((currentWorldPos - _PreviousWorldPos).sqrMagnitude >= (targetWorldPos - _PreviousWorldPos).sqrMagnitude)
-        {
-            _TargetPosReached = true;
-            _CharaManager.GiveMoveInput(Vector2.zero);
-            return;
-        }
-
-        _PreviousWorldPos = currentWorldPos;
-
-        _CharaManager.GiveMoveInput(direction);
     }
 
     public void SetOwningHiveMind(HiveMindManager newHiveMind)
@@ -91,9 +82,45 @@ public class OrderReceiverCharacterController : CharacterController
         _OwningHiveMind = newHiveMind;
     }
 
-    public void ForceNewTargetPosition(Vector2Int newGridTarget)
+    public void QueueNewOrder(EOrderType orderType, Vector2Int orderPosition)
     {
-        _TargetGridPos = newGridTarget;
-        _TargetPosReached = false;
+        _QueuedOrders.Add(new OrderData(orderType, orderPosition));
+    }
+
+    public void CompleteCurrentOrder()
+    {
+        _CurrentOrder = null;
+    }
+
+    // TODO to check : il est possible que le placement se fasse mal, qu'on peut dépasser la tile si on vas trop vite
+    private void ExecuteOrderMove(Vector2Int position)
+    {
+        Vector2 targetWorldPos = GameTileGrid.Inst.GridPositionToWorldPosition(_TargetGridPos);
+        Vector2 currentWorldPos = _CharaManager.GetWorldPosition();
+        Vector2 direction = targetWorldPos - currentWorldPos;
+        direction.Normalize();
+
+        if (_CharaManager.GetGridPosition() == position)
+        {
+            CompleteCurrentOrder();
+        }
+
+        // Old version
+        // // Is Position Reached ?
+        // if ((currentWorldPos - _PreviousWorldPos).sqrMagnitude >= (targetWorldPos - _PreviousWorldPos).sqrMagnitude)
+        // {
+        //     _TargetPosReached = true;
+        //     _CharaManager.GiveMoveInput(Vector2.zero);
+        //     return;
+        // }
+        // _PreviousWorldPos = currentWorldPos;
+
+        _CharaManager.GiveMoveInput(direction);
+
+    }
+
+    private void ExecuteOrderInterract(Vector2Int position)
+    {
+
     }
 }
