@@ -34,8 +34,11 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
 
     public void RegisterToHiveMind(OrderReceiverCharacterController charaController)
     {
-        _ControlledCharacterList.Add(charaController);
-        charaController.SetOwningHiveMind(this);
+        if (!_ControlledCharacterList.Contains(charaController))
+        {
+            _ControlledCharacterList.Add(charaController);
+            charaController.SetOwningHiveMind(this);
+        }
     }
 
     public void GiveOrderToCharacter(OrderReceiverCharacterController charaController)
@@ -49,8 +52,9 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
             List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.GoldMine);
             if (allLandmark.Count > 0)
             {
-                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
                 // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
+                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
+                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
             }
             else
             {

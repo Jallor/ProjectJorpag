@@ -19,10 +19,13 @@ public class OrderReceiverCharacterController : CharacterController
     // TODO Later : Peut être qu'à terme il faudra externaliser ça (la class et l'enum)
     public enum EOrderType
     {
-        NONE,
-        MOVE,
-        INTERRACT
+        NONE = 0,
+        MOVE = 10,
+        INTERRACT_NEAREAST = 20,
+        INTERRACT_LANDMARK = 21,
     }
+
+    [System.Serializable]
     public class OrderData
     {
         public EOrderType OrderType = EOrderType.NONE;
@@ -69,7 +72,8 @@ public class OrderReceiverCharacterController : CharacterController
             case EOrderType.MOVE:
                 ExecuteOrderMove(_CurrentOrder.Position);
                 break;
-            case EOrderType.INTERRACT:
+            case EOrderType.INTERRACT_LANDMARK:
+                ExecuteOrderInterractLandmark(_CurrentOrder.Position);
                 break;
             default:
                 Debug.LogError("Order of type " + _CurrentOrder.OrderType.ToString() + " not implemented !");
@@ -92,10 +96,10 @@ public class OrderReceiverCharacterController : CharacterController
         _CurrentOrder = null;
     }
 
-    // TODO to check : il est possible que le placement se fasse mal, qu'on peut dépasser la tile si on vas trop vite
+    // TODO to check : il est possible que le placement se fasse mal, qu'on peut dépasser la tile si on vas trop vite (voir // Old Version)
     private void ExecuteOrderMove(Vector2Int position)
     {
-        Vector2 targetWorldPos = GameTileGrid.Inst.GridPositionToWorldPosition(_TargetGridPos);
+        Vector2 targetWorldPos = GameTileGrid.Inst.GridPositionToWorldPosition(position);
         Vector2 currentWorldPos = _CharaManager.GetWorldPosition();
         Vector2 direction = targetWorldPos - currentWorldPos;
         direction.Normalize();
@@ -103,6 +107,8 @@ public class OrderReceiverCharacterController : CharacterController
         if (_CharaManager.GetGridPosition() == position)
         {
             CompleteCurrentOrder();
+            _CharaManager.GiveMoveInput(Vector2.zero);
+            return;
         }
 
         // Old version
@@ -116,11 +122,22 @@ public class OrderReceiverCharacterController : CharacterController
         // _PreviousWorldPos = currentWorldPos;
 
         _CharaManager.GiveMoveInput(direction);
-
     }
 
-    private void ExecuteOrderInterract(Vector2Int position)
+    private void ExecuteOrderInterractLandmark(Vector2Int position)
     {
+        // TODO : Faire une vrai implémentation du interract 
+        // récupérer le landmark courant. (permettre de récupérer le landmark s'il est à une case)
+        // Si y en a pas, peut être trouver une manière de notifier ça au hiveMind !
+        // Appeler la fonction Interact du landmark
+        //  => où stocker ça ? avoir un gameobject landmark ?
+        //      => gérer le LandmarkData pour le LvEditor
+        // Bind un delegate pour savoir quand le interact à finit
 
+
+        // TODO : \/ ceci est du TMP \/
+        InventoryItem itemToAdd = AllSimpleItemList.Inst.dataList[0];
+        _CharaManager.GetCharaInventory().AddItem(itemToAdd);
+        CompleteCurrentOrder();
     }
 }
