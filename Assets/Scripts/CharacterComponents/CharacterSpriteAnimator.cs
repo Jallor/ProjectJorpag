@@ -9,6 +9,7 @@ public class CharacterSpriteAnimator : MonoBehaviour
 
     [Required] [SerializeField] private SpriteRenderer _SprRend;
     [Required] [SerializeField] private SpriteRenderer _WeaponObject;
+    [Required] [SerializeField] private SpriteRenderer _OwnedObjectSlot;
 
     [Foldout("Key Positions")]
     [Required][SerializeField] private Transform _WeaponPositionDown;
@@ -146,6 +147,19 @@ public class CharacterSpriteAnimator : MonoBehaviour
     public void HideWeapon()
     {
         _WeaponObject.gameObject.gameObject.SetActive(false);
+    }
+
+    public void DisplayOwnedObject(Sprite spriteToDisplay)
+    {
+        if (spriteToDisplay)
+        {
+            _OwnedObjectSlot.gameObject.SetActive(true);
+            _OwnedObjectSlot.sprite = spriteToDisplay;
+        }
+        else
+        {
+            _OwnedObjectSlot.gameObject.SetActive(false);
+        }
     }
 
     public Vector2 GetForwardWeaponLocalPosition()

@@ -19,4 +19,6 @@ MonoBehaviour:
   TMP_SkillData: {fileID: 11400000, guid: 1dd850f9de52ce24491913b9f925dcf5, type: 2}
   MaxHP: 100
   MovementSpeed: 3500
+  MaxInventorySlot: 1
+  DisplayFirstOwningObject: 1
   CharacterQuickDescription: 

@@ -44,7 +44,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
             return;
         }
 
-        // To change
+        // TODO : To change (je sais plus pourquoi 'x) ) (peut être normalizer ça à toutes les entitées ?)
         SetEntityData(_Data);
 
         _SkillManager.Initialize(this);
@@ -192,6 +192,8 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
         _Stats.Life.Init(_Data.MaxHP);
         _Stats.MovementSpeed = new CharacterStats.ImprovableStat();
         _Stats.MovementSpeed.Init(_Data.MovementSpeed);
+
+        _Inventory.Initialize(this, _Data);
 
         name = dataToApply.name;
     }

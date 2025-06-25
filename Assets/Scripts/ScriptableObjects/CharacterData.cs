@@ -17,6 +17,10 @@ public class CharacterData : ScriptableObject, IWorldEntityData
     public int MaxHP = 100;
     public float MovementSpeed = 5000;
 
+    [Header("Inventory")]
+    public int MaxInventorySlot = 10;
+    public bool DisplayFirstOwningObject = false;
+
     [TextArea(3, 15)]
     public string CharacterQuickDescription;
 }

@@ -66,6 +66,7 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         {
             List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.HiveSpawn);
             charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
+            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
         }
     }
 

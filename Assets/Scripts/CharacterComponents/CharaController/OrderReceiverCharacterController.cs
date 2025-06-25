@@ -94,22 +94,27 @@ public class OrderReceiverCharacterController : CharacterController
     public void CompleteCurrentOrder()
     {
         _CurrentOrder = null;
+
+        if (_QueuedOrders.Count <= 0)
+        {
+            _OwningHiveMind.GiveOrderToCharacter(this);
+        }
     }
 
     // TODO to check : il est possible que le placement se fasse mal, qu'on peut dépasser la tile si on vas trop vite (voir // Old Version)
     private void ExecuteOrderMove(Vector2Int position)
     {
-        Vector2 targetWorldPos = GameTileGrid.Inst.GridPositionToWorldPosition(position);
-        Vector2 currentWorldPos = _CharaManager.GetWorldPosition();
-        Vector2 direction = targetWorldPos - currentWorldPos;
-        direction.Normalize();
-
         if (_CharaManager.GetGridPosition() == position)
         {
             CompleteCurrentOrder();
             _CharaManager.GiveMoveInput(Vector2.zero);
             return;
         }
+
+        Vector2 targetWorldPos = GameTileGrid.Inst.GridPositionToWorldPosition(position);
+        Vector2 currentWorldPos = _CharaManager.GetWorldPosition();
+        Vector2 direction = targetWorldPos - currentWorldPos;
+        direction.Normalize();
 
         // Old version
         // // Is Position Reached ?
@@ -135,9 +140,18 @@ public class OrderReceiverCharacterController : CharacterController
         // Bind un delegate pour savoir quand le interact à finit
 
 
-        // TODO : \/ ceci est du TMP \/
+        // TODO : \/ tout ceci est du TMP \/
         InventoryItem itemToAdd = AllSimpleItemList.Inst.dataList[0];
-        _CharaManager.GetCharaInventory().AddItem(itemToAdd);
+        CharacterInventory inventory = GetCharaManager().GetCharaInventory();
+
+        if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
+        {
+            _CharaManager.GetCharaInventory().AddItem(itemToAdd);
+        }
+        else
+        {
+            _CharaManager.GetCharaInventory().RemoveItem(itemToAdd);
+        }
         CompleteCurrentOrder();
     }
 }
