@@ -68,3 +68,108 @@ MonoBehaviour:
   - enumValueName: WallRuleTile
     uniqueID: -1261398564
     resetIDToHash: 0
+  - enumValueName: Dungeon_B_117
+    uniqueID: 731143565
+    resetIDToHash: 0
+  - enumValueName: _Pattern_GroundRuleTile
+    uniqueID: 704368591
+    resetIDToHash: 0
+  - enumValueName: _Pattern_WallRuleTile
+    uniqueID: -222551194
+    resetIDToHash: 0
+  - enumValueName: Dungeon_B_199
+    uniqueID: 1087373939
+    resetIDToHash: 0
+  - enumValueName: Inside_C_94
+    uniqueID: 1791639040
+    resetIDToHash: 0
+  - enumValueName: Inside_C_95
+    uniqueID: 1791639039
+    resetIDToHash: 0
+  - enumValueName: Inside_C_110
+    uniqueID: 1540699715
+    resetIDToHash: 0
+  - enumValueName: Inside_C_111
+    uniqueID: -25384226
+    resetIDToHash: 0
+  - enumValueName: Outside_B_24
+    uniqueID: -1522310271
+    resetIDToHash: 0
+  - enumValueName: Outside_B_25
+    uniqueID: 1206573084
+    resetIDToHash: 0
+  - enumValueName: Outside_B_27
+    uniqueID: -1925594798
+    resetIDToHash: 0
+  - enumValueName: Outside_B_28
+    uniqueID: 90827837
+    resetIDToHash: 0
+  - enumValueName: Outside_B_44
+    uniqueID: -1522310269
+    resetIDToHash: 0
+  - enumValueName: Outside_B_45
+    uniqueID: 1206573086
+    resetIDToHash: 0
+  - enumValueName: Outside_B_55
+    uniqueID: 1206573087
+    resetIDToHash: 0
+  - enumValueName: Outside_B_56
+    uniqueID: -359510854
+    resetIDToHash: 0
+  - enumValueName: Outside_B_57
+    uniqueID: -1925594795
+    resetIDToHash: 0
+  - enumValueName: Outside_B_58
+    uniqueID: 90827840
+    resetIDToHash: 0
+  - enumValueName: Outside_B_62
+    uniqueID: 1609857615
+    resetIDToHash: 0
+  - enumValueName: Outside_B_71
+    uniqueID: -1119025739
+    resetIDToHash: 0
+  - enumValueName: Outside_B_72
+    uniqueID: 1609857616
+    resetIDToHash: 0
+  - enumValueName: Outside_B_73
+    uniqueID: 43773675
+    resetIDToHash: 0
+  - enumValueName: Outside_B_74
+    uniqueID: -1522310266
+    resetIDToHash: 0
+  - enumValueName: Outside_B_78
+    uniqueID: 90827842
+    resetIDToHash: 0
+  - enumValueName: Outside_B_87
+    uniqueID: -1925594792
+    resetIDToHash: 0
+  - enumValueName: Outside_B_89
+    uniqueID: -1475256098
+    resetIDToHash: 0
+  - enumValueName: Outside_B_90
+    uniqueID: 447058204
+    resetIDToHash: 0
+  - enumValueName: Dirt01TileRule
+    uniqueID: -1651449938
+    resetIDToHash: 0
+  - enumValueName: DirtInGrass00TileRule
+    uniqueID: -206586936
+    resetIDToHash: 0
+  - enumValueName: GrassInVoid00TileRule
+    uniqueID: -527192787
+    resetIDToHash: 0
+  - enumValueName: HoleInLavaGround00TileRule
+    uniqueID: -636170712
+    resetIDToHash: 0
+  - enumValueName: WallMarble00TileRule
+    uniqueID: 2118866373
+    resetIDToHash: 0
+  - enumValueName: WallMarble01TileRule
+    uniqueID: 196764074
+    resetIDToHash: 0
+  - enumValueName: WallRock00TileRule
+    uniqueID: -1128012775
+    resetIDToHash: 0
+  - enumValueName: WallStone00TileRule
+    uniqueID: 1615208319
+    resetIDToHash: 0
