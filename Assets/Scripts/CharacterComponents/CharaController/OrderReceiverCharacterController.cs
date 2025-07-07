@@ -70,10 +70,10 @@ public class OrderReceiverCharacterController : CharacterController
         switch (_CurrentOrder.OrderType)
         {
             case EOrderType.MOVE:
-                ExecuteOrderMove(_CurrentOrder.Position);
+                ExecuteOrder_Move(_CurrentOrder.Position);
                 break;
             case EOrderType.INTERRACT_LANDMARK:
-                ExecuteOrderInterractLandmark(_CurrentOrder.Position);
+                ExecuteOrder_InterractLandmark(_CurrentOrder.Position);
                 break;
             default:
                 Debug.LogError("Order of type " + _CurrentOrder.OrderType.ToString() + " not implemented !");
@@ -102,7 +102,7 @@ public class OrderReceiverCharacterController : CharacterController
     }
 
     // TODO to check : il est possible que le placement se fasse mal, qu'on peut dépasser la tile si on vas trop vite (voir // Old Version)
-    private void ExecuteOrderMove(Vector2Int position)
+    private void ExecuteOrder_Move(Vector2Int position)
     {
         if (_CharaManager.GetGridPosition() == position)
         {
@@ -129,7 +129,7 @@ public class OrderReceiverCharacterController : CharacterController
         _CharaManager.GiveMoveInput(direction);
     }
 
-    private void ExecuteOrderInterractLandmark(Vector2Int position)
+    private void ExecuteOrder_InterractLandmark(Vector2Int position)
     {
         // TODO : Faire une vrai implémentation du interract 
         // récupérer le landmark courant. (permettre de récupérer le landmark s'il est à une case)

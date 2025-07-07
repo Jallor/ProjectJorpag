@@ -38,5 +38,6 @@ public class TileMapMetaData : ScriptableObject
     [SelectImplementation] [SerializeReference]
     [SerializeField] public List<SpawnData> SpawnDataList;
 
+    [SelectImplementation] [SerializeReference]
     [SerializeField] public List<LandmarkData> LandmarkList;
 }

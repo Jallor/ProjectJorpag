@@ -51,6 +51,7 @@ public class CharacterSpriteAnimator : MonoBehaviour
     {
         _SprRend.sprite = _SpriteSheet.GetDefaultSprite();
         HideWeapon();
+        DisplayOwnedObject(null);
     }
 
     public void UpdateSpriteSheet(CharacterSpriteSheetData newSpriteSheet)

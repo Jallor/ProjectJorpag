@@ -19,6 +19,7 @@ public enum ETileType
 	WallRockTileRule = -45915079,
 	WallStoneTileRule = 1737219391,
 	WallRuleTile = -1261398564,
+	Dungeon_B_117 = 731143565,
 	_Pattern_GroundRuleTile = 704368591,
 	_Pattern_WallRuleTile = -222551194,
 	Dungeon_B_199 = 1087373939,

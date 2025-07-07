@@ -49,7 +49,7 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         // Go search ressources
         if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
         {
-            List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.GoldMine);
+            List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.Deposit);
             if (allLandmark.Count > 0)
             {
                 // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
