@@ -131,27 +131,18 @@ public class OrderReceiverCharacterController : CharacterController
 
     private void ExecuteOrder_InterractLandmark(Vector2Int position)
     {
-        // TODO : Faire une vrai implémentation du interract 
-        // récupérer le landmark courant. (permettre de récupérer le landmark s'il est à une case)
-        // Si y en a pas, peut être trouver une manière de notifier ça au hiveMind !
-        // Appeler la fonction Interact du landmark
-        //  => où stocker ça ? avoir un gameobject landmark ?
-        //      => gérer le LandmarkData pour le LvEditor
-        // Bind un delegate pour savoir quand le interact à finit
-
-
-        // TODO : \/ tout ceci est du TMP \/
-        InventoryItem itemToAdd = AllSimpleItemList.Inst.dataList[0];
-        CharacterInventory inventory = GetCharaManager().GetCharaInventory();
-
-        if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
+        Landmark landmark = GameManager.Inst.GetLandmarkAtPosition(position);
+        if (landmark == null)
         {
-            _CharaManager.GetCharaInventory().AddItem(itemToAdd);
+            print("Landmark not found at position");
+            return;
         }
-        else
-        {
-            _CharaManager.GetCharaInventory().RemoveItem(itemToAdd);
-        }
+        // TODO : Si y en a pas, peut être trouver une manière de notifier ça au hiveMind ou permettre de récupérer le landmark s'il est à une case ?
+
+        landmark.Interract(GetCharaManager());
+
         CompleteCurrentOrder();
+
+        // TODO Later : Bind un delegate pour savoir quand le interact à finit
     }
 }

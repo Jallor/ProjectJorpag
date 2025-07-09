@@ -49,7 +49,7 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         // Go search ressources
         if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
         {
-            List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.Deposit);
+            List<Landmark> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.Deposit);
             if (allLandmark.Count > 0)
             {
                 // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
@@ -64,9 +64,16 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         // Come back to the hive
         else
         {
-            List<LandmarkData> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.HiveSpawn);
-            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
-            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
+            List<Landmark> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.HiveSpawn);
+            if (allLandmark.Count > 0)
+            {
+                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
+                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
+            }
+            else
+            {
+                Debug.LogError("No landmark");
+            }
         }
     }
 

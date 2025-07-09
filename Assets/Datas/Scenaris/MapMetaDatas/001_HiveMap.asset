@@ -17,11 +17,11 @@ MonoBehaviour:
   - rid: 130736499959267329
   - rid: 8151424281231491072
   LandmarkList:
-  - rid: 1307430545898602496
+  - rid: 1307430590519443458
   - rid: 1307430545898602498
   - rid: 1307430545898602502
   - rid: 1307430545898602500
-  - rid: 1307430545898602503
+  - rid: 1307430590519443457
   references:
     version: 2
     RefIds:
@@ -41,10 +41,6 @@ MonoBehaviour:
         IsPlayer: 0
         CharaControllerType: 5
         DisableCollider: 1
-    - rid: 1307430545898602496
-      type: {class: LandmarkData, ns: , asm: Assembly-CSharp}
-      data:
-        Position: {x: -4, y: -1}
     - rid: 1307430545898602498
       type: {class: LandmarkData_Deposit, ns: , asm: Assembly-CSharp}
       data:
@@ -60,10 +56,14 @@ MonoBehaviour:
       data:
         Position: {x: 5, y: 4}
         LootableItem: {fileID: 11400000, guid: afb5de4b312647d49934fa379d12b4e1, type: 2}
-    - rid: 1307430545898602503
-      type: {class: LandmarkData, ns: , asm: Assembly-CSharp}
+    - rid: 1307430590519443457
+      type: {class: LandmarkData_SimpleLandmark, ns: , asm: Assembly-CSharp}
       data:
         Position: {x: -13, y: -6}
+    - rid: 1307430590519443458
+      type: {class: LandmarkData_HiveSpawn, ns: , asm: Assembly-CSharp}
+      data:
+        Position: {x: -4, y: -1}
     - rid: 8151424281231491072
       type: {class: TileMapMetaData/ManagerSpawnData, ns: , asm: Assembly-CSharp}
       data:

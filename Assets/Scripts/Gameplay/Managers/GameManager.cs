@@ -14,7 +14,7 @@ public class GameManager : MonobehaviourSingleton<GameManager>
     [SerializeField] private ScenariMapData _DefaultScenari;
 
     private CharacterManager _Player = null;
-    private List<LandmarkData> _LandmarkList = new List<LandmarkData>();
+    private List<Landmark> _LandmarkList = new List<Landmark>();
 
     public override void Awake()
     {
@@ -62,7 +62,11 @@ public class GameManager : MonobehaviourSingleton<GameManager>
             }
         }
 
-        _LandmarkList.AddRange(scenariToLoad.MapMetaData.LandmarkList);
+        foreach (LandmarkData landmarkData in scenariToLoad.MapMetaData.LandmarkList)
+        {
+            _LandmarkList.Add(Landmark.CreateNewLandmark(landmarkData, landmarkData.Position));
+        }
+
 
         // cinematic
     }
@@ -80,10 +84,10 @@ public class GameManager : MonobehaviourSingleton<GameManager>
         return (_Player);
     }
 
-    public List<LandmarkData> GetLandmarksOfType(ELandmarkType landmarkType)
+    public List<Landmark> GetLandmarksOfType(ELandmarkType landmarkType)
     {
-        List<LandmarkData> landmarkList = new List<LandmarkData>();
-        foreach (LandmarkData landmark in _LandmarkList)
+        List<Landmark> landmarkList = new List<Landmark>();
+        foreach (Landmark landmark in _LandmarkList)
         {
             if (landmark.Type == landmarkType)
             {
@@ -93,6 +97,20 @@ public class GameManager : MonobehaviourSingleton<GameManager>
 
         return (landmarkList);
     }
+
+    public Landmark GetLandmarkAtPosition(Vector2Int position)
+    {
+        foreach (Landmark landmark in _LandmarkList)
+        {
+            if (landmark.Position == position)
+            {
+                return landmark;
+            }
+        }
+
+        return null;
+    }
+
 
     public bool CanCharactersAct()
     {

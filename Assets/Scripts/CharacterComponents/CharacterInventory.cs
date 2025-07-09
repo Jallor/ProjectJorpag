@@ -2,6 +2,7 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class CharacterInventory : MonoBehaviour
 {
@@ -58,6 +59,11 @@ public class CharacterInventory : MonoBehaviour
         return false;
     }
 
+    public void RemoveAllItems()
+    {
+        throw new NotImplementedException();
+    }
+
     // -1 is used for remove all objects of type
     public int RemoveItem(InventoryItem item, int countToRemove = -1)
     {
@@ -80,6 +86,7 @@ public class CharacterInventory : MonoBehaviour
                 {
                     _SimpleItemsMap.Remove(item);
 
+                    // TODO devrait être géré ailleur pour ne pas allourdir la fonction
                     if (_ShouldDisplayFirstOwnedObject && item == _FirstOwningItem)
                     {
                         if (GetAllItemsCount() > 0)
@@ -158,5 +165,10 @@ public class CharacterInventory : MonoBehaviour
         // TODO : implement also for complexe items
 
         return nbSlot;
+    }
+
+    public List<InventoryItem> GetItemList()
+    {
+        throw new NotImplementedException();
     }
 }
