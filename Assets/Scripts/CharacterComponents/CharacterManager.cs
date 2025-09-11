@@ -14,7 +14,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     [Required] [SerializeField] private SkillCharacterManager _SkillManager;
     [Required] [SerializeField] private StatusEffectsCharacterManager _StatusManager;
     [Required] [SerializeField] private CharacterVfxManager _VfxManager;
-    [Required] [SerializeField] private CharacterInventory _Inventory;
+    [Required] [SerializeField] private InventoryComponent _Inventory;
 
     private CharacterStats _Stats = new CharacterStats();
 
@@ -223,7 +223,7 @@ public class CharacterManager : MonoBehaviour, IWorldEntity
     #region Getters
     public bool IsPlayingSkill() => (_SkillManager.IsPlayingSkill());
     public CharacterSpriteAnimator GetSpriteAnimator() => (_SpriteAnimator);
-    public CharacterInventory GetCharaInventory() => (_Inventory);
+    public InventoryComponent GetCharaInventory() => (_Inventory);
     public CharacterOrientation GetCharacterOrientation() => (_CurrentOrientation);
     public int GetCurrentHP() => ((int)_Stats.Life.GetCurrentValue());
     public int GetMaxHP() => ((int)_Stats.Life.MaxValue);

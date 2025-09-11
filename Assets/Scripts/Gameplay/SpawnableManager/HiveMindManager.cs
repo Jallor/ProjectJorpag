@@ -5,14 +5,17 @@ using UnityEngine;
 using static IWorldEntity;
 
 // TODO : utiliser une instance, avec comme fonction principale du style SetManagerData(ManagerSpawnData data)
-public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEntity
+public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnable manager*/, IWorldEntity
 {
     [SerializeField] private SpawnableManagerData _Data;
 
     private EEntityType _EntityType = EEntityType.SPAWNABLE_MANAGER;
     private int _EntityID = -1;
+    private SpawnableManagerData ManagerData = null;
 
     private List<OrderReceiverCharacterController> _ControlledCharacterList = new List<OrderReceiverCharacterController>();
+
+    private InventoryComponent _InventoryComponent = null;
 
     private void Start()
     {
@@ -27,9 +30,17 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         }
     }
 
+    // Todo quand ça sera hérité en enfant de SpawnableManager, envoyer cette function et toutes les autres dont c'est necessaire là bas !
     public void InitializeManager(TileMapMetaData.ManagerSpawnData managerData)
     {
         TileMapMetaData.ManagerSpawnData managerSpawnData = managerData as TileMapMetaData.ManagerSpawnData;
+        ManagerData = managerData.ManagerData;
+
+        if (ManagerData.HasInventory && !GetComponent<InventoryComponent>())
+        {
+            _InventoryComponent = gameObject.AddComponent<InventoryComponent>();
+            _InventoryComponent.Initialize(this, ManagerData);
+        }
     }
 
     public void RegisterToHiveMind(OrderReceiverCharacterController charaController)
@@ -41,9 +52,14 @@ public class HiveMindManager : MonobehaviourSingleton<HiveMindManager>, IWorldEn
         }
     }
 
+    public InventoryComponent GetInventoryComponent()
+    {
+        return _InventoryComponent;
+    }
+
     public void GiveOrderToCharacter(OrderReceiverCharacterController charaController)
     {
-        CharacterInventory inventory = charaController.GetCharaManager().GetCharaInventory();
+        InventoryComponent inventory = charaController.GetCharaManager().GetCharaInventory();
         // TODO : à terme, à remplacer par une fonction qui "load" les instructions à executer
 
         // Go search ressources

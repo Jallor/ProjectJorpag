@@ -15,6 +15,7 @@ public class TileMapMetaData : ScriptableObject
         }
 
         public ESpawnableManager ManagerType;
+        public SpawnableManagerData ManagerData;
     }
 
     [SelectImplementationName("Character Spawn Data")]

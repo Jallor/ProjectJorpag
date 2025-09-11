@@ -45,9 +45,10 @@ public class OrderReceiverCharacterController : CharacterController
     {
         // _PreviousWorldPos = _CharaManager.GetWorldPosition();
 
-        if (_OwningHiveMind == null && HiveMindManager.Inst != null)
+        if (_OwningHiveMind == null)
         {
-            HiveMindManager.Inst.RegisterToHiveMind(this);
+            _OwningHiveMind = FindObjectOfType<HiveMindManager>();
+            _OwningHiveMind.RegisterToHiveMind(this);
         }
     }
 

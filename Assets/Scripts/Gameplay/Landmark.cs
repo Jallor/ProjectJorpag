@@ -62,7 +62,23 @@ public class Landmark_HiveSpawn : Landmark
 
     public override void Interract(CharacterManager character)
     {
-        character.GetCharaInventory().GetItemList();
+        List<KeyValuePair<InventoryItem, int>> inventory = character.GetCharaInventory().GetItemList();
+
+        if (inventory.Count > 0)
+        {
+            character.GetCharaInventory().RemoveAllItems();
+            if ()
+            {
+                foreach (KeyValuePair<InventoryItem, int> items in inventory)
+                {
+                    // TODO : les landmarks devrait avoir un IWorldEntity referant (ici le hive mind)
+                }
+            }
+        }
+        else // order by default, need to be implemented
+        {
+
+        }
     }
 }
 

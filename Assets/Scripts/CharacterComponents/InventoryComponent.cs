@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
-public class CharacterInventory : MonoBehaviour
+public class InventoryComponent : MonoBehaviour
 {
-    private CharacterManager _Manager = null;
+    private IWorldEntity _Manager = null;
     private Dictionary<InventoryItem, int> _SimpleItemsMap = new Dictionary<InventoryItem, int>();
     // TODO Later : une autre map pour des items custom, qui seraient stockés sous forme de scriptable obj directement, surement
     // private Dictionary<InventoryItem, int> _ComplexeItemsMap = new Dictionary<InventoryItem, int>();
@@ -18,7 +18,7 @@ public class CharacterInventory : MonoBehaviour
     private bool _ShouldDisplayFirstOwnedObject = false;
     private InventoryItem _FirstOwningItem = null;
 
-    public void Initialize(CharacterManager manager, CharacterData data)
+    public void Initialize(IWorldEntity manager, IWorldEntityData data)
     {
         _Manager = manager;
 
@@ -42,9 +42,10 @@ public class CharacterInventory : MonoBehaviour
                 _SimpleItemsMap.Add(item, count);
 
                 _FirstOwningItem = item;
-                if (_ShouldDisplayFirstOwnedObject)
+                if (_ShouldDisplayFirstOwnedObject && _Manager is CharacterManager)
                 {
-                    _Manager.GetSpriteAnimator().DisplayOwnedObject(item.Sprite);
+                    CharacterManager characterManager = _Manager as CharacterManager;
+                    characterManager.GetSpriteAnimator().DisplayOwnedObject(item.Sprite);
                 }
 
                 return true;
@@ -61,7 +62,13 @@ public class CharacterInventory : MonoBehaviour
 
     public void RemoveAllItems()
     {
-        throw new NotImplementedException();
+        List<InventoryItem> itemsTypes = _SimpleItemsMap.Keys.ToList<InventoryItem>();
+        foreach (InventoryItem item in itemsTypes)
+        {
+            RemoveItem(item);
+        }
+
+        // todo : also complex items
     }
 
     // -1 is used for remove all objects of type
@@ -87,16 +94,18 @@ public class CharacterInventory : MonoBehaviour
                     _SimpleItemsMap.Remove(item);
 
                     // TODO devrait être géré ailleur pour ne pas allourdir la fonction
-                    if (_ShouldDisplayFirstOwnedObject && item == _FirstOwningItem)
+                    if (_ShouldDisplayFirstOwnedObject && item == _FirstOwningItem
+                        && _Manager is CharacterManager)
                     {
+                        CharacterManager characterManager = _Manager as CharacterManager;
                         if (GetAllItemsCount() > 0)
                         {
 
-                            _Manager.GetSpriteAnimator().DisplayOwnedObject(_SimpleItemsMap.Keys.ToList()[0].Sprite);
+                            characterManager.GetSpriteAnimator().DisplayOwnedObject(_SimpleItemsMap.Keys.ToList()[0].Sprite);
                         }
                         else
                         {
-                            _Manager.GetSpriteAnimator().DisplayOwnedObject(null);
+                            characterManager.GetSpriteAnimator().DisplayOwnedObject(null);
                         }
                     }
                 }
@@ -167,8 +176,9 @@ public class CharacterInventory : MonoBehaviour
         return nbSlot;
     }
 
-    public List<InventoryItem> GetItemList()
+    public List<KeyValuePair<InventoryItem, int>> GetItemList()
     {
-        throw new NotImplementedException();
+        return _SimpleItemsMap.ToList();
+        // TODO : also get complexe items
     }
 }
