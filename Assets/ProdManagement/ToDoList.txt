@@ -1,0 +1,8 @@
+Noted From Fork :
+	- Create a parent class SpawnableParent
+	- Landmarks should have a IWorldEntity as referent
+	OR - Manager should create their landmark
+	- Landmark.Interract should be done in the manager => handle that in a parent class
+
+
+

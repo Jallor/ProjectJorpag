@@ -64,11 +64,20 @@ public class GameManager : MonobehaviourSingleton<GameManager>
 
         foreach (LandmarkData landmarkData in scenariToLoad.MapMetaData.LandmarkList)
         {
+            CreateNewLandmark(landmarkData, landmarkData.Position);
             _LandmarkList.Add(Landmark.CreateNewLandmark(landmarkData, landmarkData.Position));
         }
 
 
         // cinematic
+    }
+
+    // Note : function created to permits HiveMind (and other future manager) to creater their landmark. This may be a wrong design
+    public Landmark CreateNewLandmark(LandmarkData landmarkData, Vector2Int position)
+    {
+        Landmark newLandmark = Landmark.CreateNewLandmark(landmarkData, position);
+        _LandmarkList.Add(newLandmark);
+        return (newLandmark);
     }
 
     public CharacterManager GetPlayer()

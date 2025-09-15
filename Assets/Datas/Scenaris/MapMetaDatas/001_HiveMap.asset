@@ -17,7 +17,6 @@ MonoBehaviour:
   - rid: 130736499959267329
   - rid: 8151424281231491072
   LandmarkList:
-  - rid: 1307430590519443458
   - rid: 1307430545898602498
   - rid: 1307430545898602502
   - rid: 1307430545898602500
@@ -60,13 +59,9 @@ MonoBehaviour:
       type: {class: LandmarkData_SimpleLandmark, ns: , asm: Assembly-CSharp}
       data:
         Position: {x: -13, y: -6}
-    - rid: 1307430590519443458
-      type: {class: LandmarkData_HiveSpawn, ns: , asm: Assembly-CSharp}
-      data:
-        Position: {x: -4, y: -1}
     - rid: 8151424281231491072
       type: {class: TileMapMetaData/ManagerSpawnData, ns: , asm: Assembly-CSharp}
       data:
-        SpawnPoint: {x: 0, y: 0}
+        SpawnPoint: {x: -4, y: -1}
         ManagerType: 0
         ManagerData: {fileID: 11400000, guid: 703f0bdec1a002f44a20d0f9a30e8ac6, type: 2}

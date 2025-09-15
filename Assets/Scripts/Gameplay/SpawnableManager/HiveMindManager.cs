@@ -14,6 +14,7 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
     private SpawnableManagerData ManagerData = null;
 
     private List<OrderReceiverCharacterController> _ControlledCharacterList = new List<OrderReceiverCharacterController>();
+    private Landmark_HiveSpawn _AssociatedLandmark = null;
 
     private InventoryComponent _InventoryComponent = null;
 
@@ -41,6 +42,11 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
             _InventoryComponent = gameObject.AddComponent<InventoryComponent>();
             _InventoryComponent.Initialize(this, ManagerData);
         }
+
+        LandmarkData landmarkData = new LandmarkData_HiveSpawn();
+        landmarkData.Position = managerData.SpawnPoint;
+        _AssociatedLandmark = GameManager.Inst.CreateNewLandmark(landmarkData, managerData.SpawnPoint) as Landmark_HiveSpawn;
+        _AssociatedLandmark.HiveMindManager = this;
     }
 
     public void RegisterToHiveMind(OrderReceiverCharacterController charaController)
@@ -65,31 +71,14 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
         // Go search ressources
         if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
         {
-            List<Landmark> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.Deposit);
-            if (allLandmark.Count > 0)
-            {
-                // TODO chercher le landmark le plus proche (y a moyen que ça existe déjà, si c'est pas le cas, go !)
-                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
-                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
-            }
-            else
-            {
-                Debug.LogError("No landmark");
-            }
+            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, _AssociatedLandmark.Position);
+            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, _AssociatedLandmark.Position);
         }
         // Come back to the hive
         else
         {
-            List<Landmark> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.HiveSpawn);
-            if (allLandmark.Count > 0)
-            {
-                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
-                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
-            }
-            else
-            {
-                Debug.LogError("No landmark");
-            }
+            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, _AssociatedLandmark.Position);
+            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, _AssociatedLandmark.Position);
         }
     }
 

@@ -56,26 +56,33 @@ public class Landmark_HiveSpawn : Landmark
 {
     public override ELandmarkType Type => ELandmarkType.HiveSpawn;
 
+    public HiveMindManager HiveMindManager;
+
     public override void Initialize(LandmarkData data)
     {
+
     }
 
     public override void Interract(CharacterManager character)
     {
-        List<KeyValuePair<InventoryItem, int>> inventory = character.GetCharaInventory().GetItemList();
+        List<KeyValuePair<InventoryItem, int>> charaInventory = character.GetCharaInventory().GetItemList();
 
-        if (inventory.Count > 0)
+        if (charaInventory.Count > 0)
         {
             character.GetCharaInventory().RemoveAllItems();
-            if ()
+            InventoryComponent inventoryComponent = HiveMindManager.GetInventoryComponent();
+            if (inventoryComponent)
             {
-                foreach (KeyValuePair<InventoryItem, int> items in inventory)
+                foreach (KeyValuePair<InventoryItem, int> items in charaInventory)
                 {
-                    // TODO : les landmarks devrait avoir un IWorldEntity referant (ici le hive mind)
+                    // TODO : les landmarks devrait avoir un IWorldEntity referant (ici le hive mind) ;
+                    // Il devrait y avoir une class landmark parent qui gèrent les landmarks associés à des managers pour automatiser (cf note de GameManager.CreateNewLandmark()
+
+                    inventoryComponent.AddItem(items.Key, items.Value);
                 }
             }
         }
-        else // order by default, need to be implemented
+        else // order by default if no items, need to be implemented
         {
 
         }
