@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207fae1aa5b04214d8c99b721819e9e7, type: 3}
+  m_Name: HiveMindBehavior
+  m_EditorClassIdentifier: 
+  AvailableCrafts:
+  - RequestedItems:
+    - Key: {fileID: 11400000, guid: 52812522400234d40b33028f99ef0957, type: 2}
+      Value: 5
+    CraftResult:
+      rid: 3717763670313795585
+  references:
+    version: 2
+    RefIds:
+    - rid: 3717763670313795585
+      type: {class: TileMapMetaData/CharacterSpawnData, ns: , asm: Assembly-CSharp}
+      data:
+        SpawnPoint: {x: 0, y: 0}
+        CharaData: {fileID: 11400000, guid: 72b1fd2779d3d3848a4d1c50908fd5e4, type: 2}
+        IsPlayer: 0
+        CharaControllerType: 5
+        DisableCollider: 1

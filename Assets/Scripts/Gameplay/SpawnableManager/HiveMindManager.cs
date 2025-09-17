@@ -1,4 +1,4 @@
-using NaughtyAttributes;
+Ôªøusing NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +11,8 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
 
     private EEntityType _EntityType = EEntityType.SPAWNABLE_MANAGER;
     private int _EntityID = -1;
-    private SpawnableManagerData ManagerData = null;
+    private SpawnableManagerData _ManagerData = null;
+    private HiveMindBehaviorData _BehaviorData = null;
 
     private List<OrderReceiverCharacterController> _ControlledCharacterList = new List<OrderReceiverCharacterController>();
     private Landmark_HiveSpawn _AssociatedLandmark = null;
@@ -31,17 +32,19 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
         }
     }
 
-    // Todo quand Áa sera hÈritÈ en enfant de SpawnableManager, envoyer cette function et toutes les autres dont c'est necessaire l‡ bas !
+    // Todo quand √ßa sera h√©rit√© en enfant de SpawnableManager, envoyer cette function et toutes les autres dont c'est necessaire l√† bas !
     public void InitializeManager(TileMapMetaData.ManagerSpawnData managerData)
     {
         TileMapMetaData.ManagerSpawnData managerSpawnData = managerData as TileMapMetaData.ManagerSpawnData;
-        ManagerData = managerData.ManagerData;
+        _ManagerData = managerData.ManagerData;
 
-        if (ManagerData.HasInventory && !GetComponent<InventoryComponent>())
+        if (_ManagerData.HasInventory && !GetComponent<InventoryComponent>())
         {
             _InventoryComponent = gameObject.AddComponent<InventoryComponent>();
-            _InventoryComponent.Initialize(this, ManagerData);
+            _InventoryComponent.Initialize(this, _ManagerData);
         }
+
+        _BehaviorData = (_ManagerData as HiveMindManagerData).BehaviorData;
 
         LandmarkData landmarkData = new LandmarkData_HiveSpawn();
         landmarkData.Position = managerData.SpawnPoint;
@@ -66,19 +69,40 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
     public void GiveOrderToCharacter(OrderReceiverCharacterController charaController)
     {
         InventoryComponent inventory = charaController.GetCharaManager().GetCharaInventory();
-        // TODO : ‡ terme, ‡ remplacer par une fonction qui "load" les instructions ‡ executer
+        // TODO : √† terme, √† remplacer par une fonction qui "load" les instructions √† executer
 
         // Go search ressources
         if (inventory.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) <= 0)
         {
-            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, _AssociatedLandmark.Position);
-            charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, _AssociatedLandmark.Position);
+            List<Landmark> allLandmark = GameManager.Inst.GetLandmarksOfType(ELandmarkType.Deposit);
+            if (allLandmark.Count > 0)
+            {
+                // TODO chercher le landmark le plus proche (y a moyen que √ßa existe d√©j√†, si c'est pas le cas, go !)
+                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, allLandmark[0].Position);
+                charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, allLandmark[0].Position);
+            }
+            else
+            {
+                Debug.LogError("No landmark");
+            }
+            // charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, _AssociatedLandmark.Position);
+            // charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, _AssociatedLandmark.Position);
         }
         // Come back to the hive
         else
         {
             charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.MOVE, _AssociatedLandmark.Position);
             charaController.QueueNewOrder(OrderReceiverCharacterController.EOrderType.INTERRACT_LANDMARK, _AssociatedLandmark.Position);
+        }
+    }
+
+    // TODO : to improve later
+    public void OnItemReceived()
+    {
+        // if (_InventoryComponent.GetItemCount()
+        if (_InventoryComponent.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) > 0)
+        {
+
         }
     }
 

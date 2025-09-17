@@ -18,6 +18,8 @@ public class InventoryComponent : MonoBehaviour
     private bool _ShouldDisplayFirstOwnedObject = false;
     private InventoryItem _FirstOwningItem = null;
 
+    public SimpleDelegate OnItemAdded = null;
+
     public void Initialize(IWorldEntity manager, IWorldEntityData data)
     {
         _Manager = manager;
@@ -28,6 +30,8 @@ public class InventoryComponent : MonoBehaviour
 
     public bool AddItem(InventoryItem item, int count = 1)
     {
+        bool isItemAdded = false;
+
         // Simple Items
         if (item.IsSimpleItem)
         {
@@ -35,7 +39,7 @@ public class InventoryComponent : MonoBehaviour
             {
                 _SimpleItemsMap[item] += count;
 
-                return true;
+                isItemAdded = true;
             }
             else if (_MaxInventorySlot == -1 || GetNbInventorySlotUsed() < _MaxInventorySlot)
             {
@@ -48,7 +52,7 @@ public class InventoryComponent : MonoBehaviour
                     characterManager.GetSpriteAnimator().DisplayOwnedObject(item.Sprite);
                 }
 
-                return true;
+                isItemAdded = true;
             }
         }
         // Complexe Items
@@ -56,8 +60,13 @@ public class InventoryComponent : MonoBehaviour
         {
         }
 
+        if (isItemAdded)
+        {
+            OnItemAdded.Invoke();
+        }
+
         // TODO : prévoir les raison de fail (inventaire limité, restriction spécifique, trop d'item, ...)
-        return false;
+        return isItemAdded;
     }
 
     public void RemoveAllItems()

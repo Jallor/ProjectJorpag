@@ -64,4 +64,4 @@ MonoBehaviour:
       data:
         SpawnPoint: {x: -4, y: -1}
         ManagerType: 0
-        ManagerData: {fileID: 11400000, guid: 703f0bdec1a002f44a20d0f9a30e8ac6, type: 2}
+        ManagerData: {fileID: 11400000, guid: a47fbf29c2845fa40850439ede8b170b, type: 2}
