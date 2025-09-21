@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static HiveMindBehaviorData;
 using static IWorldEntity;
 
 // TODO : utiliser une instance, avec comme fonction principale du style SetManagerData(ManagerSpawnData data)
@@ -42,6 +43,11 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
         {
             _InventoryComponent = gameObject.AddComponent<InventoryComponent>();
             _InventoryComponent.Initialize(this, _ManagerData);
+        }
+
+        if (_InventoryComponent)
+        {
+            _InventoryComponent.OnItemAdded += OnItemReceived;
         }
 
         _BehaviorData = (_ManagerData as HiveMindManagerData).BehaviorData;
@@ -99,6 +105,32 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
     // TODO : to improve later
     public void OnItemReceived()
     {
+
+        // Check if can use a craft
+        foreach (HiveMindBehaviorData.CraftRecipe recipe in _BehaviorData.AvailableCrafts)
+        {
+            bool hasEnoughItems = true;
+            foreach (Pair<InventoryItem, int> requestedItem in recipe.RequestedItems)
+            {
+                if (_InventoryComponent.GetItemCount(requestedItem.Key) < requestedItem.Value)
+                {
+                    hasEnoughItems = false;
+                }
+            }
+
+            // Spawn the entity
+            if (hasEnoughItems)
+            {
+                foreach (Pair<InventoryItem, int> requestedItem in recipe.RequestedItems)
+                {
+                    _InventoryComponent.RemoveItem(requestedItem.Key,requestedItem.Value);
+                }
+
+                EntityManager.Inst.SpawnEntity(recipe.CraftResult.)
+            }
+        }
+
+
         // if (_InventoryComponent.GetItemCount()
         if (_InventoryComponent.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) > 0)
         {

@@ -62,7 +62,7 @@ public class InventoryComponent : MonoBehaviour
 
         if (isItemAdded)
         {
-            OnItemAdded.Invoke();
+            OnItemAdded?.Invoke();
         }
 
         // TODO : prévoir les raison de fail (inventaire limité, restriction spécifique, trop d'item, ...)

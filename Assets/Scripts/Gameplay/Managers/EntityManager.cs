@@ -13,6 +13,13 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
 
     private Dictionary<int, IWorldEntity> _SpawnedEntity = new Dictionary<int, IWorldEntity>();
 
+    public int SpawnEntity(SpawnData spawnData, Vector3 worldPosition, int entityID = -1)
+    {
+
+
+        return (SpawnEntity(a, spawnData, a, worldPosition, entityID));
+    }
+
     public int SpawnEntity(IWorldEntity.EEntityType entityType, SpawnData spawnData,
         IWorldEntityData entityData, Vector3 worldPosition, int entityID = -1)
     {
