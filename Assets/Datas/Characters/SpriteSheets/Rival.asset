@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa8e3c7217a9b042920ca5be92f9448, type: 3}
+  m_Name: Rival
+  m_EditorClassIdentifier: 
+  _DefaultSprite: {fileID: -1531290043, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  _DownSpriteList:
+  - {fileID: 1415393481, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: -1531290043, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: 25106874, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  _LeftSpriteList:
+  - {fileID: 1110135414, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: -1214292658, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: -1314886687, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  _RightSpriteList:
+  - {fileID: 464078070, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: -409680625, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: 1288235462, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  _TopSpriteList:
+  - {fileID: -1776081251, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: -1450644125, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}
+  - {fileID: 1147676206, guid: 8a10e778298b20944a3115e7060e5fad, type: 3}

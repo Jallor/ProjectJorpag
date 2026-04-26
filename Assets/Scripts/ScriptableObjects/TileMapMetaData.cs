@@ -16,6 +16,10 @@ public class TileMapMetaData : ScriptableObject
 
         public ESpawnableManager ManagerType;
         public SpawnableManagerData ManagerData;
+
+        public override IWorldEntity.EEntityType GetDefaultEntityType() => (IWorldEntity.EEntityType.SPAWNABLE_MANAGER);
+
+        public override IWorldEntityData GetWorldEntityData() => ManagerData;
     }
 
     [SelectImplementationName("Character Spawn Data")]
@@ -27,11 +31,17 @@ public class TileMapMetaData : ScriptableObject
         [HideIf("IsPlayer")] [AllowNesting]
         public CharacterController.ECharacterControllerType CharaControllerType = CharacterController.ECharacterControllerType.NULL;
         public bool DisableCollider = false;
+
+        public override IWorldEntity.EEntityType GetDefaultEntityType() => (IWorldEntity.EEntityType.BASE_CHARACTER);
+
+        public override IWorldEntityData GetWorldEntityData() => CharaData;
     }
 
     [System.Serializable]
     public abstract class SpawnData
     {
+        public abstract IWorldEntity.EEntityType GetDefaultEntityType();
+        public abstract IWorldEntityData GetWorldEntityData();
         public Vector2Int SpawnPoint;
     }
     #endregion // Spawn Data

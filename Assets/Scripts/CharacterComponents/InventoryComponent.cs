@@ -14,6 +14,9 @@ public class InventoryComponent : MonoBehaviour
 
     // TODO : à distinguer à terme des arme : les armes et obj équipés doivent avoir leur propre slot
 
+    // TODO : trouver comment on fera l'affichage d'un inventaire, pour ça (e.g. pour ce qui est affiché
+    //      tout le temps) avoir des delegate OnAddItem/OnRemoveItem sur lequel pourrait se brancher une UI
+
     private int _MaxInventorySlot = -1;
     private bool _ShouldDisplayFirstOwnedObject = false;
     private InventoryItem _FirstOwningItem = null;

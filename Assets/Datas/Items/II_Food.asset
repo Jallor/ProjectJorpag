@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: II_Food
   m_EditorClassIdentifier: 
   ItemType: 0
-  ItemName: Gold Ore
+  ItemName: Food
   Sprite: {fileID: -11684768, guid: e2d2688dd03815c4d8b2dcf6f11582a6, type: 3}
   IsSimpleItem: 1

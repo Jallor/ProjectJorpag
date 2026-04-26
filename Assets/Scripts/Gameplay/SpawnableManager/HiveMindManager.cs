@@ -26,11 +26,6 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
         {
             RegisterToHiveMind(charaController);
         }
-
-        foreach (OrderReceiverCharacterController charaController in _ControlledCharacterList)
-        {
-            GiveOrderToCharacter(charaController);
-        }
     }
 
     // Todo quand ça sera hérité en enfant de SpawnableManager, envoyer cette function et toutes les autres dont c'est necessaire là bas !
@@ -64,6 +59,7 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
         {
             _ControlledCharacterList.Add(charaController);
             charaController.SetOwningHiveMind(this);
+            GiveOrderToCharacter(charaController);
         }
     }
 
@@ -103,8 +99,17 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
     }
 
     // TODO : to improve later
+    // Callback triggered when this manager receive an item
+    // Check recipes. If possible, consume items to spawn the requested entity
     public void OnItemReceived()
     {
+        // Debug
+        List<KeyValuePair<InventoryItem, int>> CurrentInventory = _InventoryComponent.GetItemList();
+        foreach (KeyValuePair<InventoryItem, int> Item in CurrentInventory)
+        {
+            print(Item.Key.ItemName + " : " + Item.Value);
+        }
+
 
         // Check if can use a craft
         foreach (HiveMindBehaviorData.CraftRecipe recipe in _BehaviorData.AvailableCrafts)
@@ -126,15 +131,9 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
                     _InventoryComponent.RemoveItem(requestedItem.Key,requestedItem.Value);
                 }
 
-                EntityManager.Inst.SpawnEntity(recipe.CraftResult.)
+                EntityManager.Inst.SpawnEntity(recipe.CraftResult,
+                    GameTileGrid.Inst.GridPositionToWorldPosition(_AssociatedLandmark.Position));
             }
-        }
-
-
-        // if (_InventoryComponent.GetItemCount()
-        if (_InventoryComponent.GetItemCountOfType(InventoryItem.EItemType.RESSOURCES) > 0)
-        {
-
         }
     }
 

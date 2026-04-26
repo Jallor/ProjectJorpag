@@ -15,9 +15,8 @@ public class EntityManager : MonobehaviourSingleton<EntityManager>
 
     public int SpawnEntity(SpawnData spawnData, Vector3 worldPosition, int entityID = -1)
     {
-
-
-        return (SpawnEntity(a, spawnData, a, worldPosition, entityID));
+        return (SpawnEntity(spawnData.GetDefaultEntityType(), spawnData,
+            spawnData.GetWorldEntityData(), worldPosition, entityID));
     }
 
     public int SpawnEntity(IWorldEntity.EEntityType entityType, SpawnData spawnData,

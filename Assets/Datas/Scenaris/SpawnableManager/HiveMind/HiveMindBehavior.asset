@@ -15,7 +15,7 @@ MonoBehaviour:
   AvailableCrafts:
   - RequestedItems:
     - Key: {fileID: 11400000, guid: 52812522400234d40b33028f99ef0957, type: 2}
-      Value: 5
+      Value: 3
     CraftResult:
       rid: 3717763670313795585
   references:
