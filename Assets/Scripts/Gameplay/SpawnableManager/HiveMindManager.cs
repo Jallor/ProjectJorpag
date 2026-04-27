@@ -103,14 +103,6 @@ public class HiveMindManager : MonoBehaviour/*todo : A remplacer par un spawnabl
     // Check recipes. If possible, consume items to spawn the requested entity
     public void OnItemReceived()
     {
-        // Debug
-        List<KeyValuePair<InventoryItem, int>> CurrentInventory = _InventoryComponent.GetItemList();
-        foreach (KeyValuePair<InventoryItem, int> Item in CurrentInventory)
-        {
-            print(Item.Key.ItemName + " : " + Item.Value);
-        }
-
-
         // Check if can use a craft
         foreach (HiveMindBehaviorData.CraftRecipe recipe in _BehaviorData.AvailableCrafts)
         {

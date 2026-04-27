@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 
+public delegate void DelegateItemChanged(InventoryItem item, float quantity);
+
 public class InventoryComponent : MonoBehaviour
 {
     private IWorldEntity _Manager = null;
@@ -22,6 +24,9 @@ public class InventoryComponent : MonoBehaviour
     private InventoryItem _FirstOwningItem = null;
 
     public SimpleDelegate OnItemAdded = null;
+    public SimpleDelegate OnItemRemoved = null;
+    public DelegateItemChanged OnQuantityItemAdded = null;
+    public DelegateItemChanged OnQuantityItemRemoved = null;
 
     public void Initialize(IWorldEntity manager, IWorldEntityData data)
     {
@@ -66,6 +71,7 @@ public class InventoryComponent : MonoBehaviour
         if (isItemAdded)
         {
             OnItemAdded?.Invoke();
+            OnQuantityItemAdded?.Invoke(item, count);
         }
 
         // TODO : prévoir les raison de fail (inventaire limité, restriction spécifique, trop d'item, ...)
@@ -130,6 +136,9 @@ public class InventoryComponent : MonoBehaviour
         // TODO : update de l'inventaire. Surement via delegate
 
         // TODO : handle complexe items
+
+        OnItemRemoved?.Invoke();
+        OnQuantityItemRemoved?.Invoke(item, itemRemoved);
 
         return itemRemoved;
     }

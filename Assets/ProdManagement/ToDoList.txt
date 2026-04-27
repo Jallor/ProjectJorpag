@@ -3,9 +3,16 @@ Noted From Fork :
 	- Landmarks should have a IWorldEntity as referent
 	OR - Manager should create their landmark
 	- Landmark.Interract should be done in the manager => handle that in a parent class
+	- UI for the inventory of the HiveMind
+	- Start having more logic for hive mind (prioritize craft, target a specific item count, give different order)
+	- 
+	- [Later] HeatMap of passage of cultist with color debug (should have global settings for minmax values)
 	- .
 	- Last check : 27/04/2026
 
 
 Commenter les fonctions
+
+
+
 

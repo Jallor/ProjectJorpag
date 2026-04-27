@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class TextBoxManager : MonoBehaviour
+public class TextBoxManager : UIPanelParent
 {
     [SerializeField] private TextMeshProUGUI _CharaNameText;
     [SerializeField] private TextMeshProUGUI _TextBlock;
@@ -32,15 +32,10 @@ public class TextBoxManager : MonoBehaviour
         }
     }
 
-    public void Open()
-    {
-        gameObject.SetActive(true);
-    }
-
     public void Close()
     {
         _CurrentlyDisplayingText = false;
-        gameObject.SetActive(false);
+        base.Close();
     }
 
     public void QueueTextToDisplay(string textToDisplay)
@@ -57,10 +52,5 @@ public class TextBoxManager : MonoBehaviour
         _CharaNameText.gameObject.SetActive(false);
         _TextBlock.text = _RemainingTextToDisplay.Dequeue();
         _CurrentlyDisplayingText = true;
-    }
-
-    public bool IsOpen()
-    {
-        return (gameObject.activeSelf);
     }
 }
