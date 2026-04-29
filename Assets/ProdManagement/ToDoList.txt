@@ -11,8 +11,20 @@ Noted From Fork :
 	- Last check : 27/04/2026
 
 
-Commenter les fonctions
+Documenter les fonctions
 
+
+Hive Mind Implementation
+
+- Target ressources : EReessourceGatheringMode
+	- balanced : try to have the same quantity of ressources
+	- distributed : cycle between each ressources
+	- TargetCraft : [WIP/LATER]
+-> define possible ressources in a list (gold, food, wood)
+
+- Craft Mode : ECraftPrioritizeMode : 
+	- ASAP : when available : craft
+	- QuantityCap : if a own a certain quantity of a craft, stop craft it
 
 
 
