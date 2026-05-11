@@ -11,7 +11,6 @@ public class UIPanelParent : MonoBehaviour
 
     public void Close()
     {
-        _CurrentlyDisplayingText = false;
         gameObject.SetActive(false);
     }
 

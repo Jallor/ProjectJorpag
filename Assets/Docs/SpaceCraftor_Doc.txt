@@ -1,0 +1,7 @@
+SpaceBlock : 
+Red Hexagone : Weapons
+Orange Square : Armor
+Yellow Losange : Energie
+Green Triangle : Navigation
+Blue Circle : Shield
+Violet Isocèle : Reactor
